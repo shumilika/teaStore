@@ -1,0 +1,57 @@
+.main_box{
+    padding-bottom: 50px;
+}
+
+.row_box{
+    margin-top: 50px !important;
+}
+
+.about_box p, .ceremony_box p{
+    color: rgb(149,149,146);
+    margin-left: 25px;
+    line-height: 2.0;
+}
+
+.main_list_li{
+    color: #a4a844;
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.float_right{
+    float: right;
+}
+
+.float_left{
+    float: left;
+}
+.main_list_li span{
+    border-bottom: 2px solid rgb(217,157,61);
+}
+
+
+.bestsellers_box h4{
+    text-align: center;
+}
+
+.cart_box{
+    border: 1px solid #a4a844;
+    margin: 20px;    
+    color: rgb(151,152,150);
+}
+
+.border_top_cart{
+    border-top: 1px solid #a4a844;
+}
+
+.border_top_cart h4{
+    margin: 0;
+    padding: 0;
+    color: rgb(117,122,23);
+}
+.shop_now{
+    text-decoration: underline;
+
+    font-size: 14px;
+}

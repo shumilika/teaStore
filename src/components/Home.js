@@ -3,7 +3,9 @@ import style from '../css.modules/mainContent.module.css';
 import icon_list from '../images/icon_list.png';
 import girl_cup from '../images/girl_with_cup.png';
 import tea_cups from '../images/tea_cups.jpg';
-import jasmine_tea from '../images/jasmine_tea.png';
+
+import Product from './Product';
+import {goods} from '../utils/constants';
 
 const Home = () => {
     return (
@@ -38,8 +40,16 @@ const Home = () => {
             <div className={`row`}>
                 <div className={'col'}></div>{/* empty box */}
                
-               
-                <div className={`col ${style.cart_box}`}>
+                     
+        { 
+            Object.values(goods).map((value, index)=>
+              
+               <Product product={value} key={index}/>
+    
+        
+        )
+        }
+                {/* <div className={`col ${style.cart_box}`}>
                 <div className={'row'}>
                 <i className={`col bi bi-heart`}></i>
                 <span className={`col ${style.shop_now}`}>shop now</span>
@@ -90,7 +100,7 @@ const Home = () => {
                     <span className={'col align-middle'}>jasmine</span>
                     <h4 className={'col'}>115$</h4>
                 </div>
-                </div>
+                </div> */}
 
                 <div className={'col'}></div>{/* empty box */}
                 

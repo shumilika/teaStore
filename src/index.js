@@ -4,16 +4,14 @@ import './index.css';
 import App from './App';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store/storeConfiguration';
+
+
 
 
 
 ReactDOM.render(
   <BrowserRouter>
-  {/* <Provider store={store}> */}
   <App/>
-  {/* </Provider> */}
   </BrowserRouter>,
   document.getElementById('root')
 );

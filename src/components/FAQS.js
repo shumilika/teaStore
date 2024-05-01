@@ -1,14 +1,13 @@
 import React from 'react';
-
 import { Row, Col } from 'antd'
 import PageHeader from '../services/PageHeader';
 
-const ContactUs = () => {
+const FAQS = () => {
     return (
-        <div className='contact_us_box'>
-    <PageHeader title={'Contact us'}/>
+        <div className='faqs_box'>
+   <PageHeader title={'FAQs'}/>
         </div>
     );
 };
 
-export default ContactUs;
+export default FAQS;

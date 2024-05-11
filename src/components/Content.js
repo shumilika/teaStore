@@ -5,6 +5,7 @@ import AboutUs from './AboutUs'
 import Shop from './Shop'
 import FAQS from './FAQS';
 import ContactUs from './ContactUs';
+import Cart from './Cart';
 
 
 
@@ -17,6 +18,7 @@ const Content = () => {
           <Route path="faqs" element={<FAQS />}/>
           <Route path='contact_us' element={<ContactUs/>}/>
           <Route path='shop' element={<Shop/>}/>
+          <Route path='cart' element={<Cart/>}/>
         </Routes>
       </div>
     );

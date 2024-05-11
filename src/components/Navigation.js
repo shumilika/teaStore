@@ -3,6 +3,7 @@ import { SearchOutlined, HeartOutlined, ShoppingCartOutlined, UserOutlined } fro
 import { Menu, Flex, Button, Drawer } from 'antd';
 import logo from '../img/logo.png'
 import { Link, useLocation } from 'react-router-dom';
+import CartDrawer from '../services/CartDrawer';
 
 const Navigation = () => {
   const location = useLocation();
@@ -105,10 +106,7 @@ window.addEventListener('scroll', changeBackground)
       </Flex>
 
      </div>
-     <Drawer title="Shopping Cart" onClose={onClose} open={open}>
-        <p>Your shopping bag is empty</p>
-        
-      </Drawer>
+     <CartDrawer onClose={onClose} open={open} />
 
       </div>
     );

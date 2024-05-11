@@ -1,14 +1,56 @@
-import React from 'react';
-import lemonTea from '../img/lemonGinger.jpg'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HeartOutlined, InfoOutlined } from '@ant-design/icons';
 import { Row, Col, Tooltip } from 'antd';
+import PreviewCard from './PreviewCard';
+import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 
-const SmallCard = () => {
+const SmallCard = ({name, price, type, amount, description, photo, imgs}) => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [imgUrl, setImgUrl] = useState()
+    
+
+    const showModal = () => {
+      setIsModalOpen(true);
+    };
+  
+    const handleOk = () => {
+      setIsModalOpen(false);
+    };
+  
+    const handleCancel = () => {
+      setIsModalOpen(false);
+    };
+
+   
+
+    useEffect(()=>{
+
+        const storage = getStorage()
+        
+        const getPhotoUrl = () =>{
+            getDownloadURL(ref(storage, `img/${photo}`))
+              .then((url) => {
+               setImgUrl(url)
+              })
+              .catch((error)=>{
+                setImgUrl('')
+              })
+        }
+
+        getPhotoUrl()
+    },[photo])
+        
+        
     return (
         <div className='card-box'>
-           <Link className='card-link' to={'to card'}>
-                <img src={lemonTea} alt="" style={{height:'400px'}}/>
+           
+            <div className='card-link'>
+           <Link to={'to card'}>
+           <img src={imgUrl} alt="" style={{height:'400px'}}/>
+           </Link>
+                
                 
                 <Row className='hideLink menu'>
                     <Col span={12} style={{borderRight:'2px solid #b1afaf'}}>
@@ -19,21 +61,26 @@ const SmallCard = () => {
                         </Link> 
                     </Col>
                     <Col span={12}>
-                        <Link to={'to preview'}>
+                        <Link onClick={showModal}>
                             <Tooltip title={'Quickview'}>
-                                <InfoOutlined style={{fontSize: '20px', color:'#727272'}}/>
+                                <InfoOutlined style={{fontSize: '20px', color:'#727272'}} />
                             </Tooltip>
                         </Link>
                     </Col>
                 </Row>
             
-                <p className='named'>Lemongrass & Ginger</p>
-                <p className='hidePrice'>$12.00</p>
+                <p className='named'>{name}</p>
+                <p className='hidePrice'>{price}.00$</p>
                 <Link className='hideLink option' to={'from select'}>
                     <Tooltip title={'Select option'}>Select option</Tooltip>
                 </Link>
            
-           </Link>
+           </div>
+           
+           
+           <PreviewCard isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel}
+           name={name} type={type} amount={amount} description={description} imgs={imgs}
+            />
         </div>
     );
 };

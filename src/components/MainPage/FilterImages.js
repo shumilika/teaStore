@@ -8,7 +8,6 @@ import sencha_filter from '../../img/sencha_filter.jpg'
 import matcha_filter from '../../img/matcha_filter.jpg'
 import oolong_tea_filter from '../../img/oolong_tea_filter.jpg'
 import puerh_tea_filter from '../../img/puerh_tea_filter.jpg'
-import ButtonAdv from '../../services/ButtonAdv';
 import { Link } from 'react-router-dom';
 
 const FilterImages = () => {
@@ -25,7 +24,7 @@ const FilterImages = () => {
                 <div className='hover_text_box' >
                     <div>
                         <h2>Black tea</h2>
-                        <ButtonAdv name='Shop now' type='link'/>
+                        <Link to={'shop'}>Shop now</Link>
                     </div>
                 </div>
     
@@ -40,7 +39,7 @@ const FilterImages = () => {
              <div className='hover_text_box' >
                  <div>
                      <h2>Earl GreyS tea</h2>
-                     <ButtonAdv name='Shop now' type='link'/>
+                     <Link to={'shop'}>Shop now</Link>
                  </div>
              </div>
  
@@ -55,7 +54,7 @@ const FilterImages = () => {
                 <div className='hover_text_box' >
                     <div>
                         <h2>Masala Chai tea</h2>
-                        <ButtonAdv name='Shop now' type='link'/>
+                        <Link to={'shop'}>Shop now</Link>
                     </div>
                 </div>
     
@@ -70,7 +69,7 @@ const FilterImages = () => {
                 <div className='hover_text_box' >
                     <div>
                         <h2>Green tea</h2>
-                        <ButtonAdv name='Shop now' type='link'/>
+                        <Link to={'shop'}>Shop now</Link>
                     </div>
                 </div>
     
@@ -88,7 +87,7 @@ const FilterImages = () => {
                 <div className='hover_text_box' >
                     <div>
                         <h2>Matcha</h2>
-                        <ButtonAdv name='Shop now' type='link'/>
+                        <Link to={'shop'}>Shop now</Link>
                     </div>
                 </div>
     
@@ -103,7 +102,7 @@ const FilterImages = () => {
                 <div className='hover_text_box' >
                     <div>
                         <h2>Sencha</h2>
-                        <ButtonAdv name='Shop now' type='link'/>
+                        <Link to={'shop'}>Shop now</Link>
                     </div>
                 </div>
     
@@ -118,7 +117,7 @@ const FilterImages = () => {
                 <div className='hover_text_box' >
                     <div>
                         <h2>Oolong tea</h2>
-                        <ButtonAdv name='Shop now' type='link'/>
+                        <Link to={'shop'}>Shop now</Link>
                     </div>
                 </div>
     
@@ -133,7 +132,7 @@ const FilterImages = () => {
                 <div className='hover_text_box' >
                     <div>
                         <h2>Pu'erh tea</h2>
-                        <ButtonAdv name='Shop now' type='link'/>
+                        <Link to={'shop'}>Shop now</Link>
                     </div>
                 </div>
     

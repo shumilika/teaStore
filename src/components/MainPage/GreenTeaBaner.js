@@ -1,7 +1,6 @@
 import React from 'react';
 import green_tea_banner from '../../img/green_tea_banner.jpg'
 import {Row, Col} from 'antd'
-import ButtonAdv from '../../services/ButtonAdv';
 import { Link } from 'react-router-dom';
 
 const GreenTeaBaner = () => {
@@ -15,7 +14,8 @@ const GreenTeaBaner = () => {
                 role in aiding weight loss has made green tea one of the most popular beverages of the millennium. 
                 While the beverage is relatively new and just about picking up in India, green tea has been consumed in 
                 Japan and China for centuries.</p>
-                <ButtonAdv name={'shop now'}/>
+                
+                <Link to={'shop'}>shop now</Link>
                </div>
             </Col>
             <Col flex={'40%'} >

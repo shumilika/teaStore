@@ -1,6 +1,10 @@
 .banner-box{
     position: relative;
     bottom: 100px;
+
+    .slick-dots li button:before {
+        content: '';
+    }
   
     .greenTeaJapBox{
         background-image: url('../img/tea\ leaves.jpg');
@@ -393,6 +397,10 @@
     .new-arrivals-box{
         text-align: center;
         margin-top: 50px;
+
+        .slick-dots li button:before{
+            content: '';
+        }
 
         h1{
             font-size: 45px;

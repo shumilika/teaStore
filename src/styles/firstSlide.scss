@@ -690,3 +690,56 @@
         font-weight: 600;
     }
 }
+
+.contact_us_box{
+    .row-box{
+        width: 90%;
+        margin: 60px auto;
+    }
+    .map_box{
+        padding: 0 40px 0 10px;
+        
+    }
+    
+        .ant-form-item-control-input{
+            .ant-form-item-control-input-content{
+                input, textarea{
+                    border-radius: 0;
+                    border: 1px solid #ebebeb;
+                    padding: 15px 15px 15px 25px;
+                    width: 100%;
+                }
+                textarea{
+                    height: 280px;
+                }
+                .ant-btn{
+                    background-color: #000;
+                    text-transform: uppercase;
+                    border-radius: 0;
+                    border: none;
+                    padding: 18px 35px;
+                    font-size: 14px;
+                    text-align: center;
+                    line-height: 24px;
+                    letter-spacing: .2em;
+                    font-weight: 600;
+                    height: auto;
+                }
+                .ant-btn:hover{
+                    background-color: #98a86d;
+                }
+            }
+        }
+
+     .ant-alert, .ant-alert-success{
+        margin-bottom: 24px;
+        padding: 15px 15px 15px 25px;
+        border-radius: 5px;
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        color:  rgb(21, 87, 36);
+        background-color: #d4edda;
+     } 
+    
+}

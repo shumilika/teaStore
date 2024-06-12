@@ -751,3 +751,193 @@
      } 
     
 }
+
+.change_column_size{
+    position: relative;
+    display: flex;
+    
+    .change_btn{
+        border: 1px solid #232529;
+        border-radius: 0;
+        margin-right: 10px;
+        height: 42px;
+    }
+    .change_btn:hover{
+        border: 1px solid #232529 !important;
+    }
+
+    .change_column_size_content{
+        display: none;
+       
+            .ant-radio-button-wrapper{
+                border-radius: 0 ;
+                border: 1px solid #232529 !important;
+                width: 42px;
+                height: 42px;
+                font-weight: 600;
+                line-height: 40px;
+                margin-right: 5px;
+                
+            }
+
+            .ant-radio-button-wrapper:hover{
+                color: #fff;
+                background-color: #232529;
+            }
+
+            .ant-radio-button-wrapper:before{
+                content: none;
+            }
+
+            .ant-radio-button-wrapper-checked{
+                color: #fff;
+                background-color: #232529;
+            }
+           
+    }
+}
+.change_column_size:hover .change_column_size_content {display: flex;}
+
+.filter_shop_box{
+    margin-bottom: 10px;
+    .ant-divider{
+        padding: 6px 0 6px 14px;
+        border-left: 3px solid #000;
+        color: rgb(33, 37, 41);
+        font-weight: 500;
+        line-height: 21.6px;
+        font-size: 18px;
+    }
+    .ant-divider-horizontal.ant-divider-with-text:after{
+        border-block-start: 1px solid #e6e6e6; 
+    }
+
+    .categories, .priceFilter{
+        
+        .ant-checkbox-wrapper:hover{
+            color: #98a86d;
+        }
+         .ant-checkbox-wrapper {
+            font-size: 15px;
+                font-weight: 400;
+                line-height: 36px;
+                color: #000;
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+            .ant-checkbox-checked+span{
+                color: #98a86d;
+                
+            }
+         }
+
+    }
+    .ant-checkbox-group{
+        margin: 20px 0;
+    }
+
+    .sizeOption{
+        .ant-checkbox-wrapper{
+            border: 1px solid #000;
+            padding: 8px 12px;
+            margin: 0 10px 10px 0;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            color: #000;
+
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+        }
+        .ant-checkbox-wrapper:hover{
+            border: 1px solid #98a86d;
+            background-color: #98a86d;
+            color: #fff;
+        }
+        .ant-checkbox-wrapper-checked{
+            border: 1px solid #98a86d;
+            background-color: #98a86d;
+            color: #fff;
+        }
+    }
+
+    .tags{
+        .ant-checkbox-group{
+            column-gap: 0;
+        }
+        .ant-checkbox-wrapper{
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 0 10px 10px 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            color: #000;
+
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+        }
+        .ant-checkbox-wrapper:hover{
+            border: 1px solid #98a86d;
+            background-color: #98a86d;
+            color: #fff;
+        }
+        .ant-checkbox-wrapper-checked{
+            border: 1px solid #98a86d;
+            background-color: #98a86d;
+            color: #fff;
+        }
+    }
+      
+}
+
+.shop-box{
+    .card-box{
+        width: 100% !important;
+    }
+    .filter-btn{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 8px 20px;
+        border-radius: 0;
+        border: 1px solid #000;
+        height: auto;
+    }
+    .filter-btn:hover{
+        color: #fff !important;
+        border: 1px solid #98a86d !important;
+        background-color: #98a86d !important;
+    }
+
+    .select-shop-featured{
+        .ant-select-selector{
+            border-radius: 0;
+            border: 1px solid #000;
+            padding: 5px 5px;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            min-width: 160px;
+            height: auto;
+        }
+
+        .ant-select-selector:hover, .ant-select-open,.ant-select .ant-select-outlined .ant-select-single .ant-select-show-arrow{
+            border: 1px solid #000 !important;
+        }
+    }
+}

@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Carousel, Spin } from 'antd'
 import SmallCard from '../../services/SmallCard';
 import { useDispatch, useSelector} from 'react-redux'
-import { fetchProductList } from '../../store/products';
+import { fetchNewArrivalList } from '../../store/products';
 
 const NewArrivals = () => {
 
-  const productsData = useSelector(state=>state.products.productsList)
+  const newArrivalList = useSelector(state=>state.products.newArrivalList)
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch()
 
   useEffect(()=>{
     setLoading(true)
-    dispatch(fetchProductList())
+    dispatch(fetchNewArrivalList())
     setTimeout(()=>{
       setLoading(false)
     },4000) 
@@ -40,8 +40,8 @@ const NewArrivals = () => {
      
            
             <Carousel>
-  {productsData.length > 0 ? (
-    chunkArray(productsData, 4).map((chunk, chunkIndex) => (
+  {newArrivalList.length > 0 ? (
+    chunkArray(newArrivalList, 4).map((chunk, chunkIndex) => (
       <div key={chunkIndex}>
         <Row>
           {chunk.map((product, index) => (

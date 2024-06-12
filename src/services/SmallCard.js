@@ -5,7 +5,7 @@ import { Row, Col, Tooltip } from 'antd';
 import PreviewCard from './PreviewCard';
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 
-const SmallCard = ({name, price, type, amount, description, photo, imgs}) => {
+const SmallCard = ({name, price, type, amount, description, photo, imgs, width}) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [imgUrl, setImgUrl] = useState()
@@ -48,7 +48,7 @@ const SmallCard = ({name, price, type, amount, description, photo, imgs}) => {
            
             <div className='card-link'>
            <Link to={'to card'}>
-           <img src={imgUrl} alt="" style={{height:'400px'}}/>
+           <img src={imgUrl} alt="" style={{width:'100%'}}/>
            </Link>
                 
                 

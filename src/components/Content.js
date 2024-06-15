@@ -6,6 +6,8 @@ import Shop from './Shop'
 import FAQS from './FAQS';
 import ContactUs from './ContactUs';
 import Cart from './Cart';
+import FullPageCard from '../services/FullPageCard';
+import ErrorPage from './ErrorPage';
 
 
 
@@ -18,7 +20,9 @@ const Content = () => {
           <Route path="faqs" element={<FAQS />}/>
           <Route path='contact_us' element={<ContactUs/>}/>
           <Route path='shop' element={<Shop/>}/>
+          <Route path="shop/:id" element={<FullPageCard/>}/>
           <Route path='cart' element={<Cart/>}/>
+          <Route path='*' element={<ErrorPage/>}/>
         </Routes>
       </div>
     );

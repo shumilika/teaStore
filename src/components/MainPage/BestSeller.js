@@ -35,7 +35,7 @@ const BestSeller = () => {
             <Col key={index} span={6} >
               <SmallCard data={product} name={product.name} price={product.amount[0].price}
               description={product.description} amount={product.amount} type={product.type} 
-              photo={product.photo} imgs={product.imgs}
+              photo={product.photo} imgs={product.imgs} id={product.id}
                />
             </Col>
       

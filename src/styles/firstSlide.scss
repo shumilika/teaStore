@@ -1004,3 +1004,64 @@
     }
     
 }
+
+.full-card-box{
+    margin: 50px 20px;
+    .prev-next-box{
+        text-align: right;
+        .ant-divider-vertical{
+            height: 20px;
+            border-inline-start: 2px solid #d6d6d6;
+        }
+        a{
+            text-transform: uppercase;
+            text-decoration: none;
+            padding: 0 10px;
+            font-size: 9px;
+            font-weight: 600;
+            line-height: 13.5px;
+            color: #000;
+
+            span{
+                padding: 0 5px;
+            }
+        }
+        a:hover{
+            color:  rgb(152, 168, 109);
+        }
+        .prev-hover-box, .next-hover-box{
+            align-items: center;
+            position: absolute;
+            top: 100%;
+            display: none;
+            right: 0;
+            max-width: 240px;
+            box-shadow: 0 3px 16px #00000012;
+            border: 1px solid #f4f4f4;
+            z-index: 1;
+            flex-direction: row;
+            img{
+                width: 100%;
+                vertical-align: middle;
+                padding: 0;
+                margin: 0;
+                
+            }
+        }
+        .prev-hover-box{
+            right: 85px;
+        }
+
+        .next-hover-box{
+            right: 20px;
+        }
+
+        .prev:hover +.prev-hover-box{
+            display: flex;
+        }
+        .next:hover+.next-hover-box{
+            display: flex;
+        }
+        
+    }
+}

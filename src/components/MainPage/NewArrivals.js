@@ -48,7 +48,7 @@ const NewArrivals = () => {
             <Col key={index} span={6} tabIndex={(chunkIndex * 4) + index}>
               <SmallCard data={product} name={product.name} price={product.amount[0].price}
               description={product.description} amount={product.amount} type={product.type} 
-              photo={product.photo} imgs={product.imgs}
+              photo={product.photo} imgs={product.imgs} id={product.id}
                />
             </Col>
           ))}

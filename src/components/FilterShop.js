@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import banner from '../img/banner_filter_shop.jpg'
 import { Checkbox, Col, Row, Divider } from 'antd';
 import { useDispatch } from 'react-redux';
-import { fetchProductListFilter, setProductList } from '../store/products';
+import { setProductList } from '../store/products';
 import { collection, getDocs, query, where } from 'firebase/firestore/lite';
 import { db } from '../config/fireBaseConfig';
-import { and } from 'firebase/firestore';
+
 
 const FilterShop = () => {
 
@@ -17,15 +17,12 @@ const FilterShop = () => {
     const [checkedPriceFilter, setCheckedPriceFilter] = useState([])
 
     const handleUpdateProductList = async(typeValue, sizeValue)=>{
-        const size =  where('sizeFilter', "array-contains-any", sizeValue)
+        const size = sizeValue.length ? where('sizeFilter', "array-contains-any", sizeValue):''
         
-        const type = where('type', 'in', typeValue)
+        const type = typeValue.length ? where('type', 'in', typeValue):''
 
       
-        const q = query(collection(db, "products"), type,size
-       
-        
-    );
+        const q = query(collection(db, "products"), type,size);
 		const response = await getDocs(q)
         dispatch(setProductList(response.docs.map(doc => doc.data())))
     }

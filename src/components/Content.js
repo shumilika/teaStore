@@ -1,34 +1,30 @@
 import React from 'react';
-import Home from './Home';
-import Catalogue from './Catalogue';
-import PayPage from './PayPage';
-import Cart from './Cart';
+import Dashboard from './Dashboard';
+import {Routes, Route} from 'react-router-dom'
+import AboutUs from './AboutUs'
+import Shop from './Shop'
+import FAQS from './FAQS';
 import ContactUs from './ContactUs';
-import Favorites from './Favorites';
-import { Route, Routes } from 'react-router-dom';
-import { cartPage, cataloguePage, contactUsPage, favoritesPage, homePage } from '../utils/constants';
-
-
-
+import Cart from './Cart';
+import FullPageCard from '../services/FullPageCard';
+import ErrorPage from './ErrorPage';
 
 
 
 const Content = () => {
     return (
+      <div >
         <Routes>
-        
-        <Route exact path={homePage} element={<Home/>}/>
-    
-        <Route path={cataloguePage} element={<Catalogue/>}/>
-            
-        <Route path={contactUsPage} element={<ContactUs/>}/>
-          
-        <Route path={cartPage} element={<Cart/>}/>
-
-        <Route path={favoritesPage} element={<Favorites/>}/>
-            
-       
+          <Route path="/" element={<Dashboard />}/>
+          <Route path="about_us" element={<AboutUs />}/>
+          <Route path="faqs" element={<FAQS />}/>
+          <Route path='contact_us' element={<ContactUs/>}/>
+          <Route path='shop' element={<Shop/>}/>
+          <Route path="shop/:id" element={<FullPageCard/>}/>
+          <Route path='cart' element={<Cart/>}/>
+          <Route path='*' element={<ErrorPage/>}/>
         </Routes>
+      </div>
     );
 };
 

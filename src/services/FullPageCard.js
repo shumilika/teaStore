@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import LeftOutlined from '@ant-design/icons/LeftOutlined'
 import RightOutlined from '@ant-design/icons/RightOutlined'
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
+import TinyCardPreview from './TinyCardPreview';
 
 
 const FullPageCard = () => {
@@ -104,7 +105,7 @@ const FullPageCard = () => {
     </Col>
     <Col flex={'auto'}>
     <Link to={`/shop/${nextIndex.id}`}>{nextIndex.name}</Link>
-    <p>${nextIndex.amount[0].price}.00 USD</p>
+    <p>${nextIndex.amount[0].price}.00 </p>
     </Col>
   </Row>
    

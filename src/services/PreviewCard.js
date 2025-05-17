@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Row, Col, Divider, Radio, InputNumber, Button } from 'antd'
+import { Modal, Row, Col, Divider, Radio, InputNumber, Button, ConfigProvider } from 'antd'
 import CarouselPreCart from './CarouselPreCart';
 
 
@@ -14,7 +14,7 @@ const PreviewCard = (props) => {
   
 
       const optionsSize = props.amount?props.amount.map(item => ({
-        label: item.size,
+        label: `${item.size}G`,
         value: item.size
       })):'';
  
@@ -48,6 +48,22 @@ const PreviewCard = (props) => {
                      <Row className='radio-box'>
                        <Col flex={'100px'}> <p>Size</p></Col>
                        <Col flex={'auto'}>
+                       <ConfigProvider
+                          theme={{
+                            components: {
+                              Radio: {
+                                  colorPrimary:'#000',
+                                  borderRadius:0,
+                                  colorPrimaryHover: '#000',
+                                  buttonPaddingInline: '20px',
+                                  
+
+                              },
+                            },
+                          }}
+                        >
+      
+      
                        <Radio.Group
                             options={optionsSize}
                             onChange={onChangeSize}
@@ -55,17 +71,31 @@ const PreviewCard = (props) => {
                             optionType="button"
                             buttonStyle="solid"
                         />
+                        </ConfigProvider>
                        </Col>
                      </Row>
                      <Row  className='radio-box'>
                        <Col flex={'100px'}> <p>Type</p></Col>
                        <Col flex={'auto'}>
+                       <ConfigProvider
+                          theme={{
+                            components: {
+                              Radio: {
+                                  colorPrimary:'#000',
+                                  borderRadius:0,
+                                  colorPrimaryHover: '#000'
+                              },
+                            },
+                          }}
+                        >
                        <Radio.Group
                             options={optionsType}
                             value={valueType}
                             optionType="button"
                             buttonStyle="solid"
                         />
+                        </ConfigProvider>
+                        
                        </Col>
                      </Row>
                      <Row>

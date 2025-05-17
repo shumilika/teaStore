@@ -4,6 +4,7 @@ import { Menu, Flex } from 'antd';
 import logo from '../img/logo.png'
 import { Link, useLocation } from 'react-router-dom';
 import CartDrawer from '../services/CartDrawer';
+import SearchDrawer from './SearchDrawer';
 
 const Navigation = () => {
   const location = useLocation();
@@ -13,11 +14,19 @@ const Navigation = () => {
     const [current, setCurrent] = useState('');
     const [current2, setCurrent2] = useState('');
     const [open, setOpen] = useState(false);
+    const [openSearch, setOpenSearch] = useState(false);
     const showDrawer = () => {
       setOpen(true);
     };
     const onClose = () => {
       setOpen(false);
+    };
+
+    const showDrawerSearch = () => {
+      setOpenSearch(true);
+    };
+    const onCloseSearch = () => {
+      setOpenSearch(false);
     };
     
 
@@ -45,7 +54,7 @@ const items = [
 const items2 = [
     {
       key: 'search',
-      icon: <SearchOutlined/>
+      icon: <SearchOutlined onClick={showDrawerSearch}/>
       
     },
     {
@@ -107,6 +116,7 @@ window.addEventListener('scroll', changeBackground)
 
      </div>
      <CartDrawer onClose={onClose} open={open} />
+     <SearchDrawer onClose={onCloseSearch} open={openSearch} />
 
       </div>
     );

@@ -128,7 +128,7 @@ const items2 = [
       <Collapse  ghost items={items2}  expandIcon={({ isActive }) => isActive ? <MinusOutlined /> : <PlusOutlined />}  />
       </Col>
         </Row>
-        <Divider className='divider-faqs'/>
+        {/* <Divider className='divider-faqs'/> */}
         </div>
     );
 };

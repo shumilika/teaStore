@@ -4,7 +4,8 @@ import justin_lisiakir from '../img/justin_lisiakir.jpg'
 import web_designer from '../img/web_designer.jpg'
 import sales_agent from '../img/sales_agent.jpg'
 import marketing_staff from '../img/marketing_staff.jpg'
-import PageHeader from '../services/PageHeader';
+import PageHeader from './PageHeader';
+
 
 const AboutUs = () => {
     return (

@@ -1,6 +1,7 @@
 import React from 'react';
-import PageHeader from '../services/PageHeader';
+
 import { Link } from 'react-router-dom';
+import PageHeader from './PageHeader';
 
 const Cart = () => {
     return (

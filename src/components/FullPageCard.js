@@ -7,6 +7,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined'
 import RightOutlined from '@ant-design/icons/RightOutlined'
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 import TinyCardPreview from './TinyCardPreview';
+import Card3rdColumn from './Card3rdColumn';
 
 
 const FullPageCard = () => {
@@ -111,11 +112,11 @@ const FullPageCard = () => {
    
   </Col>
 </Row>
-            <Row gutter={[16, 16]}>
-                <Col span={12}>
+            <Row gutter={[16, 16]} className='main-content'>
+                <Col sm={{flex:3}} md={{span:10}}>
                <CarouselPreCart imgs={product.imgs} />
                 </Col>
-                <Col span={12}>
+                <Col  sm={{flex:2}} md={{span:8}}>
                     <h4>{product.name}</h4>
                     <span>${valuePrice}.00 USD</span>
                     <Divider/>
@@ -151,6 +152,9 @@ const FullPageCard = () => {
                         <Button>Add to cart</Button>
                       </Col>
                      </Row>
+                </Col>
+                <Col  sm={{span:24}} md={{span:6}}>
+                  <Card3rdColumn/>
                 </Col>
             </Row>
         </div>

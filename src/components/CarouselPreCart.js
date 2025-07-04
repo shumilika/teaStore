@@ -49,7 +49,7 @@ const CarouselPreCart = (props) => {
     slidesToScroll: 1
   };
 
-  if (arrayUrl.length === 0) return null; // or loader
+  if (arrayUrl.length === 0) return null; 
 
   return (
   <div className='galery-control'>

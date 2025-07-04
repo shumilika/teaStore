@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Spin } from 'antd';
-import SmallCard from '../../services/SmallCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBestSellersList } from '../../store/products';
+import SmallCard from '../SmallCard'
 
 const BestSeller = () => {
 

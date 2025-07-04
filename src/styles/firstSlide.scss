@@ -1064,6 +1064,9 @@
 
 .full-card-box{
     margin: 50px 20px;
+    .main-content{
+        margin-top: 20px;
+    }
     .prev-next-box{
         text-align: right;
         .ant-divider-vertical{
@@ -1087,6 +1090,7 @@
             color:  rgb(152, 168, 109);
         }
         .prev-hover-box, .next-hover-box{
+            background-color: #fff;
             align-items: center;
             position: absolute;
             top: 100%;
@@ -1262,7 +1266,43 @@
 }
 
 .slick-slider{
-    max-width: 450px;
+    max-width: 650px;
    
 }
+}
+.card3Column{
+    text-align: center;
+    .title{
+        position: relative;
+        font-size: 18px;
+        font-weight: 400;
+        padding-bottom: 18px;
+        margin-bottom: 22px;
+    }
+    .title::after{
+        content:'';
+        height: 1px;
+        width: 42px;
+        border-bottom: 1px solid #000;
+        position: absolute;
+        bottom: 0;
+        left: 45%;
+
+    }
+    .content-box{
+        border: 1px solid #eaeaea;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        padding: 25px 15px;
+        transition: border .25s linear .25s;
+    }
+    .content-box:hover{
+        border-color: #000;
+    }
+    .text-box{
+        box-sizing: border-box;
+        color: #979797;
+        font-size: 14px;
+        line-height: 28px;
+    }
 }

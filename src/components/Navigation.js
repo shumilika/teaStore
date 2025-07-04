@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { SearchOutlined, HeartOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import { Menu, Flex } from 'antd';
 import logo from '../img/logo.png'
-import { Link, useLocation } from 'react-router-dom';
-import CartDrawer from '../services/CartDrawer';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import CartDrawer from './CartDrawer';
 import SearchDrawer from './SearchDrawer';
 
 const Navigation = () => {
   const location = useLocation();
   const { pathname } = location;
+  const navigate = useNavigate()
 
     const [navBar, setNavBar] = useState(false);
     const [current, setCurrent] = useState('');
@@ -64,7 +65,7 @@ const items2 = [
       },
       {
         key: 'favorites',   
-        icon: <HeartOutlined/>, 
+        icon: <HeartOutlined onClick={()=>navigate('/wishlist')}/>, 
       },
       {
         key: 'cart',
@@ -101,7 +102,7 @@ window.addEventListener('scroll', changeBackground)
      <div>
      <Flex justify='space-between'>
     
-      <div style={{margin:'10px'}} className='logoNav'>
+      <div style={{margin:'10px 0'}} className='logoNav'>
         <img src={logo} width={'100px'} alt='logo'/>
       </div>
      
@@ -110,7 +111,7 @@ window.addEventListener('scroll', changeBackground)
        <Menu className='mainMenu middleMenu' selectedKeys={[current]} mode="horizontal" items={items} style={{borderBottom:'0px', minWidth: 0, flex:'auto', maxWidth:'600px' }}/>
       
   
-      <Menu className='mainMenu loginMenu' selectedKeys={[current2]} mode="horizontal" items={items2} style={{alignItems:'flex-end'}} />
+      <Menu className='mainMenu loginMenu' selectedKeys={[current2]} mode="horizontal" items={items2} style={{alignItems:'flex-end',bottom:'15px', position:'relative'}} />
     
       </Flex>
 

@@ -9,6 +9,7 @@ import Cart from './Cart';
 import FullPageCard from './FullPageCard';
 import ErrorPage from './ErrorPage';
 import Wishlist from './Wishlist';
+import LoginRegister from './LoginRegister';
 
 
 
@@ -25,6 +26,7 @@ const Content = () => {
           <Route path='cart' element={<Cart/>}/>
           <Route path='*' element={<ErrorPage/>}/>
           <Route path='wishlist' element={<Wishlist/>}/>
+          <Route path='account/login' element={<LoginRegister/>}/>
         </Routes>
       </div>
     );

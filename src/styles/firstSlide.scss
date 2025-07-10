@@ -1306,3 +1306,80 @@
         line-height: 28px;
     }
 }
+
+.login-register-page{
+    margin: 50px;
+   h2{
+     text-align: center;
+     font-size: 18px;
+     text-transform: uppercase;
+     font-weight: 600;
+     padding-bottom: 50px;
+   }
+   .logInUP-box{
+    margin: 50px 0;
+    span{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .ant-input-outlined{
+        border-width: 0 0 1px;
+        border-radius: 0;
+        padding-top: 20px ;
+    }
+    .ant-input-outlined:hover{
+        border-color: #d9d9d9;
+    }
+    .ant-input-outlined:focus-within{
+        border-width: 0 0 1px;
+        border-radius: 0;
+        border-color: #000;
+        box-shadow: none;
+    }
+    .ant-input-group-addon{
+        border: 0;
+        font-size: 16px;
+        padding: 20px 40px;
+        background-color: #fff;
+    }
+    .main-btn{
+        width: 100%;
+        display: flex;
+        justify-content: center; 
+        align-items: center;    
+        margin-top: 45px;   
+
+        button{
+            background-color: #000;
+            color: #fff;
+            border-radius: 0;
+            padding: 12px 40px;
+            text-transform: uppercase;
+            border-color: #000;
+            height: auto;
+            letter-spacing: .2em;
+        }
+       
+        .ant-btn-default:hover{
+            border-color: #98a86d;
+            color: #98a86d;
+        }
+    }
+
+    .btn-help{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+
+        .ant-btn-link{
+            color: #000;
+            font-size: 14px;
+        }
+        .ant-btn-link:hover{
+            color: #98a86d;
+        }
+    }
+   }
+}

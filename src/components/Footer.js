@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'antd'
-import logo from '../img/logo.png'
+import logo from '../img/logog.png'
 import { Link } from 'react-router-dom';
 import pay_icons from '../img/pay_copyright.jpg'
 import PhoneFilled from '@ant-design/icons/PhoneFilled'
@@ -46,7 +46,7 @@ const Footer = () => {
         </Row>
         <Row className='last_footer_box' justify={'space-around'}>
             <Col span={6}>
-                <img src={logo} width={'80px'} alt="" />
+                <img src={logo} width={'50px'} alt="" />
             </Col>
             <Col span={6}>
                 <img src={pay_icons} alt="" />

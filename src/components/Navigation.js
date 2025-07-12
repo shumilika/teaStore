@@ -1,34 +1,44 @@
 import React, { useState } from 'react';
 import { SearchOutlined, HeartOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import { Menu, Flex } from 'antd';
-import logo from '../img/logo.png'
+import logo from '../img/logog.png'
+import logo_white from '../img/logo_white.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CartDrawer from './CartDrawer';
 import SearchDrawer from './SearchDrawer';
+import LoginModal from './LoginModal';
 
 const Navigation = () => {
   const location = useLocation();
   const { pathname } = location;
   const navigate = useNavigate()
 
-    const [navBar, setNavBar] = useState(false);
-    const [current, setCurrent] = useState('');
-    const [current2, setCurrent2] = useState('');
-    const [open, setOpen] = useState(false);
-    const [openSearch, setOpenSearch] = useState(false);
-    const showDrawer = () => {
-      setOpen(true);
-    };
-    const onClose = () => {
-      setOpen(false);
-    };
+  const [navBar, setNavBar] = useState(false);
+  const [current, setCurrent] = useState('');
+  const [current2, setCurrent2] = useState('');
+  const [open, setOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
+  const [openLogInModal, setOpenLogInModal] = useState(false)
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
 
-    const showDrawerSearch = () => {
-      setOpenSearch(true);
-    };
-    const onCloseSearch = () => {
-      setOpenSearch(false);
-    };
+  const showDrawerSearch = () => {
+    setOpenSearch(true);
+  };
+  const onCloseSearch = () => {
+    setOpenSearch(false);
+  };
+
+  const showLogInModal = () =>{
+    setOpenLogInModal(true)
+  }
+  const onCloseLogInModal = () =>{
+    setOpenLogInModal(false)
+  }
     
 
 
@@ -60,7 +70,7 @@ const items2 = [
     },
     {
         key: 'user',
-        icon: <UserOutlined/>
+        icon: <UserOutlined onClick={showLogInModal}/>
         
       },
       {
@@ -103,7 +113,9 @@ window.addEventListener('scroll', changeBackground)
      <Flex justify='space-between'>
     
       <div style={{margin:'10px 0'}} className='logoNav'>
-        <img src={logo} width={'100px'} alt='logo'/>
+          {(pathname===(''||'/')) ? <img src={logo_white} width={'70px'} alt='logo'/>
+          :<img src={logo} width={'70px'} alt='logo'/>
+          }
       </div>
      
     
@@ -118,7 +130,7 @@ window.addEventListener('scroll', changeBackground)
      </div>
      <CartDrawer onClose={onClose} open={open} />
      <SearchDrawer onClose={onCloseSearch} open={openSearch} />
-
+      <LoginModal onClose={onCloseLogInModal} open={openLogInModal} />
       </div>
     );
 };

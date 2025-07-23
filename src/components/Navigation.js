@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SearchOutlined, HeartOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import { Menu, Flex } from 'antd';
-import logo from '../img/logog.png'
+import logo from '../img/logo_green.png'
 import logo_white from '../img/logo_white.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CartDrawer from './CartDrawer';

@@ -9,7 +9,7 @@ import Cart from './Cart';
 import FullPageCard from './FullPageCard';
 import ErrorPage from './ErrorPage';
 import Wishlist from './Wishlist';
-import LoginRegister from './LoginRegister';
+import LoginRegister from './Login/LoginRegister';
 
 
 

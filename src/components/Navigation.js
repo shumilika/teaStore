@@ -6,7 +6,7 @@ import logo_white from '../img/logo_white.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CartDrawer from './CartDrawer';
 import SearchDrawer from './SearchDrawer';
-import LoginModal from './LoginModal';
+import LoginModal from './Login/LoginMainModal';
 
 const Navigation = () => {
   const location = useLocation();

@@ -1,7 +1,7 @@
 import { Button, Col, Input, Row } from 'antd';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { resetPassword, signUp, signIn } from '../services/authService';
+import { resetPassword, signUp, signIn } from '../../services/authService';
 
 const LoginRegister = () => {
     

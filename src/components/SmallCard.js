@@ -5,7 +5,7 @@ import { Row, Col, Tooltip } from 'antd';
 import PreviewCard from './PreviewCard';
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 
-const SmallCard = ({id,name, price, type, amount, description, photo, imgs, width}) => {
+const SmallCard = ({id,name, price, type, amount, description, photo, imgs}) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [imgUrl, setImgUrl] = useState()

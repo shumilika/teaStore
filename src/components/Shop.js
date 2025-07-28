@@ -79,7 +79,7 @@ const Shop = () => {
             <Row justify="space-evenly">
             {productsData.map((product, index) => (
             <Col key={index} span={radioValue===4?'':radioValue} flex={radioValue===4?'18.833333333333336%':'none'} >
-              <SmallCard data={product} name={product.name} price={product.amount[0].price}
+              <SmallCard name={product.name} price={product.amount[0].price}
               description={product.description} amount={product.amount} type={product.type} 
               photo={product.photo} imgs={product.imgs} id={product.id}
                />

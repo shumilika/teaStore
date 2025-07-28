@@ -21,7 +21,6 @@ const FullPageCard = () => {
   const [valueCount, setValueCount] = useState('')
   const [prevPhoto, setPrevPhoto] = useState('')
   const [nextPhoto, setNextPhoto] = useState('')
- console.log(id)
 
  const product = productsList.find(item => item.id === id);
  const currentIndex = productsList.findIndex(item => item.id === id);
@@ -59,11 +58,15 @@ useEffect(() => {
   }
 }, [product])
 
- useEffect(()=>{
-  getPhotoUrlPrev(prevIndex.photo)
-  getPhotoUrlNext(nextIndex.photo)
-    
- },[prevIndex, nextIndex])
+useEffect(() => {
+  if (prevIndex && prevIndex.photo) {
+    getPhotoUrlPrev(prevIndex.photo);
+  }
+
+  if (nextIndex && nextIndex.photo) {
+    getPhotoUrlNext(nextIndex.photo);
+  }
+}, [prevIndex, nextIndex]);
 
       const optionsSize = product.amount?product.amount.map(item => ({
         label: item.size,
@@ -89,10 +92,11 @@ if (!product) {
     return (
        
         <div className='full-card-box'>
-<Row className='prev-next-box'>
+        <Row className='prev-next-box'>
   <Col span={24}>
   
-  <Link to={`/shop/${prevIndex.id}`} className='prev'> <LeftOutlined /> <span>Prev</span> </Link>
+ {prevIndex && <>
+   <Link to={`/shop/${prevIndex.id}`} className='prev'> <LeftOutlined /> <span>Prev</span> </Link>
   <Row className='prev-hover-box'>
     <Col span={6}><Link to={`/shop/${prevIndex.id}`}><img src={prevPhoto} alt='' /></Link>
     </Col>
@@ -103,19 +107,22 @@ if (!product) {
   </Row>
   
   <Divider type="vertical" />
+ </>}
    
-   <Link to={`/shop/${nextIndex.id}`} className='next'><span>Next</span>  <RightOutlined /> </Link>
+   {nextIndex && <>
+    <Link to={`/shop/${nextIndex.id}`} className='next'><span>Next</span>  <RightOutlined /> </Link>
    <Row className='next-hover-box'>
     <Col span={6}><Link to={`/shop/${nextIndex.id}`}><img src={nextPhoto} alt="" /></Link>
     </Col>
     <Col flex={'auto'}>
     <Link to={`/shop/${nextIndex.id}`}>{nextIndex.name}</Link>
     <p>${nextIndex.amount[0].price}.00 </p>
+   
     </Col>
   </Row>
-   
+   </>}
   </Col>
-</Row>
+        </Row>
             <Row gutter={[16, 16]} className='main-content'>
                 <Col sm={{flex:3}} md={{span:10}}>
               {product.imgs && <CarouselPreCart imgs={product.imgs} />}

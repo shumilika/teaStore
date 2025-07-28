@@ -21,7 +21,7 @@ const FullPageCard = () => {
   const [valueCount, setValueCount] = useState('')
   const [prevPhoto, setPrevPhoto] = useState('')
   const [nextPhoto, setNextPhoto] = useState('')
- 
+ console.log(id)
 
  const product = productsList.find(item => item.id === id);
  const currentIndex = productsList.findIndex(item => item.id === id);
@@ -50,12 +50,14 @@ const FullPageCard = () => {
     })
 }
 
- useEffect(()=>{
-  setValueSize(product.amount[0].size)
-  setValueType(product.type)
-  setValuePrice(product.amount[0].price)
-  setValueCount(product.amount[0].count)
- },[product])
+useEffect(() => {
+  if (product && product.amount && product.amount.length > 0) {
+    setValueSize(product.amount[0].size)
+    setValueType(product.type)
+    setValuePrice(product.amount[0].price)
+    setValueCount(product.amount[0].count)
+  }
+}, [product])
 
  useEffect(()=>{
   getPhotoUrlPrev(prevIndex.photo)
@@ -81,7 +83,9 @@ const FullPageCard = () => {
         setValuePrice(foundItem.price)
         setValueCount(foundItem.count)
       };
-
+if (!product) {
+  return <div style={{ padding: 50 }}>Product not found</div>;
+}else
     return (
        
         <div className='full-card-box'>
@@ -114,7 +118,7 @@ const FullPageCard = () => {
 </Row>
             <Row gutter={[16, 16]} className='main-content'>
                 <Col sm={{flex:3}} md={{span:10}}>
-               <CarouselPreCart imgs={product.imgs} />
+              {product.imgs && <CarouselPreCart imgs={product.imgs} />}
                 </Col>
                 <Col  sm={{flex:2}} md={{span:8}}>
                     <h4>{product.name}</h4>

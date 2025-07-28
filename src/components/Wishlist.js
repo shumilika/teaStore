@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PageHeader from './PageHeader';
 import { Col, Row, Table } from 'antd';
+import { useAuth } from '../contexts/AuthContext.js'
+import { useNavigate } from 'react-router-dom';
 
 const Wishlist = () => {
+  const { currentUser } = useAuth();
+  const navigate = useNavigate()
 
     const dataSource = [
   {
@@ -36,6 +40,12 @@ const columns = [
     key: 'action',
   },
 ];
+
+useEffect(() => {
+  if (!currentUser) {
+    navigate('/account/login');
+  }
+}, [currentUser]);
     return (
         <div className='wishlist-page'>
              <PageHeader title={'Wishlist'}/>

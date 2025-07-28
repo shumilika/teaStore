@@ -1,6 +1,8 @@
-import { Button, Input, Modal, Space } from 'antd';
+import { Button, Input, Modal } from 'antd';
 import React, { useState } from 'react';
 import logo from '../../img/logo_green.png'
+import { resetPassword, signIn, signUp } from '../../services/authService';
+import { useNavigate } from 'react-router-dom';
 
 const LoginModal = ({open, onClose}) => {
 
@@ -10,6 +12,24 @@ const LoginModal = ({open, onClose}) => {
     const [emailIn, setEmailIn] = useState('')
     const [passIn, setPassIn] = useState('')
     const [emailReset, setEmailReset] = useState('')
+    const navigate = useNavigate()
+
+    const handleRegister = ()=>{
+            signUp(emailRegister,passRegister)
+            navigate('/')
+        }
+    
+         const handleLogIn = ()=>{
+            signIn(emailIn,passIn)
+            // navigate('/')
+        }
+    
+         const handleReset = ()=>{
+            resetPassword(emailReset)
+            // navigate('/')
+        }
+    
+
     return (
         <Modal
          open={open}
@@ -34,7 +54,7 @@ const LoginModal = ({open, onClose}) => {
                             <Button type='link' onClick={()=>setAuthView('reset')} >Forgot your password?</Button>
                         </div>
                         <div className='main-btn'>
-                            <Button>Log in</Button>
+                            <Button onClick={handleLogIn}>Log in</Button>
                         </div>
                         <div className='btn-help'>
                             <span> Don't have an account?</span>
@@ -50,7 +70,7 @@ const LoginModal = ({open, onClose}) => {
                         <Input placeholder='Email address' 
                             onChange={(e)=>setEmailReset(e.target.value)}/>          
                         <div className='main-btn'>
-                            <Button>Submit</Button>
+                            <Button onClick={handleReset}>Submit</Button>
                         </div>
                         <div className='btn-help'>
                             <Button type='link' onClick={()=>setAuthView('login')} >Cancel</Button>            
@@ -68,7 +88,7 @@ const LoginModal = ({open, onClose}) => {
                             onChange={(e)=>setPassRegister(e.target.value)}
                         />
                         <div className='main-btn'>
-                            <Button>Register</Button>
+                            <Button onClick={handleRegister}>Register</Button>
                         </div>
                         <div className='btn-help'>
                             <Button type='link' onClick={()=>setAuthView('login')}>Back to login</Button>            

@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import CartDrawer from './CartDrawer';
 import SearchDrawer from './SearchDrawer';
 import LoginModal from './Login/LoginMainModal';
+import { useAuth } from '../contexts/AuthContext';
 
 const Navigation = () => {
   const location = useLocation();
@@ -19,6 +20,8 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openLogInModal, setOpenLogInModal] = useState(false)
+  const {currentUser} = useAuth()
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -39,6 +42,14 @@ const Navigation = () => {
   const onCloseLogInModal = () =>{
     setOpenLogInModal(false)
   }
+
+    const handleUserClick = () => {
+    if (!currentUser) {
+      showLogInModal()
+    } else {
+      navigate('/account')
+    }
+  };
     
 
 
@@ -70,7 +81,7 @@ const items2 = [
     },
     {
         key: 'user',
-        icon: <UserOutlined onClick={showLogInModal}/>
+        icon: <UserOutlined onClick={handleUserClick}/>
         
       },
       {
@@ -120,10 +131,12 @@ window.addEventListener('scroll', changeBackground)
      
     
     
-       <Menu className='mainMenu middleMenu' selectedKeys={[current]} mode="horizontal" items={items} style={{borderBottom:'0px', minWidth: 0, flex:'auto', maxWidth:'600px' }}/>
+       <Menu className='mainMenu middleMenu' selectedKeys={[current]} mode="horizontal" 
+       items={items} style={{borderBottom:'0px', minWidth: 0, }}/>
       
   
-      <Menu className='mainMenu loginMenu' selectedKeys={[current2]} mode="horizontal" items={items2} style={{alignItems:'flex-end',bottom:'15px', position:'relative'}} />
+      <Menu className='mainMenu loginMenu' selectedKeys={[current2]} mode="horizontal" 
+      items={items2} style={{alignItems:'flex-end',bottom:'15px', position:'relative'}} />
     
       </Flex>
 

@@ -17,17 +17,20 @@ const LoginRegister = () => {
 
     const handleRegister = ()=>{
         signUp(emailUp,passUp)
-        navigate('/')
+        navigate('/wishlist')
     }
 
      const handleLogIn = ()=>{
         signIn(emailIn,passIn)
-        // navigate('/')
+        setTimeout(()=>{
+            navigate('/wishlist')
+        },2000)
+        
     }
 
      const handleReset = ()=>{
         resetPassword(emailReset)
-        // navigate('/')
+        navigate('/')
     }
 
     return (

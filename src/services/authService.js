@@ -8,6 +8,7 @@ export async function signUp(email,password){
     // Signed up 
     const user = userCredential.user;
     // ...
+    
   })
   .catch((error) => {
     const errorCode = error.code;
@@ -21,13 +22,11 @@ export async function signUp(email,password){
   .then((userCredential) => {
   
     const user = userCredential.user;
-    // ...
-    console.log('weee')
+    
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.log('fgg')
     console.logg(error)
   });
   }
@@ -44,3 +43,5 @@ export async function signUp(email,password){
     // ..
   });
   }
+
+  

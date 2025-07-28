@@ -10,6 +10,8 @@ import FullPageCard from './FullPageCard';
 import ErrorPage from './ErrorPage';
 import Wishlist from './Wishlist';
 import LoginRegister from './Login/LoginRegister';
+import Account from './Login/Account';
+import BillingAddress from './Login/BillingAddress';
 
 
 
@@ -27,6 +29,8 @@ const Content = () => {
           <Route path='*' element={<ErrorPage/>}/>
           <Route path='wishlist' element={<Wishlist/>}/>
           <Route path='account/login' element={<LoginRegister/>}/>
+          <Route path='account' element={<Account/>}/>
+          <Route path='account/billing_address' element={<BillingAddress/>} />
         </Routes>
       </div>
     );

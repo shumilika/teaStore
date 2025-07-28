@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Divider, Radio, InputNumber, Button } from 'antd'
-import CarouselPreCart from './CarouselPreCart';
+import CarouselPreCart from '../CarouselPreCart';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LeftOutlined from '@ant-design/icons/LeftOutlined'
 import RightOutlined from '@ant-design/icons/RightOutlined'
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 import TinyCardPreview from './TinyCardPreview';
-import Card3rdColumn from './Card3rdColumn';
+import Card3rdColumn from '../Card3rdColumn';
 
 
 const FullPageCard = () => {

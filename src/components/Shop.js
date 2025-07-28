@@ -4,7 +4,7 @@ import { Button, Col, Radio, Row, Select } from 'antd';
 import {HolderOutlined, FilterOutlined} from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductList, fetchProductListFilter } from '../store/products';
-import SmallCard from './SmallCard';
+import SmallCard from './Card/SmallCard';
 import FilterShop from './FilterShop';
 
 const Shop = () => {

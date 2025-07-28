@@ -6,7 +6,7 @@ import Shop from './Shop'
 import FAQS from './FAQS';
 import ContactUs from './ContactUs';
 import Cart from './Cart';
-import FullPageCard from './FullPageCard';
+import FullPageCard from './Card/FullPageCard';
 import ErrorPage from './ErrorPage';
 import Wishlist from './Wishlist';
 import LoginRegister from './Login/LoginRegister';

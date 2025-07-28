@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBestSellersList } from '../../store/products';
-import SmallCard from '../SmallCard'
+import SmallCard from '../Card/SmallCard'
 
 const BestSeller = () => {
 

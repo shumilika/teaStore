@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Row, Col, Divider, Radio, InputNumber, Button, ConfigProvider } from 'antd'
-import CarouselPreCart from './CarouselPreCart';
+import CarouselPreCart from '../CarouselPreCart';
 
 
 const PreviewCard = (props) => {

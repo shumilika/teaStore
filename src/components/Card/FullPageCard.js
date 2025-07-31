@@ -101,16 +101,13 @@ useEffect(() => {
       image: product.photo,
       type: product.type, 
     }
-    
-
-
-    const user = currentUser;
-    if (!user) {
+ 
+    if (!currentUser) {
       alert("Please sign in first");
       return;
     }
 
-    await addToCart(user.uid, newProduct);
+    await addToCart(currentUser.uid, newProduct);
     alert("Added to cart!");
 };
 

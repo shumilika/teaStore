@@ -79,7 +79,7 @@ const SmallCard = ({id,name, price, type, amount, description, photo, imgs}) => 
            
            
            <PreviewCard isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel}
-           name={name} type={type} amount={amount} description={description} imgs={imgs}
+           name={name} type={type} amount={amount} description={description} imgs={imgs} id={id}
             />
         </div>
     );

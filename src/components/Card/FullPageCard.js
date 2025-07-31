@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux';
 import LeftOutlined from '@ant-design/icons/LeftOutlined'
 import RightOutlined from '@ant-design/icons/RightOutlined'
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
-import TinyCardPreview from './TinyCardPreview';
 import Card3rdColumn from '../Card3rdColumn';
+import { useAuth } from '../../contexts/AuthContext';
+import { addToCart } from '../../services/productService';
 
 
 const FullPageCard = () => {
@@ -21,11 +22,13 @@ const FullPageCard = () => {
   const [valueCount, setValueCount] = useState('')
   const [prevPhoto, setPrevPhoto] = useState('')
   const [nextPhoto, setNextPhoto] = useState('')
+  const [quantity, setQuantity] = useState(1)
 
  const product = productsList.find(item => item.id === id);
  const currentIndex = productsList.findIndex(item => item.id === id);
  const prevIndex = currentIndex > 0 ? productsList[currentIndex - 1] : null;
  const nextIndex = currentIndex < (productsList.length - 1) ? productsList[currentIndex + 1] : null;
+ const {currentUser} = useAuth()
 
  const storage = getStorage()
         
@@ -86,6 +89,32 @@ useEffect(() => {
         setValuePrice(foundItem.price)
         setValueCount(foundItem.count)
       };
+
+  const handleAddToCart = async () => {
+
+    let newProduct = {
+      id: product.id,
+      quantity:quantity,
+      size:valueSize,
+      title: product.name,
+      price:valuePrice,
+      image: product.photo,
+      type: product.type, 
+    }
+    
+
+
+    const user = currentUser;
+    if (!user) {
+      alert("Please sign in first");
+      return;
+    }
+
+    await addToCart(user.uid, newProduct);
+    alert("Added to cart!");
+};
+
+
 if (!product) {
   return <div style={{ padding: 50 }}>Product not found</div>;
 }else
@@ -157,10 +186,10 @@ if (!product) {
                      </Row>
                      <Row>
                       <Col >
-                      <InputNumber min={1} max={valueCount} defaultValue={1}  />
+                      <InputNumber min={1} max={valueCount} defaultValue={quantity} onChange={setQuantity}  />
                       </Col>
                       <Col >
-                        <Button>Add to cart</Button>
+                        <Button onClick={handleAddToCart}>Add to cart</Button>
                       </Col>
                      </Row>
                 </Col>

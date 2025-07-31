@@ -13,18 +13,22 @@ const FilterShop = () => {
     const dispatch = useDispatch()
     const [checkedTypeTea, setCheckedTypeTea] = useState([])
     const [checkedSizeOption, setCheckedSizeOption] = useState([])
-    const [checkedTags, setCheckedTags] = useState([])
-    const [checkedPriceFilter, setCheckedPriceFilter] = useState([])
 
     const handleUpdateProductList = async(typeValue, sizeValue)=>{
-        const size = sizeValue.length ? where('sizeFilter', "array-contains-any", sizeValue):''
-        
-        const type = typeValue.length ? where('type', 'in', typeValue):''
+        let filters = [];
+
+        if (typeValue.length > 0) {
+            filters.push(where('type', 'in', typeValue));
+        }
+
+        if (sizeValue.length > 0) {
+            filters.push(where('sizeFilter', 'array-contains-any', sizeValue));
+        }
 
       
-        const q = query(collection(db, "products"), type,size);
-		const response = await getDocs(q)
-        dispatch(setProductList(response.docs.map(doc => doc.data())))
+        const q = query(collection(db, 'products'), ...filters);
+  const response = await getDocs(q);
+  dispatch(setProductList(response.docs.map(doc => doc.data())));
     }
     
     const handleChangeFilterType = (checkedValue) =>{
@@ -64,41 +68,7 @@ const FilterShop = () => {
             </Checkbox.Group>
         </div>
 
-        <div className='priceFilter'>
-        <Divider orientation="left" orientationMargin="0">Price Filter</Divider>
-
-            <Checkbox.Group>
-               <Row>
-               <Col span={24}><Checkbox value={5}>$5-$10</Checkbox></Col>
-                <Col span={24}><Checkbox value={10}>$10-$20</Checkbox></Col>
-                <Col span={24}><Checkbox value={20}>$20-$30</Checkbox></Col>
-               </Row>
-            </Checkbox.Group>
-        </div>
-
-        <div className='tags'>
-        <Divider orientation="left" orientationMargin="0">Tags</Divider>
-
-            <Checkbox.Group>
-                
-                <Checkbox value={10}>$10-$20</Checkbox>
-                <Checkbox value={20}>$20-$30</Checkbox>
-                <Checkbox value={5}>$5-$10</Checkbox>
-                <Checkbox value={100}>100g</Checkbox>
-                <Checkbox value={250}>250g</Checkbox>
-                <Checkbox value={500}>500g</Checkbox>
-                <Checkbox value={50}>50g</Checkbox>
-                <Checkbox value={'black tea'}>Black tea</Checkbox>
-                <Checkbox value={'fruit tea'}>Fruit tea</Checkbox>
-                <Checkbox value={'green tea'}>Green tea</Checkbox>
-                <Checkbox value={'herbal tea'}>Herbal tea</Checkbox>
-                <Checkbox value={'oolong tea'}>Oolong</Checkbox>
-                <Checkbox value={'oolong tea'}>Oolong tea</Checkbox>
-                <Checkbox value={'white tea'}>White tea</Checkbox>
-                
-               
-            </Checkbox.Group>
-        </div>
+       
         <div style={{width:'100%'}}>
             <img src={banner} alt="banner" style={{width:'95%'}} />
            

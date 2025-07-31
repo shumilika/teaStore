@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Drawer, Input, Row } from 'antd';
 import {db} from '../config/fireBaseConfig'
-import { collection, getDocs } from 'firebase/firestore/lite';
+import { collection, getDocs } from 'firebase/firestore';
 import TinyCardPreview from './Card/TinyCardPreview';
 const { Search } = Input;
 

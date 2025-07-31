@@ -1,7 +1,7 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {db} from '../config/fireBaseConfig'
-import { collection, getDocs, query, limit } from 'firebase/firestore/lite';
+import { db } from '../config/fireBaseConfig'
+import { collection, getDocs, query, limit } from 'firebase/firestore';
 
 
 const initialState = {

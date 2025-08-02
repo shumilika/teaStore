@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { SearchOutlined, HeartOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
-import { Menu, Flex } from 'antd';
+import { Menu, Flex, Badge } from 'antd';
 import logo from '../img/logo_green.png'
 import logo_white from '../img/logo_white.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import CartDrawer from './CartDrawer';
+import CartDrawer from './Cart/CartDrawer';
 import SearchDrawer from './SearchDrawer';
 import LoginModal from './Login/LoginMainModal';
 import { useAuth } from '../contexts/AuthContext';
+import { useSelector } from 'react-redux';
 
 const Navigation = () => {
   const location = useLocation();
@@ -15,12 +16,11 @@ const Navigation = () => {
   const navigate = useNavigate()
 
   const [navBar, setNavBar] = useState(false);
-  const [current, setCurrent] = useState('');
-  const [current2, setCurrent2] = useState('');
   const [open, setOpen] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [openLogInModal, setOpenLogInModal] = useState(false)
   const {currentUser} = useAuth()
+  const isCartEmpty = useSelector(state=>state.personalProduct.isCartEmpty)
 
   const showDrawer = () => {
     setOpen(true);
@@ -90,8 +90,10 @@ const items2 = [
       },
       {
         key: 'cart',
-        icon: <ShoppingCartOutlined  onClick={showDrawer}/>
-        
+        icon:
+  <Badge dot={!isCartEmpty} color='#98a86d'> 
+  <ShoppingCartOutlined onClick={showDrawer} style={{ fontSize: '24px'}} />
+  </Badge>
       },
   
   ];
@@ -124,18 +126,18 @@ window.addEventListener('scroll', changeBackground)
      <Flex justify='space-between'>
     
       <div style={{margin:'10px 0'}} className='logoNav'>
-          {(pathname===(''||'/')) ? <img src={logo_white} width={'70px'} alt='logo'/>
-          :<img src={logo} width={'70px'} alt='logo'/>
+          {(pathname===(''||'/')) ? <img src={logo_white} width={'70px'} alt='logo' onClick={()=>navigate('/')}/>
+          :<img src={logo} width={'70px'} alt='logo' onClick={()=>navigate('/')}/>
           }
       </div>
      
     
     
-       <Menu className='mainMenu middleMenu' selectedKeys={[current]} mode="horizontal" 
+       <Menu className='mainMenu middleMenu' mode="horizontal" 
        items={items} style={{borderBottom:'0px', minWidth: 0, }}/>
       
   
-      <Menu className='mainMenu loginMenu' selectedKeys={[current2]} mode="horizontal" 
+      <Menu className='mainMenu loginMenu'  mode="horizontal" 
       items={items2} style={{alignItems:'flex-end',bottom:'15px', position:'relative'}} />
     
       </Flex>

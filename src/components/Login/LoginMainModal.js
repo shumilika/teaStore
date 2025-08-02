@@ -17,16 +17,19 @@ const LoginModal = ({open, onClose}) => {
     const handleRegister = ()=>{
             signUp(emailRegister,passRegister)
             navigate('/')
+            onClose()
         }
     
          const handleLogIn = ()=>{
             signIn(emailIn,passIn)
             // navigate('/')
+            onClose()
         }
     
          const handleReset = ()=>{
             resetPassword(emailReset)
             // navigate('/')
+            onClose()
         }
     
 

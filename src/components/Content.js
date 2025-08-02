@@ -5,7 +5,7 @@ import AboutUs from './AboutUs'
 import Shop from './Shop'
 import FAQS from './FAQS';
 import ContactUs from './ContactUs';
-import Cart from './Cart';
+import Cart from './Cart/Cart';
 import FullPageCard from './Card/FullPageCard';
 import ErrorPage from './ErrorPage';
 import Wishlist from './Wishlist';

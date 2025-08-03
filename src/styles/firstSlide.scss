@@ -140,6 +140,11 @@
      
        .logoNav { order: 2;
     width: 25%;
+    
+        img{
+            cursor: pointer;
+        }
+    
     }
        .middleMenu { order: 1; }
        .loginMenu{ order: 3;}
@@ -546,9 +551,11 @@
 
         .last_footer_box{
             border-top:1px #E8E8F2 solid;
-            padding: 40px 0 10px 0;
-
-           .ant-col-6{
+            padding: 40px 0 10px 0;  
+            .logo_footer{
+                cursor: pointer;
+            }        
+            .ant-col-6{
             font-size: 14px;
             font-weight: 400;
             line-height: 21px;
@@ -668,6 +675,9 @@
         text-transform: uppercase;
         font-size: 12px;
         padding: 20px 35px;
+    }
+    .delete-icon .anticon:hover{
+        color: #98a86d;
     }
    }
 
@@ -1064,6 +1074,9 @@
 
 .full-card-box{
     margin: 50px 20px;
+    .main-content{
+        margin-top: 20px;
+    }
     .prev-next-box{
         text-align: right;
         .ant-divider-vertical{
@@ -1087,6 +1100,7 @@
             color:  rgb(152, 168, 109);
         }
         .prev-hover-box, .next-hover-box{
+            background-color: #fff;
             align-items: center;
             position: absolute;
             top: 100%;
@@ -1212,4 +1226,272 @@
         max-width: 100%;
         margin: 0 auto;
     }
+}
+
+.galery-control{
+    outline: 0 !important;
+    box-sizing: border-box;
+    // max-width: 700px;
+
+
+.slider-wrapper {
+  display: flex;
+  align-items: flex-start;
+   margin-left: 80px;
+}
+
+.slick-dots.slick-thumb {
+  display: flex !important;
+  flex-direction: column;
+  margin-right: 20px;
+  padding: 0;
+  right: 60px;
+  top: -10px;
+}
+
+.slick-dots.slick-thumb li {
+  width: 60px;
+  height: 60px;
+  margin: 10px 0;
+}
+
+.slick-dots.slick-thumb li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.slider-container {
+  width: 100%;
+  
+}
+
+.slider-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.slick-slider{
+    max-width: 650px;
+   
+}
+}
+.card3Column{
+    text-align: center;
+    .title{
+        position: relative;
+        font-size: 18px;
+        font-weight: 400;
+        padding-bottom: 18px;
+        margin-bottom: 22px;
+    }
+    .title::after{
+        content:'';
+        height: 1px;
+        width: 42px;
+        border-bottom: 1px solid #000;
+        position: absolute;
+        bottom: 0;
+        left: 45%;
+
+    }
+    .content-box{
+        border: 1px solid #eaeaea;
+        box-sizing: border-box;
+        margin-bottom: 30px;
+        padding: 25px 15px;
+        transition: border .25s linear .25s;
+    }
+    .content-box:hover{
+        border-color: #000;
+    }
+    .text-box{
+        box-sizing: border-box;
+        color: #979797;
+        font-size: 14px;
+        line-height: 28px;
+    }
+}
+
+.login-register-page{
+    margin: 50px;
+   h2{
+     text-align: center;
+     font-size: 18px;
+     text-transform: uppercase;
+     font-weight: 600;
+     padding-bottom: 50px;
+   }
+   .logInUP-box{
+    margin: 50px 0;
+    span{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .ant-input-outlined{
+        border-width: 0 0 1px;
+        border-radius: 0;
+        padding-top: 20px ;
+    }
+    .ant-input-outlined:hover{
+        border-color: #d9d9d9;
+    }
+    .ant-input-outlined:focus-within{
+        border-width: 0 0 1px;
+        border-radius: 0;
+        border-color: #000;
+        box-shadow: none;
+    }
+    .ant-input-group-addon{
+        border: 0;
+        font-size: 16px;
+        padding: 20px 40px;
+        background-color: #fff;
+    }
+    .main-btn{
+        width: 100%;
+        display: flex;
+        justify-content: center; 
+        align-items: center;    
+        margin-top: 45px;   
+
+        button{
+            background-color: #000;
+            color: #fff;
+            border-radius: 0;
+            padding: 12px 40px;
+            text-transform: uppercase;
+            border-color: #000;
+            height: auto;
+            letter-spacing: .2em;
+        }
+       
+        .ant-btn-default:hover{
+            border-color: #98a86d;
+            color: #98a86d;
+        }
+    }
+
+    .btn-help{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+
+        .ant-btn-link{
+            color: #000;
+            font-size: 14px;
+        }
+        .ant-btn-link:hover{
+            color: #98a86d;
+        }
+    }
+   }
+}
+
+.modal-login-box{
+    margin: 20px 40px;
+    .modal-logo{
+        text-align: center;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ccc;
+    }
+   h2{
+     text-align: center;
+     font-size: 20px;
+     font-weight: 400;
+     padding: 20px 0;
+   }
+   .logInUP-box{
+   height: 500px;
+    .ant-input-outlined{
+        border-radius: 0;
+        padding: 15px;
+        margin-top: 15px;
+    }
+    .ant-input-outlined:hover{
+        border-color: #d9d9d9;
+    }
+    .ant-input-outlined:focus-within{
+        border-radius: 0;
+        border-color: #000;
+        box-shadow: none;
+       
+    }
+    
+    .main-btn{
+        width: 100%;
+        display: flex;
+        justify-content: center; 
+        align-items: center;    
+        margin-top: 15px;   
+
+        button{
+            background-color: #000;
+            color: #fff;
+            border-radius: 0;
+            padding: 16px 40px;
+            text-transform: uppercase;
+            border-color: #000;
+            height: auto;
+            letter-spacing: .2em;
+            width: 100%;
+        }
+       
+        .ant-btn-default:hover{
+            border-color: #98a86d;
+            color: #98a86d;
+        }
+    }
+    .reset-pass-btn{
+        button{
+            color: #c5c4c4;
+            padding: 15px 0;
+        }
+         .ant-btn-link:hover{
+            color: #98a86d;
+        }
+    }
+
+    .btn-help{
+        width: 100%;
+        display: block;
+        margin-top: 30px;
+        padding: 7px;
+        font-size: 14px;
+        background-color: #f2f2f2;
+        border: 1px solid #e8eced;
+        text-align: center;
+
+        .ant-btn-link{
+            color: #c5c4c4;
+            font-size: 14px;
+        }
+        .ant-btn-link:hover{
+            color: #98a86d;
+        }
+    }
+   }
+}
+
+.green-badge-circle{
+    width: 11px;
+    height: 11px;
+    background-color: #98a86d;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.delete-icon-full-cart{
+    .anticon:hover{
+        color: #98a86d;
+    }
+    font-weight: 600;
 }

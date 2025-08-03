@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Carousel, Spin } from 'antd'
-import SmallCard from '../../services/SmallCard';
+import SmallCard from '../Card/SmallCard';
 import { useDispatch, useSelector} from 'react-redux'
 import { fetchNewArrivalList } from '../../store/products';
 

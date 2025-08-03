@@ -5,7 +5,7 @@ import { Row, Col, Tooltip } from 'antd';
 import PreviewCard from './PreviewCard';
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 
-const SmallCard = ({id,name, price, type, amount, description, photo, imgs, width}) => {
+const SmallCard = ({id,name, price, type, amount, description, photo, imgs}) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [imgUrl, setImgUrl] = useState()
@@ -79,7 +79,7 @@ const SmallCard = ({id,name, price, type, amount, description, photo, imgs, widt
            
            
            <PreviewCard isModalOpen={isModalOpen} handleOk={handleOk} handleCancel={handleCancel}
-           name={name} type={type} amount={amount} description={description} imgs={imgs}
+           name={name} type={type} amount={amount} description={description} imgs={imgs} id={id}
             />
         </div>
     );

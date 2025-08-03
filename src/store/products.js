@@ -1,7 +1,7 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {db} from '../config/fireBaseConfig'
-import { collection, getDocs, query, limit } from 'firebase/firestore/lite';
+import { db } from '../config/fireBaseConfig'
+import { collection, getDocs, query, limit } from 'firebase/firestore';
 
 
 const initialState = {
@@ -66,9 +66,9 @@ export const products = createSlice({
 	},
 	extraReducers(builder) {
 		builder		
-			.addCase(fetchProductList.fulfilled, (state, action)=>({...state, productsList:action.payload}))
-			.addCase(fetchNewArrivalList.fulfilled, (state, action)=>({...state, newArrivalList:action.payload}))
-			.addCase(fetchBestSellersList.fulfilled, (state, action)=>({...state, bestSellerList:action.payload}))
+			.addCase(fetchProductList.fulfilled, (state, action)=>{state.productsList = action.payload})
+			.addCase(fetchNewArrivalList.fulfilled, (state, action)=>{state.newArrivalList = action.payload})
+			.addCase(fetchBestSellersList.fulfilled, (state, action)=>{state.bestSellerList = action.payload})
 
 			
 			

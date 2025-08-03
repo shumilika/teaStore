@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Modal, Row, Col, Divider, Radio, InputNumber, Button, ConfigProvider } from 'antd'
-import CarouselPreCart from './CarouselPreCart';
+import CarouselPreCart from '../CarouselPreCart';
+import { useAuth } from '../../contexts/AuthContext';
+import { addToCart } from '../../services/productService';
+import { fethCartList } from '../../store/personalProduct';
+import { useDispatch } from 'react-redux';
 
 
 const PreviewCard = (props) => {
@@ -9,6 +13,9 @@ const PreviewCard = (props) => {
   const [valueType, ] = useState(props.type);
   const [valuePrice, setValuePrice] = useState(props.amount?props.amount[0].price:'')
   const [valueCount, setValueCount] = useState(props.amount?props.amount[0].count:'')
+  const [quantity, setQuantity] = useState(1)
+  const { currentUser } = useAuth()
+  const dispatch = useDispatch()
  
 
   
@@ -31,6 +38,30 @@ const PreviewCard = (props) => {
         setValuePrice(foundItem.price)
         setValueCount(foundItem.count)
       };
+
+      const handleAddToCart = async () => {
+
+        let newProduct = {
+              id: props.id,
+              quantity:quantity,
+              size:valueSize,
+              title: props.name,
+              price:valuePrice,
+              image: props.imgs[0],
+              type: props.type, 
+            }
+        
+           
+            if (!currentUser) {
+              alert("Please sign in first");
+              return;
+            }
+        
+            await addToCart(currentUser.uid, newProduct);
+            alert("Added to cart!");
+
+            dispatch(fethCartList(currentUser.uid))
+  }
 
     return (
        
@@ -100,10 +131,10 @@ const PreviewCard = (props) => {
                      </Row>
                      <Row>
                       <Col >
-                      <InputNumber min={1} max={valueCount} defaultValue={1}  />
+                      <InputNumber min={1} max={valueCount} defaultValue={quantity} onChange={setQuantity}  />
                       </Col>
                       <Col >
-                        <Button>Add to cart</Button>
+                        <Button onClick={handleAddToCart}>Add to cart</Button>
                       </Col>
                      </Row>
                 </Col>

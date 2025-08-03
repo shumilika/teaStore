@@ -5,9 +5,13 @@ import AboutUs from './AboutUs'
 import Shop from './Shop'
 import FAQS from './FAQS';
 import ContactUs from './ContactUs';
-import Cart from './Cart';
-import FullPageCard from '../services/FullPageCard';
+import Cart from './Cart/Cart';
+import FullPageCard from './Card/FullPageCard';
 import ErrorPage from './ErrorPage';
+import Wishlist from './Wishlist';
+import LoginRegister from './Login/LoginRegister';
+import Account from './Login/Account';
+import BillingAddress from './Login/BillingAddress';
 
 
 
@@ -23,6 +27,10 @@ const Content = () => {
           <Route path="shop/:id" element={<FullPageCard/>}/>
           <Route path='cart' element={<Cart/>}/>
           <Route path='*' element={<ErrorPage/>}/>
+          <Route path='wishlist' element={<Wishlist/>}/>
+          <Route path='account/login' element={<LoginRegister/>}/>
+          <Route path='account' element={<Account/>}/>
+          <Route path='account/billing_address' element={<BillingAddress/>} />
         </Routes>
       </div>
     );

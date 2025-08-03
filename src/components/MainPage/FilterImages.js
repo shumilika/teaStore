@@ -2,7 +2,7 @@ import React from 'react';
 import { Row, Col} from 'antd';
 import { useDispatch } from 'react-redux';
 import { setProductList } from '../../store/products';
-import { collection, getDocs, query, where } from 'firebase/firestore/lite';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../config/fireBaseConfig';
 import green_tea_filter from '../../img/green_tea_filter.jpg'
 import black_tea_filter from '../../img/black_tea_filter.jpg'

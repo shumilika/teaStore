@@ -4,7 +4,7 @@ import {Row, Col} from 'antd'
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setProductList } from '../../store/products';
-import { collection, getDocs, query, where } from 'firebase/firestore/lite';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../../config/fireBaseConfig';
 
 

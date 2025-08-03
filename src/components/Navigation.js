@@ -1,33 +1,55 @@
 import React, { useState } from 'react';
 import { SearchOutlined, HeartOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
-import { Menu, Flex } from 'antd';
-import logo from '../img/logo.png'
-import { Link, useLocation } from 'react-router-dom';
-import CartDrawer from '../services/CartDrawer';
+import { Menu, Flex, Badge } from 'antd';
+import logo from '../img/logo_green.png'
+import logo_white from '../img/logo_white.png'
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import CartDrawer from './Cart/CartDrawer';
 import SearchDrawer from './SearchDrawer';
+import LoginModal from './Login/LoginMainModal';
+import { useAuth } from '../contexts/AuthContext';
+import { useSelector } from 'react-redux';
 
 const Navigation = () => {
   const location = useLocation();
   const { pathname } = location;
+  const navigate = useNavigate()
 
-    const [navBar, setNavBar] = useState(false);
-    const [current, setCurrent] = useState('');
-    const [current2, setCurrent2] = useState('');
-    const [open, setOpen] = useState(false);
-    const [openSearch, setOpenSearch] = useState(false);
-    const showDrawer = () => {
-      setOpen(true);
-    };
-    const onClose = () => {
-      setOpen(false);
-    };
+  const [navBar, setNavBar] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
+  const [openLogInModal, setOpenLogInModal] = useState(false)
+  const {currentUser} = useAuth()
+  const isCartEmpty = useSelector(state=>state.personalProduct.isCartEmpty)
 
-    const showDrawerSearch = () => {
-      setOpenSearch(true);
-    };
-    const onCloseSearch = () => {
-      setOpenSearch(false);
-    };
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  const showDrawerSearch = () => {
+    setOpenSearch(true);
+  };
+  const onCloseSearch = () => {
+    setOpenSearch(false);
+  };
+
+  const showLogInModal = () =>{
+    setOpenLogInModal(true)
+  }
+  const onCloseLogInModal = () =>{
+    setOpenLogInModal(false)
+  }
+
+    const handleUserClick = () => {
+    if (!currentUser) {
+      showLogInModal()
+    } else {
+      navigate('/account')
+    }
+  };
     
 
 
@@ -59,17 +81,20 @@ const items2 = [
     },
     {
         key: 'user',
-        icon: <UserOutlined/>
+        icon: <UserOutlined onClick={handleUserClick}/>
         
       },
       {
         key: 'favorites',   
-        icon: <HeartOutlined/>, 
+        icon: <HeartOutlined onClick={()=>navigate('/wishlist')}/>, 
       },
       {
         key: 'cart',
-        icon: <ShoppingCartOutlined  onClick={showDrawer}/>
-        
+        icon:
+  <div>
+    <ShoppingCartOutlined onClick={showDrawer} style={{ fontSize: '24px'}} />
+   {!isCartEmpty && <div className='green-badge-circle'></div>}
+  </div>
       },
   
   ];
@@ -101,25 +126,30 @@ window.addEventListener('scroll', changeBackground)
      <div>
      <Flex justify='space-between'>
     
-      <div style={{margin:'10px'}} className='logoNav'>
-        <img src={logo} width={'100px'} alt='logo'/>
+      <div style={{margin:'10px 0'}} className='logoNav'>
+          {(pathname===(''||'/')) ? <img src={logo_white} width={'70px'} alt='logo'/>
+          :<img src={logo} width={'70px'} alt='logo' onClick={()=>navigate('/')}/>
+          }
       </div>
      
     
     
-       <Menu className='mainMenu middleMenu' selectedKeys={[current]} mode="horizontal" items={items} style={{borderBottom:'0px', minWidth: 0, flex:'auto', maxWidth:'600px' }}/>
+       <Menu className='mainMenu middleMenu' mode="horizontal" 
+       items={items} style={{borderBottom:'0px', minWidth: 0, }}/>
       
   
-      <Menu className='mainMenu loginMenu' selectedKeys={[current2]} mode="horizontal" items={items2} style={{alignItems:'flex-end'}} />
+      <Menu className='mainMenu loginMenu'  mode="horizontal" 
+      items={items2} style={{alignItems:'flex-end',bottom:'15px', position:'relative'}} />
     
       </Flex>
 
      </div>
      <CartDrawer onClose={onClose} open={open} />
      <SearchDrawer onClose={onCloseSearch} open={openSearch} />
-
+      <LoginModal onClose={onCloseLogInModal} open={openLogInModal} />
       </div>
     );
 };
 
 export default Navigation;
+

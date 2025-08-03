@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'antd'
-import logo from '../img/logo.png'
-import { Link } from 'react-router-dom';
+import logo from '../img/logo_green.png'
+import { Link, useNavigate } from 'react-router-dom';
 import pay_icons from '../img/pay_copyright.jpg'
 import PhoneFilled from '@ant-design/icons/PhoneFilled'
 import MailFilled from '@ant-design/icons/MailFilled'
@@ -9,6 +9,8 @@ import PushpinFilled from '@ant-design/icons/PushpinFilled'
 
 
 const Footer = () => {
+    const navigate = useNavigate()
+
     return (
         <div className='footer_box'>
         <Row className='first_footer_box' justify={'space-around'}>
@@ -44,9 +46,9 @@ const Footer = () => {
                 </ul>
             </Col>
         </Row>
-        <Row className='last_footer_box' justify={'space-around'}>
+        <Row className='last_footer_box' justify={'space-around'} align='middle'>
             <Col span={6}>
-                <img src={logo} width={'80px'} alt="" />
+                <img src={logo} width={'50px'} alt="logo" className='logo_footer' onClick={()=>navigate('/')} />
             </Col>
             <Col span={6}>
                 <img src={pay_icons} alt="" />

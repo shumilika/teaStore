@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Row, Col, Form, Input, Button, Alert } from 'antd'
-import PageHeader from '../services/PageHeader';
+import PageHeader from './PageHeader';
 import { Map, Marker } from '@vis.gl/react-google-maps';
 
 const ContactUs = () => {

@@ -3,6 +3,8 @@ import { Modal, Row, Col, Divider, Radio, InputNumber, Button, ConfigProvider } 
 import CarouselPreCart from '../CarouselPreCart';
 import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
+import { fethCartList } from '../../store/personalProduct';
+import { useDispatch } from 'react-redux';
 
 
 const PreviewCard = (props) => {
@@ -13,6 +15,7 @@ const PreviewCard = (props) => {
   const [valueCount, setValueCount] = useState(props.amount?props.amount[0].count:'')
   const [quantity, setQuantity] = useState(1)
   const { currentUser } = useAuth()
+  const dispatch = useDispatch()
  
 
   
@@ -56,6 +59,8 @@ const PreviewCard = (props) => {
         
             await addToCart(currentUser.uid, newProduct);
             alert("Added to cart!");
+
+            dispatch(fethCartList(currentUser.uid))
   }
 
     return (

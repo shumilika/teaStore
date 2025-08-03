@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-
 import { Link } from 'react-router-dom';
 import PageHeader from '../PageHeader';
 import { Table } from 'antd'
 import { useDispatch, useSelector } from 'react-redux';
 import { fethCartList } from '../../store/personalProduct';
+import { deleteCartItem } from '../../services/productService';
 import { useAuth } from '../../contexts/AuthContext';
+import { CloseOutlined } from '@ant-design/icons'
 
 const Cart = () => {
 
@@ -13,6 +14,11 @@ const Cart = () => {
   const cartData = useSelector(state=>state.personalProduct.cartList)
   const dispatch = useDispatch()
   const userId = currentUser?.uid
+
+  const handleDeleteItemFromCart = async (value) =>{
+    await deleteCartItem(userId,value)
+    dispatch(fethCartList(userId))
+  }
 
 
  const dataSource = cartData.map((item, index) => ({
@@ -29,6 +35,8 @@ const Cart = () => {
   price: <span>${item.price}.00</span>,
   quantity: item.quantity,
   total: <span>${item.price * item.quantity}.00</span>,
+  action:<div className='delete-icon-full-cart'><CloseOutlined 
+  style={{fontSize:'18px'}} onClick={()=>handleDeleteItemFromCart(item.id)}/></div>
 }));
 
 const columns = [
@@ -52,6 +60,11 @@ const columns = [
     dataIndex: 'total',
     key: 'total',
   },
+  {
+    title: '',
+    dataIndex: 'action',
+    key: 'action',
+  },
 ];
 
 
@@ -67,7 +80,7 @@ const columns = [
             </div>
             :
             <div>
-        <Table dataSource={dataSource} columns={columns} style={{width:'70%',margin:'0 auto'}} />
+        <Table dataSource={dataSource} columns={columns} style={{width:'70%',margin:'0 auto'}}  pagination={false}/>
             </div>
           }
           </div>

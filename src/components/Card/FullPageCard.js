@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, Divider, Radio, InputNumber, Button } from 'antd'
 import CarouselPreCart from '../CarouselPreCart';
 import { Link, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LeftOutlined from '@ant-design/icons/LeftOutlined'
 import RightOutlined from '@ant-design/icons/RightOutlined'
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 import Card3rdColumn from '../Card3rdColumn';
 import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
+import { fethCartList } from '../../store/personalProduct';
 
 
 const FullPageCard = () => {
@@ -23,6 +24,7 @@ const FullPageCard = () => {
   const [prevPhoto, setPrevPhoto] = useState('')
   const [nextPhoto, setNextPhoto] = useState('')
   const [quantity, setQuantity] = useState(1)
+  const dispatch = useDispatch()
 
  const product = productsList.find(item => item.id === id);
  const currentIndex = productsList.findIndex(item => item.id === id);
@@ -109,6 +111,8 @@ useEffect(() => {
 
     await addToCart(currentUser.uid, newProduct);
     alert("Added to cart!");
+
+    dispatch(fethCartList(currentUser.uid))
 };
 
 

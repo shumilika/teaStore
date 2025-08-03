@@ -91,9 +91,10 @@ const items2 = [
       {
         key: 'cart',
         icon:
-  <Badge dot={!isCartEmpty} color='#98a86d'> 
-  <ShoppingCartOutlined onClick={showDrawer} style={{ fontSize: '24px'}} />
-  </Badge>
+  <div>
+    <ShoppingCartOutlined onClick={showDrawer} style={{ fontSize: '24px'}} />
+   {!isCartEmpty && <div className='green-badge-circle'></div>}
+  </div>
       },
   
   ];
@@ -126,7 +127,7 @@ window.addEventListener('scroll', changeBackground)
      <Flex justify='space-between'>
     
       <div style={{margin:'10px 0'}} className='logoNav'>
-          {(pathname===(''||'/')) ? <img src={logo_white} width={'70px'} alt='logo' onClick={()=>navigate('/')}/>
+          {(pathname===(''||'/')) ? <img src={logo_white} width={'70px'} alt='logo'/>
           :<img src={logo} width={'70px'} alt='logo' onClick={()=>navigate('/')}/>
           }
       </div>
@@ -151,3 +152,4 @@ window.addEventListener('scroll', changeBackground)
 };
 
 export default Navigation;
+

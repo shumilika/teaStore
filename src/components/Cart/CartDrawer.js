@@ -1,22 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Drawer, Row, Col, Flex, Button } from 'antd'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useDispatch, useSelector } from 'react-redux';
+import {DeleteOutlined} from '@ant-design/icons'
+import { deleteCartItem } from '../../services/productService';
 import { fethCartList } from '../../store/personalProduct';
+
 
 const CartDrawer = (props) => {
 
   const { currentUser } = useAuth()
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const cartData = useSelector(state=>state.personalProduct.cartList)
-  // const userId = currentUser?.uid
+  const userId = currentUser?.uid
   const navigate = useNavigate()
   let totalQuantity = 0;
   let totalCost = 0;
     
-
-
   cartData.forEach(item => {
     if (item.quantity && item.price) {
       totalQuantity += item.quantity;
@@ -27,6 +28,11 @@ const CartDrawer = (props) => {
   const handleViewCart = () =>{
     navigate('/cart')
     props.onClose()
+  }
+
+  const handleDeleteItemFromCart = async (value) => {
+    await deleteCartItem(userId,value)
+    dispatch(fethCartList(userId))
   }
     
   const title =
@@ -47,7 +53,7 @@ const CartDrawer = (props) => {
           </div>
         :<Row>
           {cartData.map((item, index) => (
-            <Col key={index} span={24}>
+            <Col key={index} span={24} className='cart-item'>
               <div style={{display:'flex'}}>
                 <img src={item.image} alt="" style={{ width: 100, height: 100,}}/>
                 <div>
@@ -55,6 +61,9 @@ const CartDrawer = (props) => {
                   <p>QTY: {item.quantity}</p>
                   <p>${item.price}.00</p>
                 </div>
+               <div className='delete-icon'>
+                 <DeleteOutlined onClick={()=>handleDeleteItemFromCart(item.id)} />
+               </div>
               </div>
             </Col>
           ))}

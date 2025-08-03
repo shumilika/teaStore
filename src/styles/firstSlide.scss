@@ -140,6 +140,11 @@
      
        .logoNav { order: 2;
     width: 25%;
+    
+        img{
+            cursor: pointer;
+        }
+    
     }
        .middleMenu { order: 1; }
        .loginMenu{ order: 3;}
@@ -546,7 +551,10 @@
 
         .last_footer_box{
             border-top:1px #E8E8F2 solid;
-            padding: 40px 0 10px 0;          
+            padding: 40px 0 10px 0;  
+            .logo_footer{
+                cursor: pointer;
+            }        
             .ant-col-6{
             font-size: 14px;
             font-weight: 400;
@@ -667,6 +675,9 @@
         text-transform: uppercase;
         font-size: 12px;
         padding: 20px 35px;
+    }
+    .delete-icon .anticon:hover{
+        color: #98a86d;
     }
    }
 
@@ -1468,3 +1479,19 @@
    }
 }
 
+.green-badge-circle{
+    width: 11px;
+    height: 11px;
+    background-color: #98a86d;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.delete-icon-full-cart{
+    .anticon:hover{
+        color: #98a86d;
+    }
+    font-weight: 600;
+}

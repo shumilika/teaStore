@@ -51,20 +51,7 @@ const Shop = () => {
                      </div>
                     <div> 
                     
-                    <Select
-                      defaultValue="Featured"
-                      style={{ width: 160 }}
-                      className='select-shop-featured'
-                      options={[
-                        { value: 'featured', label: 'Featured' },
-                        { value: 'best selling', label: 'Best Selling' },
-                        { value: 'alphabetically', label: 'Alphabetically, A-Z' },
-                        { value: 'price high-low', label: 'Price, high to low' },
-                        { value: 'price low-high', label: 'Price, low to high' },
-                        { value: 'date old-new', label: 'Date, old to new' },
-                        { value: 'date new-old', label: 'Date, new to old' },
-                      ]}
-                    />
+                
                     </div>
                 </Col>
             </Row>

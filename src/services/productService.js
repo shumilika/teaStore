@@ -26,7 +26,7 @@ export const addToCart = async (userId, product) => {
   }, { merge: true });
 
 
-};
+}
 
 export const deleteCartItem = async (userId, productId) => {
    const cartItemRef = doc(db, "users", userId, "cart", productId);
@@ -34,26 +34,17 @@ export const deleteCartItem = async (userId, productId) => {
 }
 
 export const addToFavorites = async (userId, product) => {
-  const cartItemRef = doc(db, "users", userId, "favorites", product.id);
+  const itemRef = doc(db, "users", userId, "favorites", product.id);
 
-//   const existingItem = await getDoc(cartItemRef);
-
-//   let newQuantity = product.quantity;
-
-//   if (existingItem.exists()) {
-//     const existingData = existingItem.data();
-//     newQuantity += existingData.quantity || 0;
-//   }
-
-
-  await setDoc(cartItemRef, {
+  await setDoc(itemRef, {
     id:product.id,
-    size: product.size,
     title: product.title,
     price: product.price,
     image: product.image,
-    type: product.type, 
-  }, { merge: true });
+  });
+}
 
-
-};
+export const deleteFavoritesItem = async (userId, productId) => {
+   const itemRef = doc(db, "users", userId, "favorites", productId);
+   await deleteDoc(itemRef)
+}

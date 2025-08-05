@@ -4,11 +4,14 @@ import { HeartOutlined, InfoOutlined } from '@ant-design/icons';
 import { Row, Col, Tooltip } from 'antd';
 import PreviewCard from './PreviewCard';
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
+import { addToFavorites } from '../../services/productService';
+import { useAuth } from '../../contexts/AuthContext';
 
 const SmallCard = ({id,name, price, type, amount, description, photo, imgs}) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [imgUrl, setImgUrl] = useState()
+    const { currentUser } = useAuth()
     
 
     const showModal = () => {
@@ -23,6 +26,24 @@ const SmallCard = ({id,name, price, type, amount, description, photo, imgs}) => 
       setIsModalOpen(false);
     };
 
+    const handleAddToFavoritesAction = async () => {
+         let newProduct = {
+              id: id,
+              title: name,
+              price:price,
+              image: photo, 
+            }
+         
+            if (!currentUser) {
+              alert("Please sign in first");
+              return;
+            }
+        
+            await addToFavorites(currentUser.uid, newProduct);
+            alert("Added to favorites!");
+        
+            
+    }
    
 
     useEffect(()=>{
@@ -54,7 +75,7 @@ const SmallCard = ({id,name, price, type, amount, description, photo, imgs}) => 
                 
                 <Row className='hideLink menu'>
                     <Col span={12} style={{borderRight:'2px solid #b1afaf'}}>
-                        <Link to={'to favorites'}>
+                        <Link onClick={handleAddToFavoritesAction}>
                             <Tooltip title={'add to Wishlist'}>
                                 <HeartOutlined style={{fontSize: '20px', color:'#727272'}}/>
                             </Tooltip>

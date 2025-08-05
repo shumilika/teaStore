@@ -8,7 +8,8 @@ import { API_KEY_MAPS } from './services/constants';
 import { useAuth } from './contexts/AuthContext';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fethCartList } from './store/personalProduct';
+import { fetchFavoritesList, fethCartList } from './store/personalProduct';
+import { fetchProductList } from './store/products';
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
   useEffect(()=>{
     if(currentUser){
       dispatch(fethCartList(currentUser.uid))
+      dispatch(fetchFavoritesList(currentUser.uid))
     }
+    dispatch(fetchProductList()) 
   },[currentUser])
   return (
     <APIProvider apiKey={API_KEY_MAPS}>

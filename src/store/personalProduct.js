@@ -33,7 +33,7 @@ export const fethCartList = createAsyncThunk(
 
           return {
             ...data,
-            id: doc.id,
+            item_id: doc.id,
             image: imageUrl,
           };
         })
@@ -48,20 +48,42 @@ export const fethCartList = createAsyncThunk(
     }
   }
 );
-export const fetchFavoritesList = createAsyncThunk('/favorites', async (userId) => {
 
+export const fetchFavoritesList = createAsyncThunk(
+  'personalProduct/fetchFavoritesList',
+  async (userId, thunkAPI) => {
     try {
-        const cartRef = collection(db, "users", userId, "favorites");
-        const response = await getDocs(cartRef);
+      const response = await getDocs(collection(db, "users", userId, "favorites"))
+        
+      const storage = getStorage();
 
-        return response.docs.map(doc => ({
-        id: doc.id,        
-        ...doc.data()
-        }));
+      const itemsWithImages = await Promise.all(
+        response.docs.map(async (doc) => {
+          const data = doc.data();
+          let imageUrl = '';
+          try {
+            imageUrl = await getDownloadURL(ref(storage, `img/${data.image}`));
+          } catch (err) {
+            console.error('Ошибка загрузки фото:', err);
+          }
+
+          return {
+            ...data,
+            id: doc.id,
+            image: imageUrl,
+          };
+        })
+      );
+
+     return {
+         itemsWithImages
+         
+      }
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.message);
     }
-    catch (error) {}
-    return []
-})
+  }
+);
 
 
 export const personalProduct = createSlice({
@@ -73,7 +95,7 @@ export const personalProduct = createSlice({
               state.cartList=action.payload.cartList
               state.isCartEmpty=action.payload.isEmpty
             })
-            .addCase(fetchFavoritesList.fulfilled, (state, action)=>{ state.favoritesList=action.payload})   
+            .addCase(fetchFavoritesList.fulfilled, (state, action)=>{ state.favoritesList=action.payload.itemsWithImages})   
     },
 })
 

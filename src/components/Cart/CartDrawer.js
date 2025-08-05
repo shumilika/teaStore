@@ -17,6 +17,7 @@ const CartDrawer = (props) => {
   const navigate = useNavigate()
   let totalQuantity = 0;
   let totalCost = 0;
+
     
   cartData.forEach(item => {
     if (item.quantity && item.price) {
@@ -33,6 +34,11 @@ const CartDrawer = (props) => {
   const handleDeleteItemFromCart = async (value) => {
     await deleteCartItem(userId,value)
     dispatch(fethCartList(userId))
+  }
+
+  const handleOpenItemCardAction = (id) => {
+    props.onClose()
+    navigate(`/shop/${id}`)
   }
     
   const title =
@@ -55,14 +61,20 @@ const CartDrawer = (props) => {
           {cartData.map((item, index) => (
             <Col key={index} span={24} className='cart-item'>
               <div style={{display:'flex'}}>
-                <img src={item.image} alt="" style={{ width: 100, height: 100,}}/>
+               
+                 <img src={item.image} alt={item.title} style={{ width: 100, height: 100,}}
+                  onClick={()=>handleOpenItemCardAction(item.id)}
+                 />
+                
                 <div>
+                  <Button type='link' onClick={()=>handleOpenItemCardAction(item.id)}>
                   <p>{item.title} - {item.size} / {item.type}</p>
+                  </Button>
                   <p>QTY: {item.quantity}</p>
                   <p>${item.price}.00</p>
                 </div>
                <div className='delete-icon'>
-                 <DeleteOutlined onClick={()=>handleDeleteItemFromCart(item.id)} />
+                 <DeleteOutlined onClick={()=>handleDeleteItemFromCart(item.item_id)} />
                </div>
               </div>
             </Col>

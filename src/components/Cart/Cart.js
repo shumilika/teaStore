@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PageHeader from '../PageHeader';
-import { Table } from 'antd'
+import { Table, Button } from 'antd'
 import { useDispatch, useSelector } from 'react-redux';
 import { fethCartList } from '../../store/personalProduct';
 import { deleteCartItem } from '../../services/productService';
@@ -14,21 +14,29 @@ const Cart = () => {
   const cartData = useSelector(state=>state.personalProduct.cartList)
   const dispatch = useDispatch()
   const userId = currentUser?.uid
+  const navigate = useNavigate()
 
   const handleDeleteItemFromCart = async (value) =>{
     await deleteCartItem(userId,value)
     dispatch(fethCartList(userId))
   }
 
+    const handleOpenItemCardAction = (id) => {
+    navigate(`/shop/${id}`)
+  }
 
- const dataSource = cartData.map((item, index) => ({
+
+ const dataSource = cartData.map((item) => ({
   key: `${item.id}-${item.size}`, 
   name: (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-      <img src={item.image} alt={item.title} style={{ width: 100, height: 100,}} />
+       <img src={item.image} alt={item.title} style={{ width: 100, height: 100,}} 
+       onClick={()=>handleOpenItemCardAction(item.id)}/>
       <div>
-        <p>{item.title}</p>
-      <p> {item.size}g / {item.type}</p>
+       <Button type='link' onClick={()=>handleOpenItemCardAction(item.id)}>
+         <p>{item.title}</p>
+       </Button>
+       <p> {item.size}g / {item.type}</p>
       </div>
     </div>
   ),
@@ -36,7 +44,7 @@ const Cart = () => {
   quantity: item.quantity,
   total: <span>${item.price * item.quantity}.00</span>,
   action:<div className='delete-icon-full-cart'><CloseOutlined 
-  style={{fontSize:'18px'}} onClick={()=>handleDeleteItemFromCart(item.id)}/></div>
+  style={{fontSize:'18px'}} onClick={()=>handleDeleteItemFromCart(item.item_id)}/></div>
 }));
 
 const columns = [

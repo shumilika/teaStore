@@ -7,17 +7,28 @@ import SmallCard from '../Card/SmallCard'
 const BestSeller = () => {
 
   const bestSellerList = useSelector(state=>state.products.bestSellerList)
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch()
-  
+  const favoritesData = useSelector(state=>state.personalProduct.favoritesList)
+  const [mergedProducts, setMergedProducts] = useState([])
+ 
 
-  useEffect(()=>{
-    setLoading(true)
-     dispatch(fetchBestSellersList())
-    setTimeout(()=>{
-      setLoading(false)
-    },3000) 
-  },[]) 
+   useEffect(() => {
+    dispatch(fetchBestSellersList()).finally(() => setLoading(false));
+  }, [dispatch]);
+
+   useEffect(() => {
+    if (bestSellerList.length && favoritesData) {
+      const wishlistIds = favoritesData.map((item) => item.id);
+      const withFlags = bestSellerList.map((product) => ({
+        ...product,
+        isLiked: wishlistIds.includes(product.id),
+      }));
+      setMergedProducts(withFlags);
+    }
+  }, [bestSellerList, favoritesData]);
+
+  
 
 
     return (
@@ -29,13 +40,13 @@ const BestSeller = () => {
           </Row>
 
           <Row style={{padding:'10px'}}>
-          {bestSellerList.length > 0 ? (
-            bestSellerList.map((product, index) => (
+          {mergedProducts.length > 0 ? (
+            mergedProducts.map((product, index) => (
       
             <Col key={index} span={6} >
               <SmallCard data={product} name={product.name} price={product.amount[0].price}
               description={product.description} amount={product.amount} type={product.type} 
-              photo={product.photo} imgs={product.imgs} id={product.id}
+              photo={product.photo} imgs={product.imgs} id={product.id} isLiked={product.isLiked}
                />
             </Col>
       

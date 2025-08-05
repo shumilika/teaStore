@@ -7,16 +7,28 @@ import { fetchNewArrivalList } from '../../store/products';
 const NewArrivals = () => {
 
   const newArrivalList = useSelector(state=>state.products.newArrivalList)
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const dispatch = useDispatch()
-
+  const favoritesData = useSelector(state=>state.personalProduct.favoritesList)
+  const [mergedProducts, setMergedProducts] = useState([])
+ 
   useEffect(()=>{
-    setLoading(true)
-    dispatch(fetchNewArrivalList())
-    setTimeout(()=>{
-      setLoading(false)
-    },4000) 
-  },[]) 
+    dispatch(fetchNewArrivalList()).finally(()=>setLoading(false))
+   
+  },[dispatch]) 
+
+  useEffect(() => {
+      if (newArrivalList.length && favoritesData) {
+        const wishlistIds = favoritesData.map((item) => item.id);
+        const withFlags = newArrivalList.map((product) => ({
+          ...product,
+          isLiked: wishlistIds.includes(product.id),
+        }));
+        setMergedProducts(withFlags);
+      }
+    }, [newArrivalList, favoritesData]);
+  
+    
 
   const chunkArray = (array, chunkSize) => {
     const chunks = [];
@@ -40,15 +52,15 @@ const NewArrivals = () => {
      
            
             <Carousel>
-  {newArrivalList.length > 0 ? (
-    chunkArray(newArrivalList, 4).map((chunk, chunkIndex) => (
+  {mergedProducts.length > 0 ? (
+    chunkArray(mergedProducts, 4).map((chunk, chunkIndex) => (
       <div key={chunkIndex}>
         <Row>
           {chunk.map((product, index) => (
             <Col key={index} span={6} tabIndex={(chunkIndex * 4) + index}>
               <SmallCard data={product} name={product.name} price={product.amount[0].price}
               description={product.description} amount={product.amount} type={product.type} 
-              photo={product.photo} imgs={product.imgs} id={product.id}
+              photo={product.photo} imgs={product.imgs} id={product.id} isLiked={product.isLiked}
                />
             </Col>
           ))}

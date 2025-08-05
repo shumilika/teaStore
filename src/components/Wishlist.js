@@ -91,6 +91,7 @@ const columns = [
              <Row justify={'center'}>
                 <Col span={12}>
                     <Table dataSource={dataSource} pagination={false} columns={columns} />
+                    <Button onClick={()=>navigate('/shop')}>continue shopping</Button>
                 </Col>    
             </Row>
         </div>

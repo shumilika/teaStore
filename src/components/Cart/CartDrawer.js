@@ -12,19 +12,10 @@ const CartDrawer = (props) => {
 
   const { currentUser } = useAuth()
   const dispatch = useDispatch()
-  const cartData = useSelector(state=>state.personalProduct.cartList)
+  const {cartList, totalCost, totalQuantity} = useSelector(state=>state.personalProduct)
   const userId = currentUser?.uid
   const navigate = useNavigate()
-  let totalQuantity = 0;
-  let totalCost = 0;
-
-    
-  cartData.forEach(item => {
-    if (item.quantity && item.price) {
-      totalQuantity += item.quantity;
-      totalCost += item.quantity * item.price;
-    }
-  })
+  
 
   const handleViewCart = () =>{
     navigate('/cart')
@@ -58,7 +49,7 @@ const CartDrawer = (props) => {
             <Link to={'shop'} onClick={props.onClose}>go to the shop</Link>
           </div>
         :<Row>
-          {cartData.map((item, index) => (
+          {cartList.map((item, index) => (
             <Col key={index} span={24} className='cart-item'>
               <div style={{display:'flex'}}>
                

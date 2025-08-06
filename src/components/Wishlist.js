@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PageHeader from './PageHeader';
 import { Col, Row, Table, Button } from 'antd';
 import { useAuth } from '../contexts/AuthContext.js'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchFavoritesList } from '../store/personalProduct.js';
 import { CloseOutlined } from '@ant-design/icons'
@@ -49,7 +49,9 @@ const dataSource = favoritesData.map((item) => ({
     </div>
   ),
   price: <span>${item.price}.00</span>,
-  action:<Button onClick={()=>handleOpenItemCardAction(item.id)}>select option</Button>,
+  action:<div className='btn-item'>
+    <Button onClick={()=>handleOpenItemCardAction(item.id)}>select option</Button>
+  </div>,
   remove:<div className='delete-icon-full-cart'>
   <CloseOutlined 
   style={{fontSize:'18px'}} 
@@ -91,7 +93,9 @@ const columns = [
              <Row justify={'center'}>
                 <Col span={12}>
                     <Table dataSource={dataSource} pagination={false} columns={columns} />
-                    <Button onClick={()=>navigate('/shop')}>continue shopping</Button>
+                   <div className='link-box'>
+                     <Link to={'/shop'}>continue shopping</Link>
+                   </div>
                 </Col>    
             </Row>
         </div>

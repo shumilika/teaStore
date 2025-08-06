@@ -10,6 +10,7 @@ import Card3rdColumn from '../Card3rdColumn';
 import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
 import { fethCartList } from '../../store/personalProduct';
+import SuccessAddModal from '../SuccessAddModal';
 
 
 const FullPageCard = () => {
@@ -24,7 +25,12 @@ const FullPageCard = () => {
   const [prevPhoto, setPrevPhoto] = useState('')
   const [nextPhoto, setNextPhoto] = useState('')
   const [quantity, setQuantity] = useState(1)
+  const [openAddCardModal, setOpenAddCardModal] = useState(false)
+  const [finalCard,setFinalCard] = useState({})
   const dispatch = useDispatch()
+  const handleCloseAddCardModal = () => {
+    setOpenAddCardModal(false)
+  }
 
  const product = productsList.find(item => item.id === id);
  const currentIndex = productsList.findIndex(item => item.id === id);
@@ -103,16 +109,16 @@ useEffect(() => {
       image: product.photo,
       type: product.type, 
     }
+    setFinalCard(newProduct)
  
     if (!currentUser) {
       alert("Please sign in first");
       return;
     }
 
-    await addToCart(currentUser.uid, newProduct);
-    alert("Added to cart!");
-
+    await addToCart(currentUser.uid, newProduct)
     dispatch(fethCartList(currentUser.uid))
+    setOpenAddCardModal(true)
 };
 
 
@@ -198,6 +204,8 @@ if (!product) {
                   <Card3rdColumn/>
                 </Col>
             </Row>
+
+            <SuccessAddModal open={openAddCardModal} onClose={handleCloseAddCardModal} product={finalCard}/>
         </div>
       
     );

@@ -9,6 +9,8 @@ const initialState = {
     cartList: [],
     favoritesList: [],
     isCartEmpty: true,
+    totalQuantity:0,
+    totalCost:0,
 };
 
 
@@ -24,6 +26,7 @@ export const fethCartList = createAsyncThunk(
       const itemsWithImages = await Promise.all(
         response.docs.map(async (doc) => {
           const data = doc.data();
+    
           let imageUrl = '';
           try {
             imageUrl = await getDownloadURL(ref(storage, `img/${data.image}`));
@@ -39,9 +42,20 @@ export const fethCartList = createAsyncThunk(
         })
       );
 
+        const { totalQuantity, totalCost } = itemsWithImages.reduce(
+        (acc, item) => {
+          acc.totalQuantity += item.quantity || 0;
+          acc.totalCost += (item.quantity || 0) * (item.price || 0);
+          return acc;
+        },
+        { totalQuantity: 0, totalCost: 0 }
+      );
+
      return {
         cartList: itemsWithImages,
         isEmpty: itemsWithImages.length === 0,
+        totalQuantity,
+        totalCost,
       }
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -94,6 +108,8 @@ export const personalProduct = createSlice({
             .addCase(fethCartList.fulfilled, (state, action)=>{
               state.cartList=action.payload.cartList
               state.isCartEmpty=action.payload.isEmpty
+              state.totalQuantity = action.payload.totalQuantity
+              state.totalCost = action.payload.totalCost
             })
             .addCase(fetchFavoritesList.fulfilled, (state, action)=>{ state.favoritesList=action.payload.itemsWithImages})   
     },

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Divider, Radio, InputNumber, Button } from 'antd'
+import { Row, Col, Divider, Radio, InputNumber, Button, ConfigProvider, Breadcrumb } from 'antd'
 import CarouselPreCart from '../CarouselPreCart';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import LeftOutlined from '@ant-design/icons/LeftOutlined'
-import RightOutlined from '@ant-design/icons/RightOutlined'
+import { PlusOutlined, MinusOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons' 
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 import Card3rdColumn from '../Card3rdColumn';
 import { useAuth } from '../../contexts/AuthContext';
@@ -80,7 +79,7 @@ useEffect(() => {
 }, [prevIndex, nextIndex]);
 
       const optionsSize = product.amount?product.amount.map(item => ({
-        label: item.size,
+        label: `${item.size}G`,
         value: item.size
       })):'';
  
@@ -97,6 +96,7 @@ useEffect(() => {
         setValuePrice(foundItem.price)
         setValueCount(foundItem.count)
       };
+
 
   const handleAddToCart = async () => {
 
@@ -128,13 +128,28 @@ if (!product) {
     return (
        
         <div className='full-card-box'>
-        <Row className='prev-next-box'>
-  <Col span={24}>
+       
+        <Row >
+        <Col span={8} className='breadcrumb-box'>
+           <Breadcrumb
+            separator=">"
+    items={[
+      {
+        title: 'Home',
+        href:'/'
+      },
+      {
+        title: <span>{product.name}</span>,
+      },
+    ]}
+  />
+        </Col>
+  <Col span={8} offset={8} className='prev-next-box'>
   
  {prevIndex && <>
    <Link to={`/shop/${prevIndex.id}`} className='prev'> <LeftOutlined /> <span>Prev</span> </Link>
   <Row className='prev-hover-box'>
-    <Col span={6}><Link to={`/shop/${prevIndex.id}`}><img src={prevPhoto} alt='' /></Link>
+    <Col span={6}><Link to={`/shop/${prevIndex.id}`} ><img src={prevPhoto} alt='' /></Link>
     </Col>
     <Col flex={'auto'}>
     <Link to={`/shop/${prevIndex.id}`}>{prevIndex.name}</Link>
@@ -159,15 +174,51 @@ if (!product) {
    </>}
   </Col>
         </Row>
-            <Row gutter={[16, 16]} className='main-content'>
+        <ConfigProvider
+          theme={{
+        components: {
+          Radio: {
+            buttonSolidCheckedBg: '#000',
+            buttonSolidCheckedHoverBg:'#000',
+            buttonSolidCheckedActiveBg: '#000',
+            colorPrimary:'#000',
+            colorPrimaryHover:'#000',
+            borderRadius:0,
+            controlHeight:40,
+            buttonColor:'rgba(0,0,0,0.55)',
+          },
+          InputNumber: {
+            handleVisible:true,
+            hoverBorderColor:'#000',
+            colorBorder:'#000',
+            activeBorderColor:'#000',
+            borderRadiusLG:0,
+            handleFontSize:12,
+            controlWidth:70,
+            handleWidth:25,
+            lineWidth:2,
+            controlHeightLG:45
+            
+          }
+          
+        },
+        token: {
+          colorPrimary: '#000',
+        }
+      }}
+      >
+                <Row gutter={[16, 16]} className='main-content'>
                 <Col sm={{flex:3}} md={{span:10}}>
               {product.imgs && <CarouselPreCart imgs={product.imgs} />}
                 </Col>
                 <Col  sm={{flex:2}} md={{span:8}}>
                     <h4>{product.name}</h4>
-                    <span>${valuePrice}.00 USD</span>
+                    <span className='price-text'>${valuePrice}.00 USD</span>
                     <Divider/>
-                    <p>{product.description}</p>
+                    <p className='description-text'>{product.description}</p>
+                    
+
+                          
                      <Row className='radio-box'>
                        <Col flex={'100px'}> <p>Size</p></Col>
                        <Col flex={'auto'}>
@@ -180,23 +231,29 @@ if (!product) {
                         />
                        </Col>
                      </Row>
-                     <Row  className='radio-box'>
+                     <Row  className='radio-box type' style={{textTransform:'uppercase'}}>
                        <Col flex={'100px'}> <p>Type</p></Col>
                        <Col flex={'auto'}>
-                       <Radio.Group
+                      
+                         
+                            <Radio.Group
                             options={optionsType}
                             value={valueType}
                             optionType="button"
                             buttonStyle="solid"
                         />
+                   
                        </Col>
                      </Row>
                      <Row>
                       <Col >
-                      <InputNumber min={1} max={valueCount} defaultValue={quantity} onChange={setQuantity}  />
+                      <InputNumber 
+                      size='large'
+                      controls= {{ upIcon: <PlusOutlined /> , downIcon: <MinusOutlined />  }}
+                      min={1} max={valueCount} defaultValue={quantity} onChange={setQuantity}  />
                       </Col>
-                      <Col >
-                        <Button onClick={handleAddToCart}>Add to cart</Button>
+                      <Col className='link-box'>
+                        <Link onClick={handleAddToCart}>Add to cart</Link>
                       </Col>
                      </Row>
                 </Col>
@@ -204,6 +261,11 @@ if (!product) {
                   <Card3rdColumn/>
                 </Col>
             </Row>
+        </ConfigProvider>
+        <Row>
+          
+        </Row>
+
 
             <SuccessAddModal open={openAddCardModal} onClose={handleCloseAddCardModal} product={finalCard}/>
         </div>

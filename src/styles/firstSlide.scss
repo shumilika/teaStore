@@ -509,6 +509,7 @@
 
     .footer_box{
         background-color: #f8f8f8;
+        padding-top: 40px;
 
         ul{
             list-style: none;
@@ -1073,7 +1074,7 @@
 }
 
 .full-card-box{
-    margin: 50px 20px;
+    margin: 50px 3%;
     .main-content{
         margin-top: 20px;
         .price-text{
@@ -1084,6 +1085,11 @@
             color: #a8a8a8;
             line-height: 28px;
             font-size: 14px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;     /* количество строк */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-clamp: 2;
         }
         .radio-box{
             margin-bottom: 20px;
@@ -1184,6 +1190,47 @@
             display: flex;
         }
         
+    }
+    .add-info{
+        margin: 0 5%;
+        .tabs{
+            .ant-tabs-top >.ant-tabs-nav::before{
+                border: 0;
+            }
+            .ant-tabs-ink-bar{
+                display: none;
+            }
+            .ant-tabs .ant-tabs-tab{
+                margin-bottom: 10px;
+                font-size: 18px;
+            }
+            .ant-tabs .ant-tabs-tab:hover{
+                color: #000;
+                
+                span{
+                    border-bottom: 2px solid #98a86d;
+                }
+            }
+            .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
+                text-shadow: none;
+                color: #000;
+                
+                span{
+                    border-bottom: 2px solid #98a86d;
+                }
+            }
+        }
+        .tab-label{
+            font-size: 18px;
+            margin-right: 35px;
+            font-weight: 500;
+        }
+        .description-add-box{
+            color: #a8a8a8;
+            font-size: 14px;
+            line-height: 28px;
+            text-align: center;
+        }
     }
 }
 

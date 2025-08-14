@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Divider, Radio, InputNumber, ConfigProvider, Breadcrumb, Tabs } from 'antd'
+import { Row, Col, Divider, Radio, InputNumber, ConfigProvider, Breadcrumb, Tabs, Spin } from 'antd'
 import CarouselPreCart from '../CarouselPreCart';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,8 +14,9 @@ import SuccessAddModal from '../SuccessAddModal';
 const FullPageCard = () => {
 
   const { id } = useParams()
-  const productsList = useSelector(state=>state.products.productsList)
-
+  const productsListFromRedux = useSelector(state=>state.products.productsList)
+  const [productsList, setProductsList] = useState([])
+   const [loading, setLoading] = useState(true);
   const [valueSize, setValueSize] = useState('');
   const [valueType, setValueType ] = useState('');
   const [valuePrice, setValuePrice] = useState('')
@@ -29,9 +30,33 @@ const FullPageCard = () => {
   const handleCloseAddCardModal = () => {
     setOpenAddCardModal(false)
   }
+ 
 
+  useEffect(() => {
+    
+    if (productsListFromRedux.length > 0) {
+      setProductsList(productsListFromRedux);
+      setLoading(false); 
+    } else {
+      try {
+        const storedProducts = localStorage.getItem("productsList");
+        if (storedProducts) {
+          setProductsList(JSON.parse(storedProducts));
+        }
+      } catch (e) {
+        console.error("Failed to parse products from localStorage", e);
+      } finally {
+        setLoading(false); 
+      }
+    }
+  }, [productsListFromRedux]);
+
+ 
 
  const product = productsList.find(item => item.id === id);
+
+
+
  const currentIndex = productsList.findIndex(item => item.id === id);
  const prevIndex = currentIndex > 0 ? productsList[currentIndex - 1] : null;
  const nextIndex = currentIndex < (productsList.length - 1) ? productsList[currentIndex + 1] : null;
@@ -77,6 +102,18 @@ useEffect(() => {
     getPhotoUrlNext(nextIndex.photo);
   }
 }, [prevIndex, nextIndex]);
+
+ if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
+
+if (!product) {
+  return <div style={{ padding: 50 }}>Product not found</div>;
+}
 
       const optionsSize = product.amount?product.amount.map(item => ({
         label: `${item.size}G`,
@@ -137,9 +174,7 @@ useEffect(() => {
 };
 
 
-if (!product) {
-  return <div style={{ padding: 50 }}>Product not found</div>;
-}else
+
     return (
        
         <div className='full-card-box'>

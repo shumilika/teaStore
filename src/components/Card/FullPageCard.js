@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Divider, Radio, InputNumber, Button, ConfigProvider, Breadcrumb } from 'antd'
+import { Row, Col, Divider, Radio, InputNumber, ConfigProvider, Breadcrumb, Tabs } from 'antd'
 import CarouselPreCart from '../CarouselPreCart';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,6 @@ import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
 import { fethCartList } from '../../store/personalProduct';
 import SuccessAddModal from '../SuccessAddModal';
-
 
 const FullPageCard = () => {
 
@@ -30,6 +29,7 @@ const FullPageCard = () => {
   const handleCloseAddCardModal = () => {
     setOpenAddCardModal(false)
   }
+
 
  const product = productsList.find(item => item.id === id);
  const currentIndex = productsList.findIndex(item => item.id === id);
@@ -89,6 +89,21 @@ useEffect(() => {
           value: product.type,
         }
       ];
+
+      const items = [
+  {
+    key: '1',
+    label: <span className='tab-label'>Description</span>,
+    children: <div className='description-add-box'>
+      <p>{product?.description}</p>
+    </div>,
+  },
+  {
+    key: '2',
+    label: <span className='tab-label'>Additional Information</span>,
+    children: "",
+  }
+];
 
       const onChangeSize = ({ target: { value } }) => {
         setValueSize(value);
@@ -198,9 +213,12 @@ if (!product) {
             handleWidth:25,
             lineWidth:2,
             controlHeightLG:45
-            
-          }
-          
+          },
+          // Tabs:{
+          //   inkBarColor:'rgba(0,0,0,0.88)',
+          //   lineWidthFocus:1,
+          //   boxShadowSecondary:0
+          // }
         },
         token: {
           colorPrimary: '#000',
@@ -262,8 +280,13 @@ if (!product) {
                 </Col>
             </Row>
         </ConfigProvider>
-        <Row>
-          
+        <Row className='add-info'>
+        <Col span={24}>
+          <div className='tabs'>
+          <Divider/>
+      <Tabs defaultActiveKey="1" items={items}  />
+        </div>
+        </Col>
         </Row>
 
 

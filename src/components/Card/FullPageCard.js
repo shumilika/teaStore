@@ -8,7 +8,7 @@ import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 import Card3rdColumn from '../Card3rdColumn';
 import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
-import { fethCartList } from '../../store/personalProduct';
+import { fethCartList, fetchLocalCartList } from '../../store/personalProduct';
 import SuccessAddModal from '../SuccessAddModal';
 
 const FullPageCard = () => {
@@ -51,11 +51,7 @@ const FullPageCard = () => {
     }
   }, [productsListFromRedux]);
 
- 
-
  const product = productsList.find(item => item.id === id);
-
-
 
  const currentIndex = productsList.findIndex(item => item.id === id);
  const prevIndex = currentIndex > 0 ? productsList[currentIndex - 1] : null;
@@ -164,13 +160,22 @@ if (!product) {
     setFinalCard(newProduct)
  
     if (!currentUser) {
-      alert("Please sign in first");
-      return;
-    }
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingProductIndex = cartItems.findIndex(item => item.id === newProduct.id && item.size === newProduct.size);
 
-    await addToCart(currentUser.uid, newProduct)
+        if (existingProductIndex !== -1) {
+            cartItems[existingProductIndex].quantity += newProduct.quantity;
+        } else {
+            cartItems.push(newProduct);
+        }
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        dispatch(fetchLocalCartList())
+        setOpenAddCardModal(true);
+      }else{
+         await addToCart(currentUser.uid, newProduct)
     dispatch(fethCartList(currentUser.uid))
     setOpenAddCardModal(true)
+      }
 };
 
 

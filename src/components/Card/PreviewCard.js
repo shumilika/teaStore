@@ -3,7 +3,7 @@ import { Modal, Row, Col, Divider, Radio, InputNumber, Button, ConfigProvider } 
 import CarouselPreCart from '../CarouselPreCart';
 import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
-import { fethCartList } from '../../store/personalProduct';
+import { fethCartList, fetchLocalCartList } from '../../store/personalProduct';
 import { useDispatch } from 'react-redux';
 
 
@@ -51,16 +51,26 @@ const PreviewCard = (props) => {
               type: props.type, 
             }
         
-           
-            if (!currentUser) {
-              alert("Please sign in first");
-              return;
-            }
-        
-            await addToCart(currentUser.uid, newProduct);
-            alert("Added to cart!");
+             if (!currentUser) {
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingProductIndex = cartItems.findIndex(item => item.id === newProduct.id && item.size === newProduct.size);
 
-            dispatch(fethCartList(currentUser.uid))
+        if (existingProductIndex !== -1) {
+            cartItems[existingProductIndex].quantity += newProduct.quantity;
+        } else {
+            cartItems.push(newProduct);
+        }
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        dispatch(fetchLocalCartList())
+alert('add')
+        // setOpenAddCardModal(true);
+      }else{
+         await addToCart(currentUser.uid, newProduct)
+    dispatch(fethCartList(currentUser.uid))
+    // setOpenAddCardModal(true)
+alert('add')
+
+      }
   }
 
     return (

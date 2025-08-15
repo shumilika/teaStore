@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Divider, Radio, InputNumber, Button } from 'antd'
+import { Row, Col, Divider, Radio, InputNumber, ConfigProvider, Breadcrumb, Tabs, Spin } from 'antd'
 import CarouselPreCart from '../CarouselPreCart';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import LeftOutlined from '@ant-design/icons/LeftOutlined'
-import RightOutlined from '@ant-design/icons/RightOutlined'
+import { PlusOutlined, MinusOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons' 
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 import Card3rdColumn from '../Card3rdColumn';
 import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
-import { fethCartList } from '../../store/personalProduct';
-
+import { fethCartList, fetchLocalCartList } from '../../store/personalProduct';
+import SuccessAddModal from '../SuccessAddModal';
 
 const FullPageCard = () => {
 
   const { id } = useParams()
-  const productsList = useSelector(state=>state.products.productsList)
-
+  const productsListFromRedux = useSelector(state=>state.products.productsList)
+  const [productsList, setProductsList] = useState([])
+   const [loading, setLoading] = useState(true);
   const [valueSize, setValueSize] = useState('');
   const [valueType, setValueType ] = useState('');
   const [valuePrice, setValuePrice] = useState('')
@@ -24,9 +24,35 @@ const FullPageCard = () => {
   const [prevPhoto, setPrevPhoto] = useState('')
   const [nextPhoto, setNextPhoto] = useState('')
   const [quantity, setQuantity] = useState(1)
+  const [openAddCardModal, setOpenAddCardModal] = useState(false)
+  const [finalCard,setFinalCard] = useState({})
   const dispatch = useDispatch()
+  const handleCloseAddCardModal = () => {
+    setOpenAddCardModal(false)
+  }
+ 
+
+  useEffect(() => {
+    
+    if (productsListFromRedux.length > 0) {
+      setProductsList(productsListFromRedux);
+      setLoading(false); 
+    } else {
+      try {
+        const storedProducts = localStorage.getItem("productsList");
+        if (storedProducts) {
+          setProductsList(JSON.parse(storedProducts));
+        }
+      } catch (e) {
+        console.error("Failed to parse products from localStorage", e);
+      } finally {
+        setLoading(false); 
+      }
+    }
+  }, [productsListFromRedux]);
 
  const product = productsList.find(item => item.id === id);
+
  const currentIndex = productsList.findIndex(item => item.id === id);
  const prevIndex = currentIndex > 0 ? productsList[currentIndex - 1] : null;
  const nextIndex = currentIndex < (productsList.length - 1) ? productsList[currentIndex + 1] : null;
@@ -73,8 +99,20 @@ useEffect(() => {
   }
 }, [prevIndex, nextIndex]);
 
+ if (loading) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
+
+if (!product) {
+  return <div style={{ padding: 50 }}>Product not found</div>;
+}
+
       const optionsSize = product.amount?product.amount.map(item => ({
-        label: item.size,
+        label: `${item.size}G`,
         value: item.size
       })):'';
  
@@ -85,12 +123,28 @@ useEffect(() => {
         }
       ];
 
+      const items = [
+  {
+    key: '1',
+    label: <span className='tab-label'>Description</span>,
+    children: <div className='description-add-box'>
+      <p>{product?.description}</p>
+    </div>,
+  },
+  {
+    key: '2',
+    label: <span className='tab-label'>Additional Information</span>,
+    children: "",
+  }
+];
+
       const onChangeSize = ({ target: { value } }) => {
         setValueSize(value);
         const foundItem = product.amount.find(item => item.size === value);
         setValuePrice(foundItem.price)
         setValueCount(foundItem.count)
       };
+
 
   const handleAddToCart = async () => {
 
@@ -103,32 +157,54 @@ useEffect(() => {
       image: product.photo,
       type: product.type, 
     }
+    setFinalCard(newProduct)
  
     if (!currentUser) {
-      alert("Please sign in first");
-      return;
-    }
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingProductIndex = cartItems.findIndex(item => item.id === newProduct.id && item.size === newProduct.size);
 
-    await addToCart(currentUser.uid, newProduct);
-    alert("Added to cart!");
-
+        if (existingProductIndex !== -1) {
+            cartItems[existingProductIndex].quantity += newProduct.quantity;
+        } else {
+            cartItems.push(newProduct);
+        }
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        dispatch(fetchLocalCartList())
+        setOpenAddCardModal(true);
+      }else{
+         await addToCart(currentUser.uid, newProduct)
     dispatch(fethCartList(currentUser.uid))
+    setOpenAddCardModal(true)
+      }
 };
 
 
-if (!product) {
-  return <div style={{ padding: 50 }}>Product not found</div>;
-}else
+
     return (
        
         <div className='full-card-box'>
-        <Row className='prev-next-box'>
-  <Col span={24}>
+       
+        <Row >
+        <Col span={8} className='breadcrumb-box'>
+           <Breadcrumb
+            separator=">"
+    items={[
+      {
+        title: 'Home',
+        href:'/'
+      },
+      {
+        title: <span>{product.name}</span>,
+      },
+    ]}
+  />
+        </Col>
+  <Col span={8} offset={8} className='prev-next-box'>
   
  {prevIndex && <>
    <Link to={`/shop/${prevIndex.id}`} className='prev'> <LeftOutlined /> <span>Prev</span> </Link>
   <Row className='prev-hover-box'>
-    <Col span={6}><Link to={`/shop/${prevIndex.id}`}><img src={prevPhoto} alt='' /></Link>
+    <Col span={6}><Link to={`/shop/${prevIndex.id}`} ><img src={prevPhoto} alt='' /></Link>
     </Col>
     <Col flex={'auto'}>
     <Link to={`/shop/${prevIndex.id}`}>{prevIndex.name}</Link>
@@ -153,15 +229,54 @@ if (!product) {
    </>}
   </Col>
         </Row>
-            <Row gutter={[16, 16]} className='main-content'>
+        <ConfigProvider
+          theme={{
+        components: {
+          Radio: {
+            buttonSolidCheckedBg: '#000',
+            buttonSolidCheckedHoverBg:'#000',
+            buttonSolidCheckedActiveBg: '#000',
+            colorPrimary:'#000',
+            colorPrimaryHover:'#000',
+            borderRadius:0,
+            controlHeight:40,
+            buttonColor:'rgba(0,0,0,0.55)',
+          },
+          InputNumber: {
+            handleVisible:true,
+            hoverBorderColor:'#000',
+            colorBorder:'#000',
+            activeBorderColor:'#000',
+            borderRadiusLG:0,
+            handleFontSize:12,
+            controlWidth:70,
+            handleWidth:25,
+            lineWidth:2,
+            controlHeightLG:45
+          },
+          // Tabs:{
+          //   inkBarColor:'rgba(0,0,0,0.88)',
+          //   lineWidthFocus:1,
+          //   boxShadowSecondary:0
+          // }
+        },
+        token: {
+          colorPrimary: '#000',
+        }
+      }}
+      >
+                <Row gutter={[16, 16]} className='main-content'>
                 <Col sm={{flex:3}} md={{span:10}}>
               {product.imgs && <CarouselPreCart imgs={product.imgs} />}
                 </Col>
                 <Col  sm={{flex:2}} md={{span:8}}>
                     <h4>{product.name}</h4>
-                    <span>${valuePrice}.00 USD</span>
+                    <span className='price-text'>${valuePrice}.00 USD</span>
                     <Divider/>
-                    <p>{product.description}</p>
+                    <p className='description-text'>{product.description}</p>
+                    
+
+                          
                      <Row className='radio-box'>
                        <Col flex={'100px'}> <p>Size</p></Col>
                        <Col flex={'auto'}>
@@ -174,23 +289,29 @@ if (!product) {
                         />
                        </Col>
                      </Row>
-                     <Row  className='radio-box'>
+                     <Row  className='radio-box type' style={{textTransform:'uppercase'}}>
                        <Col flex={'100px'}> <p>Type</p></Col>
                        <Col flex={'auto'}>
-                       <Radio.Group
+                      
+                         
+                            <Radio.Group
                             options={optionsType}
                             value={valueType}
                             optionType="button"
                             buttonStyle="solid"
                         />
+                   
                        </Col>
                      </Row>
                      <Row>
                       <Col >
-                      <InputNumber min={1} max={valueCount} defaultValue={quantity} onChange={setQuantity}  />
+                      <InputNumber 
+                      size='large'
+                      controls= {{ upIcon: <PlusOutlined /> , downIcon: <MinusOutlined />  }}
+                      min={1} max={valueCount} defaultValue={quantity} onChange={setQuantity}  />
                       </Col>
-                      <Col >
-                        <Button onClick={handleAddToCart}>Add to cart</Button>
+                      <Col className='link-box'>
+                        <Link onClick={handleAddToCart}>Add to cart</Link>
                       </Col>
                      </Row>
                 </Col>
@@ -198,6 +319,18 @@ if (!product) {
                   <Card3rdColumn/>
                 </Col>
             </Row>
+        </ConfigProvider>
+        <Row className='add-info'>
+        <Col span={24}>
+          <div className='tabs'>
+          <Divider/>
+      <Tabs defaultActiveKey="1" items={items}  />
+        </div>
+        </Col>
+        </Row>
+
+
+            <SuccessAddModal open={openAddCardModal} onClose={handleCloseAddCardModal} product={finalCard}/>
         </div>
       
     );

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PageHeader from '../PageHeader';
 import { Table, Button } from 'antd'
 import { useDispatch, useSelector } from 'react-redux';
-import { fethCartList } from '../../store/personalProduct';
+import { fetchLocalCartList, fethCartList } from '../../store/personalProduct';
 import { deleteCartItem } from '../../services/productService';
 import { useAuth } from '../../contexts/AuthContext';
 import { CloseOutlined } from '@ant-design/icons'
@@ -16,10 +16,19 @@ const Cart = () => {
   const userId = currentUser?.uid
   const navigate = useNavigate()
 
-  const handleDeleteItemFromCart = async (value) =>{
-    await deleteCartItem(userId,value)
-    dispatch(fethCartList(userId))
-  }
+
+   const handleDeleteItemFromCart = async (value) => {
+     if(currentUser){
+       await deleteCartItem(userId,value.item_id)
+     dispatch(fethCartList(userId))
+     }
+     else {
+       let updatedCart = JSON.parse(localStorage.getItem('cart')) || [];
+       updatedCart = updatedCart.filter(item => !(item.id === value.id && item.size === value.size));
+       localStorage.setItem('cart', JSON.stringify(updatedCart));
+       dispatch(fetchLocalCartList()); 
+     }
+   }
 
     const handleOpenItemCardAction = (id) => {
     navigate(`/shop/${id}`)
@@ -44,7 +53,7 @@ const Cart = () => {
   quantity: item.quantity,
   total: <span>${item.price * item.quantity}.00</span>,
   action:<div className='delete-icon-full-cart'><CloseOutlined 
-  style={{fontSize:'18px'}} onClick={()=>handleDeleteItemFromCart(item.item_id)}/></div>
+  style={{fontSize:'18px'}} onClick={()=>handleDeleteItemFromCart(item)}/></div>
 }));
 
 const columns = [
@@ -81,7 +90,7 @@ const columns = [
         <div className='cart-box'>
             <PageHeader title={'Cart'} titleLink={'Your Shopping Cart'} />
           <div style={{padding:'50px 0'}}>
-          {(!currentUser)
+          {(!cartData)
           ?<div style={{marginLeft:'auto', marginRight:'auto',  width:'70%'}}>
                 <p>Your cart is currently empty.</p>
                 <p>Continue browsing <Link to={'/shop'}>here</Link> .</p>

@@ -22,6 +22,12 @@ const Shop = () => {
   },[dispatch]) 
 
    useEffect(() => {
+  if (productsData.length) {
+    localStorage.setItem("productsList", JSON.stringify(productsData));
+  }
+}, [productsData]);
+
+   useEffect(() => {
       if (productsData.length && favoritesData) {
         const wishlistIds = favoritesData.map((item) => item.id);
         const withFlags = productsData.map((product) => ({

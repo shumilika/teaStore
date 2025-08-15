@@ -5,26 +5,18 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useDispatch, useSelector } from 'react-redux';
 import {DeleteOutlined} from '@ant-design/icons'
 import { deleteCartItem } from '../../services/productService';
-import { fethCartList } from '../../store/personalProduct';
+import { fetchLocalCartList, fethCartList } from '../../store/personalProduct';
 
 
 const CartDrawer = (props) => {
 
   const { currentUser } = useAuth()
   const dispatch = useDispatch()
-  const cartData = useSelector(state=>state.personalProduct.cartList)
+  const {cartList, totalCost, totalQuantity} = useSelector(state=>state.personalProduct)
   const userId = currentUser?.uid
   const navigate = useNavigate()
-  let totalQuantity = 0;
-  let totalCost = 0;
+  
 
-    
-  cartData.forEach(item => {
-    if (item.quantity && item.price) {
-      totalQuantity += item.quantity;
-      totalCost += item.quantity * item.price;
-    }
-  })
 
   const handleViewCart = () =>{
     navigate('/cart')
@@ -32,8 +24,16 @@ const CartDrawer = (props) => {
   }
 
   const handleDeleteItemFromCart = async (value) => {
-    await deleteCartItem(userId,value)
+    if(currentUser){
+      await deleteCartItem(userId,value.item_id)
     dispatch(fethCartList(userId))
+    }
+    else {
+      let updatedCart = JSON.parse(localStorage.getItem('cart')) || [];
+      updatedCart = updatedCart.filter(item => !(item.id === value.id && item.size === value.size));
+      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      dispatch(fetchLocalCartList()); 
+    }
   }
 
   const handleOpenItemCardAction = (id) => {
@@ -52,13 +52,13 @@ const CartDrawer = (props) => {
   return (
     <Drawer className='cart-drawer-box' title={title} onClose={props.onClose} open={props.open}>
       <Flex style={{width:'100%', height:'100%', textAlign:'center'}} justify='center' align='center'>
-        {(!currentUser
+        {(cartList.lenght===0
         ? <div>
           <p style={{fontSize:'22px'}}>Your shopping bag is empty</p>
             <Link to={'shop'} onClick={props.onClose}>go to the shop</Link>
           </div>
         :<Row>
-          {cartData.map((item, index) => (
+          {cartList.map((item, index) => (
             <Col key={index} span={24} className='cart-item'>
               <div style={{display:'flex'}}>
                
@@ -74,7 +74,7 @@ const CartDrawer = (props) => {
                   <p>${item.price}.00</p>
                 </div>
                <div className='delete-icon'>
-                 <DeleteOutlined onClick={()=>handleDeleteItemFromCart(item.item_id)} />
+                 <DeleteOutlined onClick={()=>handleDeleteItemFromCart(item)} />
                </div>
               </div>
             </Col>

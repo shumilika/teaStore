@@ -9,8 +9,57 @@ const initialState = {
     cartList: [],
     favoritesList: [],
     isCartEmpty: true,
+    totalQuantity:0,
+    totalCost:0,
 };
 
+export const fetchLocalCartList = createAsyncThunk(
+  'personalProduct/fetchLocalCartList',
+  async (_, thunkAPI) => {
+    try {
+      const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+ const storage = getStorage();
+
+      const itemsWithImages = await Promise.all(
+        storedCart.map(async (item) => {
+          let imageUrl = '';
+          try {
+            imageUrl = await getDownloadURL(ref(storage, `img/${item.image}`));
+          } catch (err) {
+            console.error('Ошибка загрузки фото:', err);
+          }
+
+          return {
+            ...item,
+            item_id: `${item.id}_${item.size}`,
+            image: imageUrl,
+          };
+        })
+      );
+
+      
+      
+      const { totalQuantity, totalCost } = storedCart.reduce(
+        (acc, item) => {
+          acc.totalQuantity += item.quantity || 0;
+          acc.totalCost += (item.quantity || 0) * (item.price || 0);
+          return acc;
+        },
+        { totalQuantity: 0, totalCost: 0 }
+      );
+      
+      return {
+        cartList: itemsWithImages,
+        isEmpty: itemsWithImages.length === 0,
+        totalQuantity,
+        totalCost,
+      };
+    } catch (err) {
+      console.error("Error fetching local cart:", err);
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
 
 
 export const fethCartList = createAsyncThunk(
@@ -24,6 +73,7 @@ export const fethCartList = createAsyncThunk(
       const itemsWithImages = await Promise.all(
         response.docs.map(async (doc) => {
           const data = doc.data();
+    
           let imageUrl = '';
           try {
             imageUrl = await getDownloadURL(ref(storage, `img/${data.image}`));
@@ -39,9 +89,20 @@ export const fethCartList = createAsyncThunk(
         })
       );
 
+        const { totalQuantity, totalCost } = itemsWithImages.reduce(
+        (acc, item) => {
+          acc.totalQuantity += item.quantity || 0;
+          acc.totalCost += (item.quantity || 0) * (item.price || 0);
+          return acc;
+        },
+        { totalQuantity: 0, totalCost: 0 }
+      );
+
      return {
         cartList: itemsWithImages,
         isEmpty: itemsWithImages.length === 0,
+        totalQuantity,
+        totalCost,
       }
     } catch (err) {
       return thunkAPI.rejectWithValue(err.message);
@@ -94,6 +155,14 @@ export const personalProduct = createSlice({
             .addCase(fethCartList.fulfilled, (state, action)=>{
               state.cartList=action.payload.cartList
               state.isCartEmpty=action.payload.isEmpty
+              state.totalQuantity = action.payload.totalQuantity
+              state.totalCost = action.payload.totalCost
+            })
+            .addCase(fetchLocalCartList.fulfilled, (state, action) => {
+              state.cartList = action.payload.cartList;
+              state.isCartEmpty = action.payload.isEmpty;
+              state.totalQuantity = action.payload.totalQuantity;
+              state.totalCost = action.payload.totalCost;
             })
             .addCase(fetchFavoritesList.fulfilled, (state, action)=>{ state.favoritesList=action.payload.itemsWithImages})   
     },

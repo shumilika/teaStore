@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { HeartOutlined, InfoOutlined, HeartFilled} from '@ant-design/icons';
 import { Row, Col, Tooltip } from 'antd';
 import PreviewCard from './PreviewCard';
@@ -7,11 +7,13 @@ import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 import { addToFavorites } from '../../services/productService';
 import { useAuth } from '../../contexts/AuthContext';
 
+
 const SmallCard = ({id,name, price, type, amount, description, photo, imgs, isLiked}) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [imgUrl, setImgUrl] = useState()
     const { currentUser } = useAuth()
+    const navigate = useNavigate()
     
 
     const showModal = () => {
@@ -26,7 +28,8 @@ const SmallCard = ({id,name, price, type, amount, description, photo, imgs, isLi
       setIsModalOpen(false);
     };
 
-    const handleAddToFavoritesAction = async () => {
+    const handleAddToFavoritesAction = async (e) => {
+      e.preventDefault()
          let newProduct = {
               id: id,
               title: name,
@@ -35,12 +38,13 @@ const SmallCard = ({id,name, price, type, amount, description, photo, imgs, isLi
             }
          
             if (!currentUser) {
-              alert("Please sign in first");
-              return;
+              navigate('/account/login')
+            }else{
+              await addToFavorites(currentUser.uid, newProduct);
+            alert("Added to favorites!");
             }
         
-            await addToFavorites(currentUser.uid, newProduct);
-            alert("Added to favorites!");
+            
         
             
     }

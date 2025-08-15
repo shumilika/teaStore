@@ -52,7 +52,7 @@ const CartDrawer = (props) => {
   return (
     <Drawer className='cart-drawer-box' title={title} onClose={props.onClose} open={props.open}>
       <Flex style={{width:'100%', height:'100%', textAlign:'center'}} justify='center' align='center'>
-        {(cartList.lenght===0
+        {(cartList.length===0
         ? <div>
           <p style={{fontSize:'22px'}}>Your shopping bag is empty</p>
             <Link to={'shop'} onClick={props.onClose}>go to the shop</Link>

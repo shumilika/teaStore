@@ -1,13 +1,40 @@
-import { Badge, Button, Col, Row } from 'antd';
-import React from 'react';
+import { Badge, Col, Row } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingOutlined } from '@ant-design/icons'
+import { ShoppingOutlined, ArrowDownOutlined } from '@ant-design/icons'
 import { useSelector } from 'react-redux';
 
 const Checkout = () => {
 
     const navigate = useNavigate()
     const {cartList, totalQuantity, totalCost} = useSelector(state => state.personalProduct)
+    const [showHint, setShowHint] = useState(false);
+    const containerRef = useRef(null);
+    const borderBottom =`${
+        showHint
+        ? '1px solid #ddd'
+        : ''
+    }`
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        const handleScroll = () => {
+            const isAtTop = container.scrollTop === 0;
+            const isScrollable = container.scrollHeight > container.clientHeight;
+            setTimeout(handleScroll, 0);
+         
+            setShowHint(isScrollable && isAtTop);
+        };
+        
+        handleScroll();
+        container.addEventListener('scroll', handleScroll);
+        
+        return () => {
+            container.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const handleBackToCartAction = () => {
         navigate('/cart')
@@ -36,9 +63,9 @@ const Checkout = () => {
 
             </Col>
             <Col span={12} style={{backgroundColor:'#FAFAFA'}}>
-                <div style={{marginTop:'50px', height:'345px', width:'400px', overflow:'hidden',
-                 marginLeft:'30px',borderBottom:'1px solid #ddd'}}>
-                    <div style={{height:'345px', overflowY:'auto', paddingTop:'5px' }}>
+                <div style={{marginTop:'50px', maxHeight:'345px', width:'400px', overflow:'hidden',
+                 marginLeft:'30px',borderBottom:borderBottom}}>
+                    <div style={{maxHeight:'345px', overflowY:'auto', paddingTop:'5px' }} ref={containerRef}>
                         {cartList.map((item,index)=>
                         <Col key={index} span={24} style={{height:'fit-content'}}>
                             <div className='cart-item'>
@@ -55,12 +82,12 @@ const Checkout = () => {
                                 <div className='cart-price' style={{color:'#212529'}}>
                                     <p>${item.price}.00</p>
                                 </div>
-                            
-               
-              
-                </div>
-            </Col>
-            )}
+                            </div>
+                        </Col>
+                        )}
+                    </div>
+                    <div className={`scroll-hint ${showHint ? 'visible' : ''}`}>
+                        <span>Scroll  for  more  items <ArrowDownOutlined /></span>
                     </div>
                 </div>
                 <Col span={12} style={{padding:'10px 10px 0 27px'}}>
@@ -74,10 +101,10 @@ const Checkout = () => {
                     </Row>
                      <Row justify={'space-between'}>
                         <Col span={10}><p style={{fontWeight:'500', fontSize:'16px'}}>Total </p></Col>
-                    <Col span={10} style={{textAlign:'right'}}>
-                    <span style={{color:'rgba(0,0,0,0.56)',fontSize:'10px'}}>USD</span>
-                    <span style={{fontWeight:'500', fontSize:'16px'}}> ${totalCost}.00</span>
-                     </Col>
+                        <Col span={10} style={{textAlign:'right'}}>
+                            <span style={{color:'rgba(0,0,0,0.56)',fontSize:'10px'}}>USD</span>
+                            <span style={{fontWeight:'500', fontSize:'16px'}}> ${totalCost}.00</span>
+                        </Col>
                     </Row>
                 </Col>
             </Col>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, Row, Col, Flex, Button, Divider } from 'antd'
+import { Drawer, Row, Col, Flex, Button } from 'antd'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useDispatch, useSelector } from 'react-redux';

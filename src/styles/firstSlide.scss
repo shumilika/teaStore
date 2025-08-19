@@ -1721,3 +1721,51 @@
      }
 
 }
+
+.checkout-box{
+     .cart-item{
+        display: flex; 
+        align-items: flex-start; 
+        position: relative;
+        padding:  5px 0; 
+        .image-box{
+            width: 65px;
+            img{
+                width: 100%;
+            }
+        }
+        .cart-header{
+            width: 350px;
+            padding-left: 15px;
+            h6{
+                font-size: 14px;
+            }
+            p{
+                color: #6E6E6E;
+                font-size: 12px;
+            }
+        }  
+        .cart-price{
+            width: 64px;
+        }  
+    }
+}
+.scroll-hint {
+  position: absolute;
+  left: 25%;
+  bottom: 415px;
+  transform: translateX(-50%);
+  background-color: #6E6E6E;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.scroll-hint.visible {
+  opacity: 1;
+}

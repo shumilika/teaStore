@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, Row, Col, Flex, Button } from 'antd'
+import { Drawer, Row, Col, Flex, Button, Divider } from 'antd'
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +20,11 @@ const CartDrawer = (props) => {
 
   const handleViewCart = () =>{
     navigate('/cart')
+    props.onClose()
+  }
+
+   const handleViewCheckout = () =>{
+    navigate('/checkout')
     props.onClose()
   }
 
@@ -48,46 +53,82 @@ const CartDrawer = (props) => {
       </Col>
       <Col flex={1} style={{borderLeft:'1px solid #dedede', fontSize:'16px', padding:'13px 10px'}}>{totalQuantity}</Col>
     </Row>
+
+    const footer = 
+    <>{
+      cartList.length===0
+      ? ''
+      : 
+      <Row>
+        <Col span={24}>
+          <Row style={{padding:'15px 8%'}}>
+             <Col span={12} className='total-box'>
+             <span>Total:</span>
+           </Col>
+           <Col span={12} style={{textAlign:'right'}} className='total-cost-box'>
+             <span>${totalCost}.00</span>
+           </Col>
+          </Row>
+          </Col>
+          <Col span={24} className='action-checkout'>
+            <Row>
+              <Col span={12}>
+                <Button onClick={handleViewCart} style={{backgroundColor:'#2a2a2a'}}>View cart</Button>
+            
+              </Col>
+              <Col span={12}>
+                <Button onClick={handleViewCheckout} style={{backgroundColor:'#000'}}>Check out</Button>
+              </Col>
+            </Row>
+          </Col>
+      </Row>
+    } </>
     
   return (
-    <Drawer className='cart-drawer-box' title={title} onClose={props.onClose} open={props.open}>
-      <Flex style={{width:'100%', height:'100%', textAlign:'center'}} justify='center' align='center'>
+    <Drawer className='cart-drawer-box' title={title} onClose={props.onClose} open={props.open}
+    footer={footer}
+    >
+      <Flex style={{width:'100%', height:'100%'}} justify='center' align={cartList.length===0?'center':'normal'}>
         {(cartList.length===0
-        ? <div>
+        ? <div className='empty-cart'>
           <p style={{fontSize:'22px'}}>Your shopping bag is empty</p>
             <Link to={'shop'} onClick={props.onClose}>go to the shop</Link>
           </div>
         :<Row>
           {cartList.map((item, index) => (
-            <Col key={index} span={24} className='cart-item'>
-              <div style={{display:'flex'}}>
+            <Col key={index} span={24}>
+              <div className='cart-item'>
                
-                 <img src={item.image} alt={item.title} style={{ width: 100, height: 100,}}
+               <div className='image-box'>
+                  <img src={item.image} alt={item.title}
                   onClick={()=>handleOpenItemCardAction(item.id)}
                  />
+               </div>
                 
-                <div>
-                  <Button type='link' onClick={()=>handleOpenItemCardAction(item.id)}>
-                  <p>{item.title} - {item.size} / {item.type}</p>
+                <div className='cart-header'>
+                  
+                  <h3> 
+                 <Button type='link'  onClick={()=>handleOpenItemCardAction(item.id)}>
+                 {item.title} -
+                 <span> {item.size}g / {item.type}</span>
                   </Button>
-                  <p>QTY: {item.quantity}</p>
-                  <p>${item.price}.00</p>
+                  </h3>
+                  
+                  <div style={{color:'#212529'}}>
+
+                  <div>QTY: {item.quantity}</div>
+                 
+                  <div>${item.price}.00</div>
+                  </div>
                 </div>
-               <div className='delete-icon'>
+               <div className='delete-icon' style={{width:'15%', textAlign:'right'}}>
                  <DeleteOutlined onClick={()=>handleDeleteItemFromCart(item)} />
                </div>
+              
               </div>
             </Col>
           ))}
-          <Col span={24}>
-           <div>
-             Total: <span>${totalCost}.00</span>
-           </div>
-          </Col>
-          <Col span={24}>
-            <Button onClick={handleViewCart}>View cart</Button>
-            <Button>Check out</Button>
-          </Col>
+         
         </Row>
       )}
       </Flex>

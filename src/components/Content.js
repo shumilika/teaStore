@@ -12,6 +12,7 @@ import Wishlist from './Wishlist';
 import LoginRegister from './Login/LoginRegister';
 import Account from './Login/Account';
 import BillingAddress from './Login/BillingAddress';
+import Checkout from './Checkout';
 
 
 
@@ -31,6 +32,7 @@ const Content = () => {
           <Route path='account/login' element={<LoginRegister/>}/>
           <Route path='account' element={<Account/>}/>
           <Route path='account/billing_address' element={<BillingAddress/>} />
+          <Route path='checkout' element={<Checkout/>} />
         </Routes>
       </div>
     );

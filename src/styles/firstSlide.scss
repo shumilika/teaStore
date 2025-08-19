@@ -670,15 +670,100 @@
         }
     }
    }
-
+ .ant-drawer .ant-drawer-footer{
+    padding: 0;
+  }
+    .total-box{
+        span{
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    .total-cost-box{
+        span{
+            font-weight: 600;
+            color: #98a86d;
+        }
+    }
+    .action-checkout{
+        button{
+            width: 100%;
+            border-radius: 0;
+            height: 59px;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 12px;
+            border: none;
+            transition: color .3s ease 0s, background-color .3s ease 0s;;
+        }
+        button:hover{
+            background-color: #98a86d !important;
+            color: #fff !important;
+        }
+    }
    .cart-drawer-box{
+     .ant-drawer-body{
+    background-color: #f7f7f7;
+   }
+   .ant-drawer-body::-webkit-scrollbar {
+    width: 8px;
+   }
+   .ant-drawer-body::-webkit-scrollbar-thumb {
+  background-color: #ddd; 
+  border-radius: 10px; 
+}
+   .empty-cart {
+    text-align: center;
+   
+    
+   
     a{
         text-transform: uppercase;
         font-size: 12px;
         padding: 20px 35px;
     }
+   }
     .delete-icon .anticon:hover{
         color: #98a86d;
+    }
+    .cart-item{
+        display: flex; 
+        align-items: flex-start; 
+        position: relative;
+        padding: 20px 0; 
+        border-bottom: 1px solid rgb(225, 225, 225);
+        .image-box{
+            width: 25%;
+            img{
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+        .cart-header{
+            width: 70%;
+            padding-left: 20px;
+            h3{
+                font-size: 1.75rem;
+                text-align: justify;
+                font-weight: 400;
+                
+                button{
+                    padding: 0;
+                    white-space: wrap;
+                    line-height: normal;
+                    text-align: justify;
+                    text-decoration: none;
+                    color: #000;
+                    line-height: 16px;
+                }
+                button:hover{
+                    color: #98a86d;
+                }
+               
+            }
+        }    
     }
    }
 

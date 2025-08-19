@@ -86,7 +86,7 @@ const CartDrawer = (props) => {
     
   return (
     <Drawer className='cart-drawer-box' title={title} onClose={props.onClose} open={props.open}
-    footer={footer}
+    footer={footer} 
     >
       <Flex style={{width:'100%', height:'100%'}} justify='center' align={cartList.length===0?'center':'normal'}>
         {(cartList.length===0
@@ -94,9 +94,11 @@ const CartDrawer = (props) => {
           <p style={{fontSize:'22px'}}>Your shopping bag is empty</p>
             <Link to={'shop'} onClick={props.onClose}>go to the shop</Link>
           </div>
-        :<Row>
+        :<Row style={{height:'100hv'}}>
+        <div>
+
           {cartList.map((item, index) => (
-            <Col key={index} span={24}>
+            <Col key={index} span={24} style={{height:'fit-content'}}>
               <div className='cart-item'>
                
                <div className='image-box'>
@@ -129,6 +131,7 @@ const CartDrawer = (props) => {
             </Col>
           ))}
          
+        </div>
         </Row>
       )}
       </Flex>

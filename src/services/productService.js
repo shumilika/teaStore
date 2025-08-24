@@ -1,4 +1,4 @@
-import { deleteDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import { deleteDoc, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { db } from "../config/fireBaseConfig";
 
 
@@ -48,3 +48,10 @@ export const deleteFavoritesItem = async (userId, productId) => {
    const itemRef = doc(db, "users", userId, "favorites", productId);
    await deleteDoc(itemRef)
 }
+
+export const updateCartItemQuantity = async (userId, productId, newQuantity) => {
+  const cartItemRef = doc(db, 'users', userId, 'cart', productId);
+  await updateDoc(cartItemRef, {
+    quantity: newQuantity,
+  });
+};

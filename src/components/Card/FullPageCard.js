@@ -16,7 +16,7 @@ const FullPageCard = () => {
   const { id } = useParams()
   const productsListFromRedux = useSelector(state=>state.products.productsList)
   const [productsList, setProductsList] = useState([])
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [valueSize, setValueSize] = useState('');
   const [valueType, setValueType ] = useState('');
   const [valuePrice, setValuePrice] = useState('')
@@ -254,11 +254,6 @@ if (!product) {
             lineWidth:2,
             controlHeightLG:45
           },
-          // Tabs:{
-          //   inkBarColor:'rgba(0,0,0,0.88)',
-          //   lineWidthFocus:1,
-          //   boxShadowSecondary:0
-          // }
         },
         token: {
           colorPrimary: '#000',

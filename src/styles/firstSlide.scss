@@ -775,6 +775,88 @@
     a:hover{
         color: #98a86d;
     }
+    .delete-icon-full-cart{
+        text-align: center;
+    }
+    .title-table-box{
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: .2em;
+
+    }
+
+    .name-btn-box{
+        button{
+            line-height: 1.6;
+            color: #000;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        button:hover{
+            color: #98a86d !important;
+        }
+    }
+    .center{
+        text-align: center;
+    }
+    .cart-span{
+        color: #a8a8a8;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: center;
+    }
+    .proceed-btn-box{
+        button{
+            transition: .3s;
+            padding: 0 65px;
+            text-transform: uppercase;
+            background: #000;
+            color: #fff;
+            font-size: 14px;
+            line-height: 24px;
+            border-radius: 0;
+            height: 55px;
+            letter-spacing: .2em;
+            border: 0;   
+            background: #98a86d;
+            margin: 30px 0;
+        }
+        button:hover{
+            background: #5f8e3e !important;
+            color: #fff !important;
+        }
+    }
+    .update-shop-btn-box{
+        width: 70%;
+        margin: 0 auto;
+        padding: 40px 0;
+        button{
+            transition: .3s;
+            padding: 0 65px;
+            text-transform: uppercase;
+            background: #000;
+            color: #fff;
+            font-size: 14px;
+            line-height: 24px;
+            border-radius: 0;
+            height: 55px;
+            letter-spacing: .2em;
+            border: 0;   
+        }
+        .shop-btn{
+            background: #98a86d;
+            margin-left: 20px;
+        }
+        .shop-btn:hover{
+            background: #5f8e3e;
+            color: #fff;
+        }
+        .update-btn:hover{
+            background: #98a86d;
+            color: #fff;
+        }
+    }
    }
 
 .preview-card-box{

@@ -1761,6 +1761,23 @@
 }
 
 .wishlist-page{
+    .title-table-box{
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: .2em;
+    }
+    .span-box, .btn-box-itemLink button{
+        font-size: 14px;
+        color: #a8a8a8;
+        line-height: 1.6;
+    }
+    .btn-box-itemLink button:hover{
+        color: #98a86d !important;
+    }
+    .center{
+        text-align: center;
+    }
     .link-box{
         text-align: center;
         margin: 30px 0;
@@ -1771,7 +1788,7 @@
         text-decoration: none;
         display: inline-block;
         line-height: 1.5;
-        font-size: 15px;
+        font-size: 14px;
         padding: 10px 35px;
         height: auto;
         transition: none;
@@ -1793,6 +1810,7 @@
             border-color: #000;
             height: auto;
             letter-spacing: .2em;
+            font-size: 12px;
         }
        
         .ant-btn-default:hover{

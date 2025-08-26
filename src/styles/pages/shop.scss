@@ -1,0 +1,99 @@
+.shop-box{
+     .shop_bg{
+    background-image: url(../../img/bg_shop.jpg);
+    color: #fff;
+    .ant-breadcrumb ol li, a{
+        color: #fff;
+        text-decoration: none;
+        
+    }
+    .ant-breadcrumb ol li a:hover{
+        color: #fff;
+        background-color: transparent;
+        
+    }
+   }
+    .card-box{
+        width: 100% !important;
+    }
+    .filter-btn{
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 24px;
+        color: #000;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 8px 20px;
+        border-radius: 0;
+        border: 1px solid #000;
+        height: auto;
+    }
+    .filter-btn:hover{
+        color: #fff !important;
+        border: 1px solid #98a86d !important;
+        background-color: #98a86d !important;
+    }
+
+    .select-shop-featured{
+        .ant-select-selector{
+            border-radius: 0;
+            border: 1px solid #000;
+            padding: 5px 5px;
+            font-size: 15px;
+            font-weight: 500;
+            text-align: center;
+            min-width: 160px;
+            height: auto;
+        }
+
+        .ant-select-selector:hover, .ant-select-open,.ant-select .ant-select-outlined .ant-select-single .ant-select-show-arrow{
+            border: 1px solid #000 !important;
+        }
+    }
+}
+
+.change_column_size{
+    position: relative;
+    display: flex;
+    
+    .change_btn{
+        border: 1px solid #232529;
+        border-radius: 0;
+        margin-right: 10px;
+        height: 42px;
+    }
+    .change_btn:hover{
+        border: 1px solid #232529 !important;
+    }
+
+    .change_column_size_content{
+        display: none;
+       
+            .ant-radio-button-wrapper{
+                border-radius: 0 ;
+                border: 1px solid #232529 !important;
+                width: 42px;
+                height: 42px;
+                font-weight: 600;
+                line-height: 40px;
+                margin-right: 5px;
+                
+            }
+
+            .ant-radio-button-wrapper:hover{
+                color: #fff;
+                background-color: #232529;
+            }
+
+            .ant-radio-button-wrapper:before{
+                content: none;
+            }
+
+            .ant-radio-button-wrapper-checked{
+                color: #fff;
+                background-color: #232529;
+            }
+           
+    }
+}
+.change_column_size:hover .change_column_size_content {display: flex;}

@@ -1,0 +1,152 @@
+.filter_shop_box{
+    margin-bottom: 10px;
+    .ant-divider{
+        padding: 6px 0 6px 14px;
+        border-left: 3px solid #000;
+        color: rgb(33, 37, 41);
+        font-weight: 500;
+        line-height: 21.6px;
+        font-size: 18px;
+    }
+    .ant-divider-horizontal.ant-divider-with-text:after{
+        border-block-start: 1px solid #e6e6e6; 
+    }
+
+    .categories, .priceFilter{
+        
+        .ant-checkbox-wrapper:hover{
+            color: #98a86d;
+        }
+         .ant-checkbox-wrapper {
+            font-size: 15px;
+                font-weight: 400;
+                line-height: 36px;
+                color: #000;
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+            .ant-checkbox-checked+span{
+                color: #98a86d;
+                
+            }
+         }
+
+    }
+    .ant-checkbox-group{
+        margin: 20px 0;
+    }
+
+    .sizeOption{
+        .ant-checkbox-wrapper{
+            border: 1px solid #000;
+            padding: 8px 12px;
+            margin: 0 10px 10px 0;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 21px;
+            color: #000;
+
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+        }
+        .ant-checkbox-wrapper:hover{
+            border: 1px solid #98a86d;
+            background-color: #98a86d;
+            color: #fff;
+        }
+        .ant-checkbox-wrapper-checked{
+            border: 1px solid #98a86d;
+            background-color: #98a86d;
+            color: #fff;
+        }
+    }
+
+    .tags{
+        .ant-checkbox-group{
+            column-gap: 0;
+        }
+        .ant-checkbox-wrapper{
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 0 10px 10px 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            color: #000;
+
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+        }
+        .ant-checkbox-wrapper:hover{
+            border: 1px solid #98a86d;
+            background-color: #98a86d;
+            color: #fff;
+        }
+        .ant-checkbox-wrapper-checked{
+            border: 1px solid #98a86d;
+            background-color: #98a86d;
+            color: #fff;
+        }
+    }
+      
+}
+
+.search-box{
+    height: auto !important;
+    text-align: center;
+   
+    .ant-drawer-header-title{
+        justify-content:flex-end;
+        border: none !important;
+
+        .ant-drawer-close{
+            margin: 20px !important;
+        }
+    }
+    .ant-drawer-body{
+        padding: 0 !important;
+    }
+    .ant-input-wrapper{
+        .ant-input{
+            border:0;
+            border-bottom: 2px solid #e8e8e8;
+            border-radius: 0;
+            transition: none;
+        }
+        .ant-input input[type="text"]:focus{
+            border: 0 !important;
+        }
+        .ant-btn{
+            border: 0;
+            border-bottom: 2px solid #e8e8e8;
+            border-end-end-radius: 0 !important;
+        }
+    }
+    .search-result{
+        height: 260px;
+        width: 900px;
+        max-width: 100%;
+        margin: 20px auto 20px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .search-result::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+.search-result::-webkit-scrollbar {
+  width: 3px; 
+}
+}

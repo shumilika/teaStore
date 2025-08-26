@@ -1,0 +1,255 @@
+.banner-box{
+    position: relative;
+    bottom: 100px;
+
+    .slick-dots li button:before {
+        content: '';
+    }
+  
+    .greenTeaJapBox{
+        background-image: url('../../img/tea\ leaves.jpg');
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+
+    .BlackTeaBox{
+        background-image: url('../../img//tea_leaves_black.jpg');
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+  
+    .teaBox{
+        margin: 200px auto;
+        text-align: center;
+        color: #fff;
+        
+
+        .up-text{
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        h1{
+            font-size: 80px;
+        }
+        .down-text{
+            font-size: 20px;
+        }
+       
+        a{
+            
+            color: #fff;
+            text-transform: uppercase;
+            border: 1px solid #fff;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1.5;
+            box-shadow: none;
+            font-size: 15px;
+            padding: 10px 35px;
+            height: auto;
+            transition: none;
+        }
+         a:hover, a:active{
+            
+            background: #fff;
+            color: #000;
+            border-color: #fff;
+            box-shadow: none;
+           
+        }
+      
+    }
+}
+
+.flex-matcha-box{
+    
+.matcha{
+    height: 500px;
+    width: 47%;
+    margin: 70px 0;
+  div{
+    padding: 150px 50px;
+  }
+    h2{
+        font-size: 45px;
+    }    
+}
+}
+
+.matcha a, .cart-drawer-box a{   
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #000;
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.5;
+    font-size: 15px;
+    padding: 10px 35px;
+    height: auto;
+    transition: none;
+}
+.matcha a:hover, .matcha a:active, .cart-drawer-box a:hover, .cart-drawer-box a:active{
+    
+    background: #98a96d;
+    color: #fff;
+    border-color: #98a96d;
+}
+
+.matcha:first-child{
+    background-image: url('../../img/matcha_banner.jpg');
+}
+.matcha:last-child{
+    background-image: url('../../img/organic_banner.jpg');
+}
+
+ .green-tea-banner{
+        margin-top: 60px;
+        img{
+            width: 100%;
+        }
+        .banner-info{
+            color: #fff;
+            background-image: url('../../img/green_tea_bg_banner.jpg');
+            position: relative;
+        
+        div{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 75%;
+
+        }
+        
+        h1{
+            font-size: 45px;
+            padding-bottom: 20px;
+        }
+        p{
+            font-size: 16px;
+            padding-bottom: 30px;
+        }
+       a{
+            
+            border-radius: 0px;
+            color: #98a96d;
+            text-transform: uppercase;
+            border: 1px solid #fff;
+            background: #fff;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1.5;
+            box-shadow: none;
+            font-size: 15px;
+            padding: 10px 35px;
+            height: auto;
+            transition: none;
+        }
+         a:hover, a:active{
+            
+            background: none;
+            color: #fff;
+            border-color: #fff;
+            box-shadow: none;
+           
+        }
+       
+        }
+    }
+
+     .new-arrivals-box{
+        text-align: center;
+        margin-top: 50px;
+
+        .slick-dots li button:before{
+            content: '';
+        }
+
+        h1{
+            font-size: 45px;
+        }
+        p{
+            font-size: 15px;
+            color:  #828282;
+        }
+        .ant-carousel{
+            text-align: left;
+             
+            .slick-dots-bottom{
+                
+                bottom: -70px;
+            }
+            .slick-dots li{
+            border:  2px rgba(173, 173, 173, .3) solid; 
+            border-radius: 20px;
+            width: 11px;
+            height: 11px;
+            background-color: #adadad00;
+        }
+         .slick-dots li.slick-active, .slick-dots li.slick-active button {
+            background-color: #adadad;
+            border:  2px rgba(173, 173, 173, 0) solid;
+        }
+    }
+    }
+
+     .filter_imgs_box{
+        margin-top: 150px;
+        .ant-row{
+            margin: 40px 0 40px 40px !important;
+            width: 95%;
+           
+        }
+         .ant-col-6{
+            position: relative;
+            
+           
+
+            .hover_text_box{
+                position: absolute;
+                background-color: #fff;
+                top: 30px;
+                left: 30px;
+                bottom: 30px;
+                right: 30px;
+                align-items: center;
+                display: flex;
+                padding: 20px;
+                opacity: 0;
+                
+               
+                 
+                
+                
+    
+
+                div{
+                    width: 100%;
+                    text-align: center;
+
+                    h2{
+                        font-size: 28px;
+                        color: rgb(33, 37, 41);
+                    }
+                    a{
+                       font-size: 16px;
+                       color: #000;
+                       text-decoration: none;
+                       display: inline-block;
+                    }
+                     a:hover{
+                        color: #98a96d;
+                    }
+                    
+                }
+
+            }
+        }
+        .ant-col-6:hover .hover_text_box{
+            opacity: 1;
+            animation-name: bannerClip;
+                animation-delay: 0s;
+                animation-duration: 0.5s;
+                animation-timing-function: ease;
+        }
+    }

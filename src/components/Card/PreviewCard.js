@@ -85,7 +85,7 @@ alert('add')
                     <h4>{props.name}</h4>
                     <span>${valuePrice}.00 USD</span>
                     <Divider/>
-                    <p>{props.description}</p>
+                    <p className='description-box'>{props.description}</p>
                      <Row className='radio-box'>
                        <Col flex={'100px'}> <p>Size</p></Col>
                        <Col flex={'auto'}>
@@ -97,14 +97,10 @@ alert('add')
                                   borderRadius:0,
                                   colorPrimaryHover: '#000',
                                   buttonPaddingInline: '20px',
-                                  
-
                               },
                             },
                           }}
                         >
-      
-      
                        <Radio.Group
                             options={optionsSize}
                             onChange={onChangeSize}

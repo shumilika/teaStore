@@ -1,0 +1,184 @@
+ .cart-box{
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+    a:hover{
+        color: #98a86d;
+    }
+    .delete-icon-full-cart{
+        text-align: center;
+    }
+    .title-table-box{
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 12px;
+        letter-spacing: .2em;
+
+    }
+
+    .name-btn-box{
+        button{
+            line-height: 1.6;
+            color: #000;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        button:hover{
+            color: #98a86d !important;
+        }
+    }
+    .center{
+        text-align: center;
+    }
+    .cart-span{
+        color: #a8a8a8;
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: center;
+    }
+    .proceed-btn-box{
+        button{
+            transition: .3s;
+            padding: 0 65px;
+            text-transform: uppercase;
+            background: #000;
+            color: #fff;
+            font-size: 14px;
+            line-height: 24px;
+            border-radius: 0;
+            height: 55px;
+            letter-spacing: .2em;
+            border: 0;   
+            background: #98a86d;
+            margin: 30px 0;
+        }
+        button:hover{
+            background: #5f8e3e !important;
+            color: #fff !important;
+        }
+    }
+    .update-shop-btn-box{
+        width: 70%;
+        margin: 0 auto;
+        padding: 40px 0;
+        button{
+            transition: .3s;
+            padding: 0 65px;
+            text-transform: uppercase;
+            background: #000;
+            color: #fff;
+            font-size: 14px;
+            line-height: 24px;
+            border-radius: 0;
+            height: 55px;
+            letter-spacing: .2em;
+            border: 0;   
+        }
+        .shop-btn{
+            background: #98a86d;
+            margin-left: 20px;
+        }
+        .shop-btn:hover{
+            background: #5f8e3e;
+            color: #fff;
+        }
+        .update-btn:hover{
+            background: #98a86d;
+            color: #fff;
+        }
+    }
+   }
+
+.cart-drawer-box{
+     .ant-drawer-body{
+    background-color: #f7f7f7;
+   }
+   .ant-drawer-body::-webkit-scrollbar {
+    width: 8px;
+   }
+   .ant-drawer-body::-webkit-scrollbar-thumb {
+  background-color: #ddd; 
+  border-radius: 10px; 
+}
+   .empty-cart {
+    text-align: center;
+
+    a{
+        text-transform: uppercase;
+        font-size: 12px;
+        padding: 20px 35px;
+    }
+   }
+    .delete-icon .anticon:hover{
+        color: #98a86d;
+    }
+    .cart-item{
+        display: flex; 
+        align-items: flex-start; 
+        position: relative;
+        padding: 20px 0; 
+        border-bottom: 1px solid rgb(225, 225, 225);
+        .image-box{
+            width: 25%;
+            img{
+                width: 100%;
+                cursor: pointer;
+            }
+        }
+        .cart-header{
+            width: 70%;
+            padding-left: 20px;
+            h3{
+                font-size: 1.75rem;
+                text-align: justify;
+                font-weight: 400;
+                
+                button{
+                    padding: 0;
+                    white-space: wrap;
+                    line-height: normal;
+                    text-align: justify;
+                    text-decoration: none;
+                    color: #000;
+                    line-height: 16px;
+                }
+                button:hover{
+                    color: #98a86d;
+                }
+               
+            }
+        }    
+    }
+   }
+
+      .total-box{
+        span{
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+    .total-cost-box{
+        span{
+            font-weight: 600;
+            color: #98a86d;
+        }
+    }
+    .action-checkout{
+        button{
+            width: 100%;
+            border-radius: 0;
+            height: 59px;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 12px;
+            border: none;
+            transition: color .3s ease 0s, background-color .3s ease 0s;;
+        }
+        button:hover{
+            background-color: #98a86d !important;
+            color: #fff !important;
+        }
+    }

@@ -4,38 +4,36 @@ import { Link } from 'react-router-dom';
 import { getDownloadURL, getStorage, ref } from 'firebase/storage';
 
 const TinyCardPreview = (props) => {
-    const [imgUrl, setImgUrl] = useState()
-    useEffect(()=>{
+  const [imgUrl, setImgUrl] = useState()
+  useEffect(()=>{
+    const storage = getStorage()
+    const getPhotoUrl = () =>{
+      getDownloadURL(ref(storage, `img/${props.photo}`))
+        .then((url) => {
+          setImgUrl(url)
+        })
+        .catch((error)=>{
+          setImgUrl('')
+        })
+      }
+    getPhotoUrl()
+  },[props.photo])
 
-        const storage = getStorage()
-        
-        const getPhotoUrl = () =>{
-            getDownloadURL(ref(storage, `img/${props.photo}`))
-              .then((url) => {
-               setImgUrl(url)
-              })
-              .catch((error)=>{
-                setImgUrl('')
-              })
-        }
-
-        getPhotoUrl()
-    },[props.photo])
-
-    return (
-        
-        <Row className=''>
-        <Col span={6}><Link to={`/shop/${props.id}`}>
-        <img src={imgUrl} alt='' width={'120px'} />
-        </Link>
-        </Col>
-        <Col flex={'auto'}>
-        <Link to={`/shop/${props.id}`}>{props.name}</Link>
-        <p>${props.price}.00 </p>
-        </Col>
-      </Row>
-        
-    );
+  return (
+    <Col className='tine-card-preview-box' flex={'33.3%'}>
+      <div className='first-div'>
+        <div className='second-div'>
+          <Link to={`/shop/${props.id}`}>
+            <img src={imgUrl} alt=''/>
+          </Link>
+          <h6 className='header-h6'>
+          <Link to={`/shop/${props.id}`}>{props.name}</Link>
+          </h6>
+          <span>${props.price}.00 </span>
+        </div>
+      </div>
+    </Col>    
+  );
 };
 
 export default TinyCardPreview;

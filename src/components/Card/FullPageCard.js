@@ -10,6 +10,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
 import { fethCartList, fetchLocalCartList } from '../../store/personalProduct';
 import SuccessAddModal from '../SuccessAddModal';
+import AdditionalInfo from './AdditionalInfo';
 
 const FullPageCard = () => {
 
@@ -123,6 +124,8 @@ if (!product) {
         }
       ];
 
+    
+
       const items = [
   {
     key: '1',
@@ -134,7 +137,7 @@ if (!product) {
   {
     key: '2',
     label: <span className='tab-label'>Additional Information</span>,
-    children: "",
+    children: <AdditionalInfo photo={product.photo}/>,
   }
 ];
 
@@ -254,6 +257,9 @@ if (!product) {
             lineWidth:2,
             controlHeightLG:45
           },
+          Tabs:{
+            horizontalMargin:0,
+          },
         },
         token: {
           colorPrimary: '#000',
@@ -314,7 +320,7 @@ if (!product) {
                   <Card3rdColumn/>
                 </Col>
             </Row>
-        </ConfigProvider>
+        
         <Row className='add-info'>
         <Col span={24}>
           <div className='tabs'>
@@ -323,6 +329,7 @@ if (!product) {
         </div>
         </Col>
         </Row>
+        </ConfigProvider>
 
 
             <SuccessAddModal open={openAddCardModal} onClose={handleCloseAddCardModal} product={finalCard}/>

@@ -1,5 +1,5 @@
  .footer_box{
-        background-color: #f8f8f8;
+        background-color: $color-background;
         padding-top: 40px;
 
         ul{
@@ -11,7 +11,7 @@
                 line-height: 34px;
             }
             li a, li a:visited{
-                color: #000;
+                color: $color-secondary;
                 text-decoration: none;
             }
             li a:hover{

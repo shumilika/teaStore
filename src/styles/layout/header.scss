@@ -32,8 +32,8 @@
             position: relative;
         }
         a:hover{
-            color: #98a86d;
-            border-bottom: 1px solid #98a86d;
+            color: $color-link-hover;
+            border-bottom: 1px solid $color-link-hover;
         }
        
        
@@ -100,7 +100,7 @@
         }
     
     .ant-menu-title-content{
-        color: #000 ;
+        color: $color-secondary ;
     }
     }
     .middleMenu{
@@ -113,8 +113,8 @@
             position: relative;
         }
         a:hover{
-            color: #98a86d;
-            border-bottom: 1px solid #98a86d;
+            color: $color-link-hover;
+            border-bottom: 1px solid $color-link-hover;
         }
        
        
@@ -137,7 +137,7 @@
             
         }
         .ant-menu-item-icon{
-            color: #000;
+            color: $color-secondary;
             font-size: 25px;
         }
        

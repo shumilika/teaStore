@@ -46,13 +46,13 @@
             
          .ant-btn ,.ant-btn-primary, .ant-input-search-button{
             border-radius: 0 !important;
-            background-color: #000;
+            background-color: $color-secondary;
             font-size: 25px;
             height: max-content;
             padding: 8px 15px !important;
          }
          .ant-btn:hover ,.ant-btn-primary:hover, .ant-input-search-button:hover, .ant-btn:focus, .ant-btn-primary:focus,.ant-input-search-button:focus{
-            background-color: #98a86d;
+            background-color: $color-link-hover;
             box-shadow: none;
          }
         }

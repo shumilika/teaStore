@@ -20,7 +20,7 @@
                     height: 280px;
                 }
                 .ant-btn{
-                    background-color: #000;
+                    background-color: $color-secondary;
                     text-transform: uppercase;
                     border-radius: 0;
                     border: none;
@@ -33,7 +33,7 @@
                     height: auto;
                 }
                 .ant-btn:hover{
-                    background-color: #98a86d;
+                    background-color: $color-link-hover;
                 }
             }
         }

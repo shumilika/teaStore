@@ -24,7 +24,7 @@
             }
             .ant-divider-horizontal {
                 min-width: 60px;
-                border:1.5px solid #98a96d;
+                border:1.5px solid $color-primary;
             }
         }
 
@@ -46,7 +46,7 @@
                 height: 2px;
                 width: 55px;
                 position: absolute;
-                background: #98a86d;
+                background: $color-link-hover;
                 bottom: 0;
                 left: 50%;
                 transform: translate(-50%);

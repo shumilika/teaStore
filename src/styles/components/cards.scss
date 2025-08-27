@@ -1,6 +1,6 @@
 .card-box{
     margin: 10px;
-    width: 400px;
+    width: 100%;
     position: relative;
 
     .hideLink{
@@ -17,13 +17,13 @@
         }
     
     .hidePrice{
-        color: #98a96d;
+        color: $color-primary;
         font-weight: bold;
         font-size: 14px;
         padding-top: 5px;
     }
     .option{
-        color: #98a96d;
+        color: $color-primary;
     }
 
     .card-link{
@@ -31,7 +31,7 @@
     }
     .named{
         font-size: 16px;
-        color: #000; 
+        color: $color-secondary; 
         padding-top: 20px; 
         margin-bottom: 0;
     }
@@ -55,11 +55,11 @@
    
 
     .named:hover{
-        color: #98a96d;
+        color: $color-primary;
     }
     .option:hover{
         text-decoration: underline;
-        color: #98a96d;
+        color: $color-primary;
     }
 }
 
@@ -68,7 +68,7 @@
     .main-content{
         margin-top: 20px;
         .price-text{
-            color: #98a86d;
+            color: $color-link-hover;
             font-size: 20px;
         }
         .description-text{
@@ -89,8 +89,8 @@
         margin: 0 35px;
         a{   
         color: #fff;
-        background-color: #98a96d;
-        border: 1px solid #98a96d;
+        background-color: $color-primary;
+        border: 1px solid $color-primary;
         text-decoration: none;
         display: inline-block;
         line-height: 1.5;
@@ -101,9 +101,9 @@
         text-transform: uppercase;
         }
         a:hover, a:active{
-            background: #000;
+            background: $color-secondary;
             color: #fff;
-            border-color: #000;
+            border-color: $color-secondary;
         }
     }
     }
@@ -111,11 +111,11 @@
         a{
         text-decoration: none;
         font-size: 14px;
-        color: #000;
+        color: $color-secondary;
         font-weight: 400;
     }
     a:hover{
-        color: #98a86d;
+        color: $color-link-hover;
         background-color: #fff;
     }
     span{
@@ -136,7 +136,7 @@
             font-size: 9px;
             font-weight: 600;
             line-height: 13.5px;
-            color: #000;
+            color: $color-secondary;
 
             span{
                 padding: 0 5px;
@@ -195,18 +195,18 @@
                 font-size: 18px;
             }
             .ant-tabs .ant-tabs-tab:hover{
-                color: #000;
+                color: $color-secondary;
                 
                 span{
-                    border-bottom: 2px solid #98a86d;
+                    border-bottom: 2px solid $color-link-hover;
                 }
             }
             .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn{
                 text-shadow: none;
-                color: #000;
+                color: $color-secondary;
                 
                 span{
-                    border-bottom: 2px solid #98a86d;
+                    border-bottom: 2px solid $color-link-hover;
                 }
             }
         }
@@ -244,10 +244,10 @@
         font-weight: 400;
     }
     .ant-btn, .ant-btn-default{
-        background-color: #98a86d;
+        background-color: $color-link-hover;
         color: #fff;
         border-radius: 0;
-        border-color: #98a86d;
+        border-color: $color-link-hover;
         box-shadow: none;
         transition: none;
         margin-left: 10px;
@@ -259,8 +259,8 @@
         height: 55px;
     }
     .ant-btn-default:hover, .ant-btn-default:active, .ant-btn:hover, .ant-btn:active{
-        border-color: #000 !important;
-        background-color: #000 !important;
+        border-color: $color-secondary !important;
+        background-color: $color-secondary !important;
         color: #fff !important;
     }
 .radio-box{
@@ -287,7 +287,7 @@
             width: 100%; 
             overflow: hidden;
             span{
-                color: #98a96d;
+                color: $color-primary;
                 font-weight: 600;
                 font-size: 14px;
             }
@@ -304,11 +304,11 @@
                 line-height: 20px;
                 a{
                     font-size: 14px;
-                    color: #000;
+                    color: $color-secondary;
                     text-decoration: none;
                 }
                 a:hover{
-                    color: #98a86d;
+                    color: $color-link-hover;
                 }
             }
         }
@@ -329,7 +329,7 @@
         content:'';
         height: 1px;
         width: 42px;
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid $color-secondary;
         position: absolute;
         bottom: 0;
         left: 45%;
@@ -343,7 +343,7 @@
         transition: border .25s linear .25s;
     }
     .content-box:hover{
-        border-color: #000;
+        border-color: $color-secondary;
     }
     .text-box{
         box-sizing: border-box;
@@ -355,7 +355,7 @@
 
 .delete-icon-full-cart{
     .anticon:hover{
-        color: #98a86d;
+        color: $color-link-hover;
     }
     font-weight: 600;
 }

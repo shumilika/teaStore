@@ -1,10 +1,10 @@
  .cart-box{
     a{
-        color: #000;
+        color: $color-secondary;
         text-decoration: none;
     }
     a:hover{
-        color: #98a86d;
+        color: $color-link-hover;
     }
     .delete-icon-full-cart{
         text-align: center;
@@ -20,12 +20,12 @@
     .name-btn-box{
         button{
             line-height: 1.6;
-            color: #000;
+            color: $color-secondary;
             font-size: 14px;
             font-weight: 400;
         }
         button:hover{
-            color: #98a86d !important;
+            color: $color-link-hover !important;
         }
     }
     .center{
@@ -42,7 +42,7 @@
             transition: .3s;
             padding: 0 65px;
             text-transform: uppercase;
-            background: #000;
+            background: $color-secondary;
             color: #fff;
             font-size: 14px;
             line-height: 24px;
@@ -50,7 +50,7 @@
             height: 55px;
             letter-spacing: .2em;
             border: 0;   
-            background: #98a86d;
+            background: $color-link-hover;
             margin: 30px 0;
         }
         button:hover{
@@ -66,7 +66,7 @@
             transition: .3s;
             padding: 0 65px;
             text-transform: uppercase;
-            background: #000;
+            background: $color-secondary;
             color: #fff;
             font-size: 14px;
             line-height: 24px;
@@ -76,7 +76,7 @@
             border: 0;   
         }
         .shop-btn{
-            background: #98a86d;
+            background: $color-link-hover;
             margin-left: 20px;
         }
         .shop-btn:hover{
@@ -84,7 +84,7 @@
             color: #fff;
         }
         .update-btn:hover{
-            background: #98a86d;
+            background: $color-link-hover;
             color: #fff;
         }
     }
@@ -111,7 +111,7 @@
     }
    }
     .delete-icon .anticon:hover{
-        color: #98a86d;
+        color: $color-link-hover;
     }
     .cart-item{
         display: flex; 
@@ -140,11 +140,11 @@
                     line-height: normal;
                     text-align: justify;
                     text-decoration: none;
-                    color: #000;
+                    color: $color-secondary;
                     line-height: 16px;
                 }
                 button:hover{
-                    color: #98a86d;
+                    color: $color-link-hover;
                 }
                
             }
@@ -161,7 +161,7 @@
     .total-cost-box{
         span{
             font-weight: 600;
-            color: #98a86d;
+            color: $color-link-hover;
         }
     }
     .action-checkout{
@@ -178,7 +178,7 @@
             transition: color .3s ease 0s, background-color .3s ease 0s;;
         }
         button:hover{
-            background-color: #98a86d !important;
+            background-color: $color-link-hover !important;
             color: #fff !important;
         }
     }

@@ -13,31 +13,29 @@
         
     }
    }
-    .card-box{
-        width: 100% !important;
-    }
+   
     .filter-btn{
         font-size: 16px;
         font-weight: 600;
         line-height: 24px;
-        color: #000;
+        color: $color-secondary;
         text-transform: uppercase;
         letter-spacing: 2px;
         padding: 8px 20px;
         border-radius: 0;
-        border: 1px solid #000;
+        border: 1px solid $color-secondary;
         height: auto;
     }
     .filter-btn:hover{
         color: #fff !important;
-        border: 1px solid #98a86d !important;
-        background-color: #98a86d !important;
+        border: 1px solid $color-link-hover !important;
+        background-color: $color-link-hover !important;
     }
 
     .select-shop-featured{
         .ant-select-selector{
             border-radius: 0;
-            border: 1px solid #000;
+            border: 1px solid $color-secondary;
             padding: 5px 5px;
             font-size: 15px;
             font-weight: 500;
@@ -47,7 +45,7 @@
         }
 
         .ant-select-selector:hover, .ant-select-open,.ant-select .ant-select-outlined .ant-select-single .ant-select-show-arrow{
-            border: 1px solid #000 !important;
+            border: 1px solid $color-secondary !important;
         }
     }
 }

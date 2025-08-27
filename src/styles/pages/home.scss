@@ -52,7 +52,7 @@
          a:hover, a:active{
             
             background: #fff;
-            color: #000;
+            color: $color-secondary;
             border-color: #fff;
             box-shadow: none;
            
@@ -78,8 +78,8 @@
 
 .matcha a, .cart-drawer-box a{   
     color: #fff;
-    background-color: #000;
-    border: 1px solid #000;
+    background-color: $color-secondary;
+    border: 1px solid $color-secondary;
     text-decoration: none;
     display: inline-block;
     line-height: 1.5;
@@ -90,9 +90,9 @@
 }
 .matcha a:hover, .matcha a:active, .cart-drawer-box a:hover, .cart-drawer-box a:active{
     
-    background: #98a96d;
+    background: $color-primary;
     color: #fff;
-    border-color: #98a96d;
+    border-color: $color-primary;
 }
 
 .matcha:first-child{
@@ -132,7 +132,7 @@
        a{
             
             border-radius: 0px;
-            color: #98a96d;
+            color: $color-primary;
             text-transform: uppercase;
             border: 1px solid #fff;
             background: #fff;
@@ -233,12 +233,12 @@
                     }
                     a{
                        font-size: 16px;
-                       color: #000;
+                       color: $color-secondary;
                        text-decoration: none;
                        display: inline-block;
                     }
                      a:hover{
-                        color: #98a96d;
+                        color: $color-primary;
                     }
                     
                 }

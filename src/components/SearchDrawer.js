@@ -59,7 +59,7 @@ const SearchDrawer = (props) => {
               Input:{
                 activeBorderColor:'#fff',
                 activeShadow:'0',
-                colorPrimaryHover:'#98a86d',
+                colorPrimaryHover:'$color-link-hover',
                 colorText:'#000'
               },
               Button:{

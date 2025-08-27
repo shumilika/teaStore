@@ -11,7 +11,7 @@
         line-height: 1.6;
     }
     .btn-box-itemLink button:hover{
-        color: #98a86d !important;
+        color: $color-link-hover !important;
     }
     .center{
         text-align: center;
@@ -21,8 +21,8 @@
         margin: 30px 0;
         a{   
         color: #fff;
-        background-color: #000;
-        border: 1px solid #000;
+        background-color: $color-secondary;
+        border: 1px solid $color-secondary;
         text-decoration: none;
         display: inline-block;
         line-height: 1.5;
@@ -33,28 +33,28 @@
         text-transform: uppercase;
         }
         a:hover, a:active{
-            background: #98a96d;
+            background: $color-primary;
             color: #fff;
-            border-color: #98a96d;
+            border-color: $color-primary;
         }
     }
      .btn-item {
         button{
-            background-color: #000;
+            background-color: $color-secondary;
             color: #fff;
             border-radius: 0;
             padding: 12px 40px;
             text-transform: uppercase;
-            border-color: #000;
+            border-color: $color-secondary;
             height: auto;
             letter-spacing: .2em;
             font-size: 12px;
         }
        
         .ant-btn-default:hover{
-            border-color: #98a86d;
+            border-color: $color-link-hover;
             color: #fff;
-            background-color: #98a86d;
+            background-color: $color-link-hover;
         }
      }
 

@@ -15,7 +15,7 @@
         .about_us_info{
             align-self: center;
             span,p{
-                font-size: 14px;
+                font-size: $font-size-md;
                 color:  rgb(102, 102, 102);
             }
             h5{
@@ -37,7 +37,7 @@
             text-align: center;
 
             h1{
-                padding-bottom: 40px;
+                padding-bottom: $spacing-lg;
                 margin-bottom: 55px;
                 position: relative;
             }

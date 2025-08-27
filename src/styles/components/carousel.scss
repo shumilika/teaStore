@@ -13,7 +13,7 @@
 .slick-dots.slick-thumb {
   display: flex !important;
   flex-direction: column;
-  margin-right: 20px;
+  margin-right: $spacing-md;
   padding: 0;
   right: 60px;
   top: -10px;
@@ -22,7 +22,7 @@
 .slick-dots.slick-thumb li {
   width: 60px;
   height: 60px;
-  margin: 10px 0;
+  margin: $spacing-sm 0;
 }
 
 .slick-dots.slick-thumb li img {

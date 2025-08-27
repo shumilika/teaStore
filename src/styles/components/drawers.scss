@@ -1,5 +1,5 @@
 .filter_shop_box{
-    margin-bottom: 10px;
+    margin-bottom: $spacing-sm;
     .ant-divider{
         padding: 6px 0 6px 14px;
         border-left: 3px solid $color-secondary;
@@ -36,15 +36,15 @@
 
     }
     .ant-checkbox-group{
-        margin: 20px 0;
+        margin: $spacing-md 0;
     }
 
     .sizeOption{
         .ant-checkbox-wrapper{
             border: 1px solid $color-secondary;
             padding: 8px 12px;
-            margin: 0 10px 10px 0;
-            font-size: 14px;
+            margin: 0 $spacing-sm $spacing-sm 0;
+            font-size: $font-size-md;
             font-weight: 600;
             line-height: 21px;
             color: $color-secondary;
@@ -74,9 +74,9 @@
         }
         .ant-checkbox-wrapper{
             border: 1px solid $color-secondary;
-            padding: 10px;
-            margin: 0 10px 10px 0;
-            font-size: 14px;
+            padding: $spacing-sm;
+            margin: 0 $spacing-sm $spacing-sm 0;
+            font-size: $font-size-md;
             font-weight: 400;
             line-height: 21px;
             color: $color-secondary;
@@ -111,7 +111,7 @@
         border: none !important;
 
         .ant-drawer-close{
-            margin: 20px !important;
+            margin: $spacing-md !important;
         }
     }
     .ant-drawer-body{
@@ -120,7 +120,7 @@
     .ant-input-wrapper{
         .ant-input{
             border:0;
-            border-bottom: 2px solid #e8e8e8;
+            border-bottom: 2px solid $color-btn-hover;
             border-radius: 0;
             transition: none;
         }
@@ -129,7 +129,7 @@
         }
         .ant-btn{
             border: 0;
-            border-bottom: 2px solid #e8e8e8;
+            border-bottom: 2px solid $color-btn-hover;
             border-end-end-radius: 0 !important;
         }
     }
@@ -137,7 +137,7 @@
         height: 260px;
         width: 900px;
         max-width: 100%;
-        margin: 20px auto 20px;
+        margin: $spacing-md auto $spacing-md;
         overflow-y: auto;
         overflow-x: hidden;
     }

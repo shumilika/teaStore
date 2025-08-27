@@ -4,7 +4,7 @@
         margin: 60px auto;
     }
     .map_box{
-        padding: 0 40px 0 10px;
+        padding: 0 $spacing-lg 0 $spacing-sm;
         
     }
     
@@ -25,7 +25,7 @@
                     border-radius: 0;
                     border: none;
                     padding: 18px 35px;
-                    font-size: 14px;
+                    font-size: $font-size-md;
                     text-align: center;
                     line-height: 24px;
                     letter-spacing: .2em;
@@ -42,7 +42,7 @@
         margin-bottom: 24px;
         padding: 15px 15px 15px 25px;
         border-radius: 5px;
-        font-size: 16px;
+        font-size: $font-size-lg;
         line-height: 24px;
         font-weight: 400;
         color:  rgb(21, 87, 36);

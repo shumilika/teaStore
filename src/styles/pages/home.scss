@@ -26,13 +26,13 @@
 
         .up-text{
             text-transform: uppercase;
-            font-size: 16px;
+            font-size: $font-size-lg;
         }
         h1{
-            font-size: 80px;
+            font-size: $font-size-h1;
         }
         .down-text{
-            font-size: 20px;
+            font-size: $font-size-h3;
         }
        
         a{
@@ -45,7 +45,7 @@
             line-height: 1.5;
             box-shadow: none;
             font-size: 15px;
-            padding: 10px 35px;
+            padding: $spacing-sm 35px;
             height: auto;
             transition: none;
         }
@@ -71,7 +71,7 @@
     padding: 150px 50px;
   }
     h2{
-        font-size: 45px;
+        font-size: $font-size-h2;
     }    
 }
 }
@@ -84,7 +84,7 @@
     display: inline-block;
     line-height: 1.5;
     font-size: 15px;
-    padding: 10px 35px;
+    padding: $spacing-sm 35px;
     height: auto;
     transition: none;
 }
@@ -122,11 +122,11 @@
         }
         
         h1{
-            font-size: 45px;
-            padding-bottom: 20px;
+            font-size: $font-size-h2;
+            padding-bottom: $spacing-md;
         }
         p{
-            font-size: 16px;
+            font-size: $font-size-lg;
             padding-bottom: 30px;
         }
        a{
@@ -141,7 +141,7 @@
             line-height: 1.5;
             box-shadow: none;
             font-size: 15px;
-            padding: 10px 35px;
+            padding: $spacing-sm 35px;
             height: auto;
             transition: none;
         }
@@ -166,7 +166,7 @@
         }
 
         h1{
-            font-size: 45px;
+            font-size: $font-size-h2;
         }
         p{
             font-size: 15px;
@@ -196,7 +196,7 @@
      .filter_imgs_box{
         margin-top: 150px;
         .ant-row{
-            margin: 40px 0 40px 40px !important;
+            margin: $spacing-lg 0 $spacing-lg $spacing-lg !important;
             width: 95%;
            
         }
@@ -214,7 +214,7 @@
                 right: 30px;
                 align-items: center;
                 display: flex;
-                padding: 20px;
+                padding: $spacing-md;
                 opacity: 0;
                 
                
@@ -232,7 +232,7 @@
                         color: rgb(33, 37, 41);
                     }
                     a{
-                       font-size: 16px;
+                       font-size: $font-size-lg;
                        color: $color-secondary;
                        text-decoration: none;
                        display: inline-block;

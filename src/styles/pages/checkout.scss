@@ -14,11 +14,11 @@
             width: 350px;
             padding-left: 15px;
             h6{
-                font-size: 14px;
+                font-size: $font-size-md;
             }
             p{
                 color: $color-text;
-                font-size: 12px;
+                font-size: $font-size-sm;
             }
         }  
         .cart-price{
@@ -35,7 +35,7 @@
   color: white;
   padding: 8px 15px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: $font-size-sm;
   white-space: nowrap;
   opacity: 0; 
   transition: opacity 0.3s ease-in-out;

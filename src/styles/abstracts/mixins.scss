@@ -38,7 +38,7 @@
     .ant-drawer-header-title{
         border-bottom: 1px solid #dedede;
         .ant-drawer-close{
-            margin: 0 10px;
+            margin: 0 $spacing-sm;
             color: $color-secondary;
         }
     }
@@ -55,11 +55,11 @@
         border-radius: 0;
 
         .ant-modal-close{
-            color: #fff;
+            color: $color-white;
             right: -40px;
             top: -5px;
             span{
-                font-size: 20px;
+                font-size: $font-size-h3;
                 font-weight: 600;
             }
         }

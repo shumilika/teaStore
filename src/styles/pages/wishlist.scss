@@ -2,11 +2,11 @@
     .title-table-box{
         text-transform: uppercase;
         font-weight: 500;
-        font-size: 12px;
+        font-size: $font-size-sm;
         letter-spacing: .2em;
     }
     .span-box, .btn-box-itemLink button{
-        font-size: 14px;
+        font-size: $font-size-md;
         color: #a8a8a8;
         line-height: 1.6;
     }
@@ -26,8 +26,8 @@
         text-decoration: none;
         display: inline-block;
         line-height: 1.5;
-        font-size: 14px;
-        padding: 10px 35px;
+        font-size: $font-size-md;
+        padding: $spacing-sm 35px;
         height: auto;
         transition: none;
         text-transform: uppercase;
@@ -43,12 +43,12 @@
             background-color: $color-secondary;
             color: #fff;
             border-radius: 0;
-            padding: 12px 40px;
+            padding: 12px $spacing-lg;
             text-transform: uppercase;
             border-color: $color-secondary;
             height: auto;
             letter-spacing: .2em;
-            font-size: 12px;
+            font-size: $font-size-sm;
         }
        
         .ant-btn-default:hover{

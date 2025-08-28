@@ -23,8 +23,11 @@
     }
     }
     .middleMenu{
+        width: 40%;
+        display: flex;
+        justify-content: right;
         .ant-menu-item{
-            padding-inline: 30px;
+            padding-inline: 20px;
         }
          a{
             padding: 0 5px $spacing-sm 5px;
@@ -83,7 +86,7 @@
         }
     
     }
-       .middleMenu { order: 1; }
+       .middleMenu { order: 1; width: 40%; }
        .loginMenu{ order: 3;}
 
        .mainMenu{

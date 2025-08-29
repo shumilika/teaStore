@@ -41,12 +41,8 @@ const SmallCard = ({id,name, price, type, amount, description, photo, imgs, isLi
               navigate('/account/login')
             }else{
               await addToFavorites(currentUser.uid, newProduct);
-            alert("Added to favorites!");
             }
-        
-            
-        
-            
+      
     }
    
 

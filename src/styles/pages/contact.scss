@@ -1,0 +1,52 @@
+.contact_us_box{
+    .row-box{
+        width: 90%;
+        margin: 60px auto;
+    }
+    .map_box{
+        padding: 0 $spacing-lg 0 $spacing-sm;
+        
+    }
+    
+        .ant-form-item-control-input{
+            .ant-form-item-control-input-content{
+                input, textarea{
+                    border-radius: 0;
+                    border: 1px solid #ebebeb;
+                    padding: 15px 15px 15px 25px;
+                    width: 100%;
+                }
+                textarea{
+                    height: 280px;
+                }
+                .ant-btn{
+                    background-color: $color-secondary;
+                    text-transform: uppercase;
+                    border-radius: 0;
+                    border: none;
+                    padding: 18px 35px;
+                    font-size: $font-size-md;
+                    text-align: center;
+                    line-height: 24px;
+                    letter-spacing: .2em;
+                    font-weight: 600;
+                    height: auto;
+                }
+                .ant-btn:hover{
+                    background-color: $color-link-hover;
+                }
+            }
+        }
+
+     .ant-alert, .ant-alert-success{
+        margin-bottom: 24px;
+        padding: 15px 15px 15px 25px;
+        border-radius: 5px;
+        font-size: $font-size-lg;
+        line-height: 24px;
+        font-weight: 400;
+        color:  rgb(21, 87, 36);
+        background-color: #d4edda;
+     } 
+    
+}

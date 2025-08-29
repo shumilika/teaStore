@@ -1,0 +1,161 @@
+.login-register-page{
+    margin: 50px;
+   h2{
+     text-align: center;
+     font-size: 18px;
+     text-transform: uppercase;
+     font-weight: 600;
+     padding-bottom: 50px;
+   }
+   .logInUP-box{
+    margin: 50px 0;
+    span{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .ant-input-outlined{
+        border-width: 0 0 1px;
+        border-radius: 0;
+        padding-top: $spacing-md ;
+    }
+    .ant-input-outlined:hover{
+        border-color: #d9d9d9;
+    }
+    .ant-input-outlined:focus-within{
+        border-width: 0 0 1px;
+        border-radius: 0;
+        border-color: $color-secondary;
+        box-shadow: none;
+    }
+    .ant-input-group-addon{
+        border: 0;
+        font-size: $font-size-lg;
+        padding: $spacing-md $spacing-lg;
+        background-color: #fff;
+    }
+    .main-btn{
+        width: 100%;
+        display: flex;
+        justify-content: center; 
+        align-items: center;    
+        margin-top: 45px;   
+
+        button{
+            background-color: $color-secondary;
+            color: #fff;
+            border-radius: 0;
+            padding: 12px $spacing-lg;
+            text-transform: uppercase;
+            border-color: $color-secondary;
+            height: auto;
+            letter-spacing: .2em;
+        }
+       
+        .ant-btn-default:hover{
+            border-color: $color-link-hover;
+            color: $color-link-hover;
+        }
+    }
+
+    .btn-help{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: $spacing-md;
+
+        .ant-btn-link{
+            color: $color-secondary;
+            font-size: $font-size-md;
+        }
+        .ant-btn-link:hover{
+            color: $color-link-hover;
+        }
+    }
+   }
+}
+
+.modal-login-box{
+    margin: $spacing-md $spacing-lg;
+    .modal-logo{
+        text-align: center;
+        padding-bottom: $spacing-md;
+        border-bottom: 1px solid $color-light-gray;
+    }
+   h2{
+     text-align: center;
+     font-size: $font-size-h3;
+     font-weight: 400;
+     padding: $spacing-md 0;
+   }
+   .logInUP-box{
+   height: 500px;
+    .ant-input-outlined{
+        border-radius: 0;
+        padding: 15px;
+        margin-top: 15px;
+    }
+    .ant-input-outlined:hover{
+        border-color: #d9d9d9;
+    }
+    .ant-input-outlined:focus-within{
+        border-radius: 0;
+        border-color: $color-secondary;
+        box-shadow: none;
+       
+    }
+    
+    .main-btn{
+        width: 100%;
+        display: flex;
+        justify-content: center; 
+        align-items: center;    
+        margin-top: 15px;   
+
+        button{
+            background-color: $color-secondary;
+            color: #fff;
+            border-radius: 0;
+            padding: 16px $spacing-lg;
+            text-transform: uppercase;
+            border-color: $color-secondary;
+            height: auto;
+            letter-spacing: .2em;
+            width: 100%;
+        }
+       
+        .ant-btn-default:hover{
+            border-color: $color-link-hover;
+            color: $color-link-hover;
+        }
+    }
+    .reset-pass-btn{
+        button{
+            color: #c5c4c4;
+            padding: 15px 0;
+        }
+         .ant-btn-link:hover{
+            color: $color-link-hover;
+        }
+    }
+
+    .btn-help{
+        width: 100%;
+        display: block;
+        margin-top: 30px;
+        padding: 7px;
+        font-size: $font-size-md;
+        background-color: #f2f2f2;
+        border: 1px solid #e8eced;
+        text-align: center;
+
+        .ant-btn-link{
+            color: #c5c4c4;
+            font-size: $font-size-md;
+        }
+        .ant-btn-link:hover{
+            color: $color-link-hover;
+        }
+    }
+   }
+}

@@ -7,6 +7,7 @@ import { createRoot } from 'react-dom/client';
 import { store } from './store';
 import { Provider } from 'react-redux'
 import { AuthProvider } from './contexts/AuthContext';
+import { ConfigProvider } from 'antd';
 
 
 const root = createRoot(document.getElementById('root'));
@@ -14,7 +15,15 @@ root.render(
   <Provider store={store}>
   <AuthProvider>
   <BrowserRouter>
-  <App/>
+   <ConfigProvider
+          theme={{
+            token: {
+              fontFamily: 'Quicksand, sans-serif',
+            },
+          }}
+        >
+          <App />
+        </ConfigProvider>
   </BrowserRouter>
   </AuthProvider>
   </Provider>

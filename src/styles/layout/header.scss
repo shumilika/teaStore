@@ -1,0 +1,175 @@
+.navBarMain{
+    font-size: 24px;
+     padding: 0 15px;
+      position: sticky; 
+      top: 0;
+       z-index: 1;
+
+       
+
+       .mainMenu{
+    
+        background: none;
+        font-size: 17px;
+        border-bottom: 0;
+        margin-top: $spacing-lg;
+        text-transform: uppercase;
+        .ant-menu-item-active{
+            border-color: #fff;
+        }
+    
+    .ant-menu-title-content{
+        color: #fff ;
+    }
+    }
+    .middleMenu{
+        width: 40%;
+        display: flex;
+        justify-content: right;
+        .ant-menu-item{
+            padding-inline: 20px;
+        }
+         a{
+            padding: 0 5px $spacing-sm 5px;
+            text-decoration: none;
+            position: relative;
+        }
+        a:hover{
+            color: $color-link-hover;
+            border-bottom: 1px solid $color-link-hover;
+        }
+       
+       
+        .ant-menu-horizontal, .ant-menu-item::after {
+            border: none !important;
+        }
+    }
+    .loginMenu{
+        .ant-menu-item{
+            padding-inline: 5px;
+        }
+
+        .ant-menu-horizontal, .ant-menu-item::after {
+            border: none !important;
+        }
+
+        .ant-menu-item-icon{
+            color: #fff;
+            font-size: 25px;
+        }
+       
+    }
+}
+
+.navBarMain.active{
+    background: #888585af;
+    animation-delay: 0s;
+    animation-name: navAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+.navBar{
+    font-size: 24px;
+     padding: 0 15px;
+     background: #ffffffc1;
+      position: sticky; 
+      top: 0;
+       z-index: 1;
+
+     
+       .logoNav { order: 2;
+    width: 25%;
+    
+        img{
+            cursor: pointer;
+        }
+    
+    }
+       .middleMenu { order: 1; width: 40%; }
+       .loginMenu{ order: 3;}
+
+       .mainMenu{
+    
+        background: none;
+        font-size: 17px;
+        border-bottom: 0;
+        margin-top: $spacing-lg;
+        text-transform: uppercase;
+
+      
+        .ant-menu-item-active{
+            border-color: #fff;
+        }
+    
+    .ant-menu-title-content{
+        color: $color-secondary ;
+    }
+    }
+    .middleMenu{
+        .ant-menu-item{
+            padding-inline: 30px;
+        }
+         a{
+            padding: 0 5px $spacing-sm 5px;
+            text-decoration: none;
+            position: relative;
+        }
+        a:hover{
+            color: $color-link-hover;
+            border-bottom: 1px solid $color-link-hover;
+        }
+       
+       
+        .ant-menu-horizontal, .ant-menu-item::after {
+            border: none !important;
+        }
+    }
+    .loginMenu{
+
+        .ant-menu{
+            align-items: end;
+        }
+        .ant-menu-item{
+            padding-inline: 5px;
+           
+        }
+
+        .ant-menu-horizontal, .ant-menu-item::after {
+            border: none !important;
+            
+        }
+        .ant-menu-item-icon{
+            color: $color-secondary;
+            font-size: 25px;
+        }
+       
+    }
+}
+
+.navBar.active{
+    box-shadow: 0 2px 5px -2px #0000001a;
+    animation-delay: 0s;
+    animation-name: navAnimation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+.page_header{
+        background-image: url('../../img/about_us_header_banner.jpg');
+        align-items: center;
+        text-align: center;
+        padding: 150px 0 130px;
+        background-position: center;
+        background-size: cover;
+
+        h1{
+            font-size: 46px;
+        }
+
+        .ant-breadcrumb ol{
+            justify-content: center;
+            font-size: $font-size-md;
+        }
+
+    }

@@ -10,13 +10,14 @@ import { useAuth } from '../../contexts/AuthContext';
 import { addToCart } from '../../services/productService';
 import { fethCartList, fetchLocalCartList } from '../../store/personalProduct';
 import SuccessAddModal from '../SuccessAddModal';
+import AdditionalInfo from './AdditionalInfo';
 
 const FullPageCard = () => {
 
   const { id } = useParams()
   const productsListFromRedux = useSelector(state=>state.products.productsList)
   const [productsList, setProductsList] = useState([])
-   const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [valueSize, setValueSize] = useState('');
   const [valueType, setValueType ] = useState('');
   const [valuePrice, setValuePrice] = useState('')
@@ -123,6 +124,8 @@ if (!product) {
         }
       ];
 
+    
+
       const items = [
   {
     key: '1',
@@ -134,7 +137,7 @@ if (!product) {
   {
     key: '2',
     label: <span className='tab-label'>Additional Information</span>,
-    children: "",
+    children: <AdditionalInfo photo={product.photo}/>,
   }
 ];
 
@@ -254,11 +257,9 @@ if (!product) {
             lineWidth:2,
             controlHeightLG:45
           },
-          // Tabs:{
-          //   inkBarColor:'rgba(0,0,0,0.88)',
-          //   lineWidthFocus:1,
-          //   boxShadowSecondary:0
-          // }
+          Tabs:{
+            horizontalMargin:0,
+          },
         },
         token: {
           colorPrimary: '#000',
@@ -319,7 +320,7 @@ if (!product) {
                   <Card3rdColumn/>
                 </Col>
             </Row>
-        </ConfigProvider>
+        
         <Row className='add-info'>
         <Col span={24}>
           <div className='tabs'>
@@ -328,6 +329,7 @@ if (!product) {
         </div>
         </Col>
         </Row>
+        </ConfigProvider>
 
 
             <SuccessAddModal open={openAddCardModal} onClose={handleCloseAddCardModal} product={finalCard}/>

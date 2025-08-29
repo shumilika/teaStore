@@ -39,11 +39,11 @@ const BestSeller = () => {
           </Col>
           </Row>
 
-          <Row style={{padding:'10px'}}>
+          <Row justify="space-evenly">
           {mergedProducts.length > 0 ? (
             mergedProducts.map((product, index) => (
       
-            <Col key={index} span={6} >
+            <Col key={index} span={5} >
               <SmallCard data={product} name={product.name} price={product.amount[0].price}
               description={product.description} amount={product.amount} type={product.type} 
               photo={product.photo} imgs={product.imgs} id={product.id} isLiked={product.isLiked}

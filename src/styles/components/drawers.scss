@@ -1,0 +1,152 @@
+.filter_shop_box{
+    margin-bottom: $spacing-sm;
+    .ant-divider{
+        padding: 6px 0 6px 14px;
+        border-left: 3px solid $color-secondary;
+        color: rgb(33, 37, 41);
+        font-weight: 500;
+        line-height: 21.6px;
+        font-size: 18px;
+    }
+    .ant-divider-horizontal.ant-divider-with-text:after{
+        border-block-start: 1px solid #e6e6e6; 
+    }
+
+    .categories, .priceFilter{
+        
+        .ant-checkbox-wrapper:hover{
+            color: $color-link-hover;
+        }
+         .ant-checkbox-wrapper {
+            font-size: 15px;
+                font-weight: 400;
+                line-height: 36px;
+                color: $color-secondary;
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+            .ant-checkbox-checked+span{
+                color: $color-link-hover;
+                
+            }
+         }
+
+    }
+    .ant-checkbox-group{
+        margin: $spacing-md 0;
+    }
+
+    .sizeOption{
+        .ant-checkbox-wrapper{
+            border: 1px solid $color-secondary;
+            padding: 8px 12px;
+            margin: 0 $spacing-sm $spacing-sm 0;
+            font-size: $font-size-md;
+            font-weight: 600;
+            line-height: 21px;
+            color: $color-secondary;
+
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+        }
+        .ant-checkbox-wrapper:hover{
+            border: 1px solid $color-link-hover;
+            background-color: $color-link-hover;
+            color: #fff;
+        }
+        .ant-checkbox-wrapper-checked{
+            border: 1px solid $color-link-hover;
+            background-color: $color-link-hover;
+            color: #fff;
+        }
+    }
+
+    .tags{
+        .ant-checkbox-group{
+            column-gap: 0;
+        }
+        .ant-checkbox-wrapper{
+            border: 1px solid $color-secondary;
+            padding: $spacing-sm;
+            margin: 0 $spacing-sm $spacing-sm 0;
+            font-size: $font-size-md;
+            font-weight: 400;
+            line-height: 21px;
+            color: $color-secondary;
+
+            .ant-checkbox{
+                display: none;
+            }
+            .ant-checkbox+span{
+                padding: 0;
+            }
+        }
+        .ant-checkbox-wrapper:hover{
+            border: 1px solid $color-link-hover;
+            background-color: $color-link-hover;
+            color: #fff;
+        }
+        .ant-checkbox-wrapper-checked{
+            border: 1px solid $color-link-hover;
+            background-color: $color-link-hover;
+            color: #fff;
+        }
+    }
+      
+}
+
+.search-box{
+    height: auto !important;
+    text-align: center;
+   
+    .ant-drawer-header-title{
+        justify-content:flex-end;
+        border: none !important;
+
+        .ant-drawer-close{
+            margin: $spacing-md !important;
+        }
+    }
+    .ant-drawer-body{
+        padding: 0 !important;
+    }
+    .ant-input-wrapper{
+        .ant-input{
+            border:0;
+            border-bottom: 2px solid $color-btn-hover;
+            border-radius: 0;
+            transition: none;
+        }
+        .ant-input input[type="text"]:focus{
+            border: 0 !important;
+        }
+        .ant-btn{
+            border: 0;
+            border-bottom: 2px solid $color-btn-hover;
+            border-end-end-radius: 0 !important;
+        }
+    }
+    .search-result{
+        height: 260px;
+        width: 900px;
+        max-width: 100%;
+        margin: $spacing-md auto $spacing-md;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    .search-result::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+.search-result::-webkit-scrollbar {
+  width: 3px; 
+}
+}

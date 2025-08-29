@@ -55,9 +55,9 @@ const NewArrivals = () => {
   {mergedProducts.length > 0 ? (
     chunkArray(mergedProducts, 4).map((chunk, chunkIndex) => (
       <div key={chunkIndex}>
-        <Row>
+        <Row justify="space-evenly" >
           {chunk.map((product, index) => (
-            <Col key={index} span={6} tabIndex={(chunkIndex * 4) + index}>
+            <Col key={index}  tabIndex={(chunkIndex * 4) + index}   span={5}>
               <SmallCard data={product} name={product.name} price={product.amount[0].price}
               description={product.description} amount={product.amount} type={product.type} 
               photo={product.photo} imgs={product.imgs} id={product.id} isLiked={product.isLiked}

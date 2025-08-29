@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import PageHeader from './PageHeader';
-import { Col, Row, Table, Button } from 'antd';
+import PageHeader from '../components/PageHeader.js';
+import { Col, Row, Table, Button, ConfigProvider } from 'antd';
 import { useAuth } from '../contexts/AuthContext.js'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -39,20 +39,20 @@ const dataSource = favoritesData.map((item) => ({
   key: item.id, 
   productName: (
     <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-       <img src={item.image} alt={item.title} style={{ width: 100, height: 100,}} 
+       <img src={item.image} alt={item.title} style={{ width: 100, height: 100, cursor:'pointer'}} 
        onClick={()=>handleOpenItemCardAction(item.id)}/>
-      <div>
+      <div className='btn-box-itemLink'>
        <Button type='link' onClick={()=>handleOpenItemCardAction(item.id)}>
          <p>{item.title}</p>
        </Button>
       </div>
     </div>
   ),
-  price: <span>${item.price}.00</span>,
-  action:<div className='btn-item'>
+  price: <div className='center'><span className='span-box'>${item.price}.00</span></div>,
+  action:<div className='btn-item center'>
     <Button onClick={()=>handleOpenItemCardAction(item.id)}>select option</Button>
   </div>,
-  remove:<div className='delete-icon-full-cart'>
+  remove:<div className='delete-icon-full-cart center'>
   <CloseOutlined 
   style={{fontSize:'18px'}} 
   onClick={()=>handleDeleteFavoritesItemAction(item.id)}
@@ -66,17 +66,17 @@ const dataSource = favoritesData.map((item) => ({
 
 const columns = [
   {
-    title: 'Product name',
+    title: <div className='title-table-box'>Product name</div>,
     dataIndex: 'productName',
     key: 'productName',
   },
   {
-    title: 'Price',
+    title: <div className='title-table-box center'>Price</div>,
     dataIndex: 'price',
     key: 'price',
   },
   {
-    title: 'Action',
+    title: <div className='title-table-box center'>Action</div>,
     dataIndex: 'action',
     key: 'action',
   },
@@ -91,8 +91,24 @@ const columns = [
         <div className='wishlist-page'>
              <PageHeader title={'Wishlist'}/>
              <Row justify={'center'}>
-                <Col span={12}>
-                    <Table dataSource={dataSource} pagination={false} columns={columns} />
+                <Col span={24} style={{marginTop:'50px'}}>
+                 <ConfigProvider
+              theme={{
+                components: {
+                  Table: {
+                    borderColor:'#dee2e6',
+                    headerBorderRadius:0,
+                    headerBg:'#fff',
+                    headerColor:'#000',
+                    rowHoverBg:'#fff'
+                  },
+                },
+              }}
+            >
+                    <Table dataSource={dataSource} pagination={false} columns={columns}
+                    bordered='true' style={{width:'70%',margin:'0 auto'}}
+                     />
+                    </ConfigProvider>
                    <div className='link-box'>
                      <Link to={'/shop'}>continue shopping</Link>
                    </div>

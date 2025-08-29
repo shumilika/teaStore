@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import PageHeader from './PageHeader';
+import PageHeader from '../components/PageHeader';
 import { Button, Col, Radio, Row } from 'antd';
 import {HolderOutlined, FilterOutlined} from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductList } from '../store/products';
-import SmallCard from './Card/SmallCard';
-import FilterShop from './FilterShop';
+import SmallCard from '../components/Card/SmallCard';
+import FilterShop from '../components/FilterShop';
 
 const Shop = () => {
   const productsData = useSelector(state=>state.products.productsList)

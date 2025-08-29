@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Col, Divider, Collapse } from 'antd'
-import PageHeader from './PageHeader';
+import PageHeader from '../components/PageHeader';
 import PlusOutlined from '@ant-design/icons/PlusOutlined'
 import MinusOutlined from '@ant-design/icons/MinusOutlined'
 

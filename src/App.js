@@ -13,16 +13,16 @@ import { Route, Routes } from 'react-router-dom';
 import BillingAddress from './components/Login/BillingAddress';
 import Account from './components/Login/Account';
 import LoginRegister from './components/Login/LoginRegister';
-import Wishlist from './components/Wishlist';
-import ErrorPage from './components/ErrorPage';
+import Wishlist from './pages/Wishlist';
+import ErrorPage from './pages/ErrorPage';
 import Cart from './components/Cart/Cart';
 import FullPageCard from './components/Card/FullPageCard';
-import Shop from './components/Shop';
-import ContactUs from './components/ContactUs';
-import FAQS from './components/FAQS';
-import AboutUs from './components/AboutUs';
+import Shop from './pages/Shop';
+import ContactUs from './pages/ContactUs';
+import FAQS from './pages/FAQS';
+import AboutUs from './pages/AboutUs';
 import Dashboard from './components/Dashboard';
-import Checkout from './components/Checkout';
+import Checkout from './pages/Checkout';
 
 
 function App() {

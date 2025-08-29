@@ -1,4 +1,4 @@
-import { Badge, Col, Row } from 'antd';
+import { Badge, Col, Input, Row, Select } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingOutlined, ArrowDownOutlined } from '@ant-design/icons'
@@ -60,7 +60,22 @@ const Checkout = () => {
          <Col span={24}>
          <Row>
             <Col span={12} style={{borderRight:'1px solid rgb(223,223,223)', height:'92vh'}}>
-
+            <div className='contact-box'>
+                <h3>Contact</h3><Link to={'/account/login'}>Log in</Link>
+                <Input placeholder="Email or mobile phone number"/>
+            </div>
+            <div className='delivery-address'>
+                 <Select
+      defaultValue="select country"
+      style={{ width: 120 }}
+    //   onChange={handleChange}
+      options={[
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+        { value: 'Yiminghe', label: 'yiminghe' },
+      ]}
+    />
+            </div>
             </Col>
             <Col span={12} style={{backgroundColor:'#FAFAFA'}}>
                 <div style={{marginTop:'50px', maxHeight:'345px', width:'400px', overflow:'hidden',

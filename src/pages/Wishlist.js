@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import PageHeader from './PageHeader';
+import PageHeader from '../components/PageHeader.js';
 import { Col, Row, Table, Button, ConfigProvider } from 'antd';
 import { useAuth } from '../contexts/AuthContext.js'
 import { Link, useNavigate } from 'react-router-dom';

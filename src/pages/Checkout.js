@@ -1,8 +1,9 @@
-import { Badge, Col, Input, Row, Select } from 'antd';
+import { Badge, Col, Input, Row, Button, ConfigProvider } from 'antd';
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ShoppingOutlined, ArrowDownOutlined } from '@ant-design/icons'
+import { ShoppingOutlined, ArrowDownOutlined, ExclamationCircleOutlined } from '@ant-design/icons'
 import { useSelector } from 'react-redux';
+import CountrySelect from '../components/CountrySelect';
 
 const Checkout = () => {
 
@@ -58,26 +59,69 @@ const Checkout = () => {
           </Row>
          </Col>
          <Col span={24}>
-         <Row>
-            <Col span={12} style={{borderRight:'1px solid rgb(223,223,223)', height:'92vh'}}>
-            <div className='contact-box'>
-                <h3>Contact</h3><Link to={'/account/login'}>Log in</Link>
+         <Row style={{backgroundColor:'#FAFAFA'}}>
+            <Col span={12} style={{borderRight:'1px solid rgb(223,223,223)', height:'120vh', backgroundColor:'#fff'}}>
+          <ConfigProvider
+          theme={{
+            components:{
+                Input:{
+                    activeBorderColor:'rgb(25,144,198)',
+                    hoverBorderColor:'#d9d9d9',
+                    activeShadow:'none', 
+                    colorTextPlaceholder:'#6E6E6E',                  
+                }
+                
+            }
+          }}
+          >
+             <div className='left-path'>
+             <div className='contact-box'>
+              <Row justify={'space-between'}>
+                 <Col span={20}>
+                 <h3>Contact</h3>
+               </Col>
+               <Col>
+                <Link to={'/account/login'}>Log in</Link>
+               </Col>
+              </Row>
                 <Input placeholder="Email or mobile phone number"/>
             </div>
             <div className='delivery-address'>
-                 <Select
-      defaultValue="select country"
-      style={{ width: 120 }}
-    //   onChange={handleChange}
-      options={[
-        { value: 'jack', label: 'Jack' },
-        { value: 'lucy', label: 'Lucy' },
-        { value: 'Yiminghe', label: 'yiminghe' },
-      ]}
-    />
+            <h3>Delivery</h3>
+                <CountrySelect/>
+               <Row justify={'space-between'}> 
+                <Col flex={'45%'}> <Input placeholder='First name'/></Col>
+                <Col flex={'52%'}>
+                <Input placeholder='Last name (optional)'/></Col>
+               </Row>
+                <Input placeholder='Address'/>
+                <Input placeholder='Apartment, suite, etc. (optional)'/>
+               <Row justify={'space-between'}>
+                <Col flex={'45%'}> <Input placeholder='Postal code'/></Col>
+                <Col flex={'52%'}>
+                <Input placeholder='City'/></Col>
+               </Row>
             </div>
+            <div className='ship-cost'>
+                <h4>Shipping method</h4>
+                <div>Enter your shipping address to view available shipping methods.</div>
+            </div>
+            <div className='payment'>
+            <h3>Payment</h3>
+            <p>All transactions are secure and encrypted. </p>
+            <div className='no-payments'>
+                <ExclamationCircleOutlined style={{fontSize:'40px', margin:'10px 0', color:'#B3B3B3'}}/>
+                <br />
+                <span>This store can’t accept payments right now.</span>
+            </div>
+            <div className='pay-btn'>
+                <Button>Pay now</Button>
+            </div>
+            </div>
+           </div>
+          </ConfigProvider>
             </Col>
-            <Col span={12} style={{backgroundColor:'#FAFAFA'}}>
+            <Col span={12} >
                 <div style={{marginTop:'50px', maxHeight:'345px', width:'400px', overflow:'hidden',
                  marginLeft:'30px',borderBottom:borderBottom}}>
                     <div style={{maxHeight:'345px', overflowY:'auto', paddingTop:'5px' }} ref={containerRef}>

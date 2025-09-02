@@ -16,6 +16,8 @@
         background-image: url('../../img//tea_leaves_black.jpg');
       background-repeat: no-repeat;
       height: 100vh;
+    
+
     }
   
     .teaBox{
@@ -99,9 +101,15 @@
 
 .matcha:first-child{
     background-image: url('../../img/matcha_banner.jpg');
+      background-position: center;
+  background-size: cover;
+   background-repeat: no-repeat;
 }
 .matcha:last-child{
     background-image: url('../../img/organic_banner.jpg');
+      background-position: center;
+  background-size: cover;
+   background-repeat: no-repeat;
 }
 
  .green-tea-banner{
@@ -253,5 +261,131 @@
                 animation-delay: 0s;
                 animation-duration: 0.5s;
                 animation-timing-function: ease;
+        }
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1500px){
+        .banner-box{
+            .teaBox{
+                h1{
+                    font-size: 60px;
+                }
+            }
+        }
+       .flex-matcha-box{
+            .matcha{
+                height: 400px;
+                margin: 60px 0;
+            div{
+                padding: 140px 40px;
+            }
+                h2{
+                    font-size: 35px;
+                }    
+            }
+        }
+    }
+
+     @media screen and (min-width: 992px) and (max-width: 1199.98px){
+        .banner-box{
+            .greenTeaJapBox,.BlackTeaBox{
+                height: auto;
+            }
+            .teaBox{
+                h1{
+                    font-size: 55px;
+                }
+            }
+            .flex-matcha-box{
+            .matcha{
+                height: 300px;
+                margin: 50px 0;
+            div{
+                padding: 100px 30px;
+            }
+                h2{
+                    font-size: 25px;
+                    font-weight: 400;
+                }    
+            }
+        }
+            
+        }
+    }
+
+     @media screen and (min-width: 768px) and (max-width: 991.98px){
+        .banner-box{
+            .greenTeaJapBox,.BlackTeaBox{
+                height: auto;
+            }
+            .teaBox{
+                margin: 150px auto 100px auto;
+                h1{
+                    font-size: 45px;
+                }
+            }
+             .flex-matcha-box{
+            .matcha{
+                height: 200px;
+                margin: 40px 0;
+            div{
+                padding: 50px 20px;
+            }
+                h2{
+                    font-size: 25px;
+                    font-weight: 400;
+                }    
+            }
+        }
+            
+        
+        }
+    }
+
+     @media screen and (min-width: 576px) and (max-width: 767.98px){
+        .banner-box{
+            .greenTeaJapBox,.BlackTeaBox{
+                height: auto;
+            }
+            .teaBox{
+                margin: 150px auto 100px auto;
+                h1{
+                    font-size: 35px;
+                }
+            }
+        }
+    }
+
+     @media screen and (max-width: 575.98px){
+        .banner-box{
+            .greenTeaJapBox,.BlackTeaBox{
+                height: auto;
+            }
+            .teaBox{
+                margin: 150px auto 100px auto;
+                h1{
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+
+     @media screen and (max-width: 768px){
+        .banner-box{
+            .flex-matcha-box{
+                flex-direction: column;
+            .matcha{
+                width: 100%;
+                height: 300px;
+                margin: 10px;
+            div{
+                padding: 60px 20px;
+            }
+                h2{
+                    font-size: 25px;
+                    font-weight: 400;
+                }    
+            }
+        }
         }
     }

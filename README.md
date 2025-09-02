@@ -9,7 +9,7 @@ An elegant and responsive online tea shop built with **React**, **Redux**, and a
 - ⚛️ **React** 18
 - 🚦 **React Router DOM** 6
 - 🧩 **Redux Toolkit** + React-Redux
-- 🎨 **Ant Design**, **Bootstrap**, **SASS**, and **Slick Carousel**
+- 🎨 **Ant Design**, **Bootstrap**, **SCSS**, and **Slick Carousel**
 - 🗺 **Google Maps** via `@vis.gl/react-google-maps`
 - 🔥 **Firebase** (for auth or database, if used)
 - 📡 **Axios** for API requests

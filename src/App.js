@@ -23,6 +23,7 @@ import FAQS from './pages/FAQS';
 import AboutUs from './pages/AboutUs';
 import Dashboard from './components/Dashboard';
 import Checkout from './pages/Checkout';
+import NavigationMobile from './components/NavigationMobile';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
     const MainLayout = () => (
     <div className='bgImage'>
       <Navigation />
+      <NavigationMobile/>
       <div className="content-area">
         <Routes>
           <Route path="/" element={<Dashboard />} />

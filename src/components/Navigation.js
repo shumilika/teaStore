@@ -110,9 +110,9 @@ const changeBackground = ()=>{
 
 const navBarStyleChange = ()=>{
   if(pathname===(''||'/')){
-    return navBar?'navBarMain active':'navBarMain'
+    return navBar?'navBarMain active visibilityWeb':'navBarMain visibilityWeb'
   }
-  else return navBar?'navBar active':'navBar'
+  else return navBar?'navBar active visibilityWeb':'navBar visibilityWeb'
 }
 
 window.addEventListener('scroll', changeBackground)

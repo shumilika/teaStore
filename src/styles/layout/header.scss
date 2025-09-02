@@ -8,7 +8,6 @@
        
 
        .mainMenu{
-    
         background: none;
         font-size: 17px;
         border-bottom: 0;
@@ -155,6 +154,87 @@
     animation-timing-function: ease-in-out;
 }
 
+.navBarMob{
+    font-size: 24px;
+     padding: 0 15px;
+     background: #fff;
+      position: relative; 
+      top: 0;
+       z-index: 1;
+
+       .logoNav { order: 2;
+        width: 33%; 
+        text-align: center;
+        img{
+            cursor: pointer;
+        }
+    }
+       .menuIcon{
+        order: 1; 
+        width: 33%;
+        margin: 30px 0;
+        display: flex;
+        align-items:flex-end;
+       }
+       .loginMenu{ order: 3;width: 33%;}
+
+       .mainMenu{
+    
+        background: none;
+        font-size: 17px;
+        border-bottom: 0;
+        
+    }
+   
+    .loginMenu{
+        justify-content: end;
+        .ant-menu{
+            align-items: end;
+        }
+        .ant-menu-item{
+            padding-inline: 5px;
+           
+        }
+
+        .ant-menu-horizontal, .ant-menu-item::after {
+            border: none !important;
+            
+        }
+        .ant-menu-item-icon{
+            color: $color-secondary;
+            font-size: 25px;
+        }
+       
+    }
+}
+
+.visibilityMob{
+    display: none;
+}
+.visibilityWeb{
+    display: block;
+}
+
+.title-drawer-box{
+     .active{
+        background-color: #000;
+        color: #fff;
+        transition: .3s;
+    }
+}
+
+.menu-drawer-box{
+    a{
+        text-decoration: none;
+        color: #000;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+
+
 .page_header{
         background-image: url('../../img/about_us_header_banner.jpg');
         align-items: center;
@@ -172,4 +252,21 @@
             font-size: $font-size-md;
         }
 
+    }
+
+    @media screen and (max-width:576px){
+        .page_header{
+            padding: 70px 0 50px;
+            h1{
+                font-size: 35px;
+            }
+        }
+    }
+    @media screen and (max-width:1200px){
+        .visibilityMob{
+    display: block;
+}
+.visibilityWeb{
+    display: none;
+}
     }

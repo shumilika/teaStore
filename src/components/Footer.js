@@ -14,7 +14,7 @@ const Footer = () => {
     return (
         <div className='footer_box'>
         <Row className='first_footer_box' justify={'space-around'}>
-            <Col span={6}>
+            <Col sm={6} xs={24}>
               <div className='footer-text'>
               <h4>Shop</h4>
               </div>
@@ -25,7 +25,7 @@ const Footer = () => {
                     <li>Products Return</li>
                 </ul>
             </Col>
-            <Col span={6}>
+            <Col sm={6} xs={24}>
             <div className='footer-text'>
                 <h4>About</h4>
                 </div>
@@ -34,7 +34,7 @@ const Footer = () => {
                     <li>Address store</li>
                 </ul>
             </Col>
-            <Col span={6}>
+            <Col sm={6} xs={24}>
             <div className='footer-text'>
                 <h4>Follow us</h4>
                 </div>
@@ -47,13 +47,13 @@ const Footer = () => {
             </Col>
         </Row>
         <Row className='last_footer_box' justify={'space-around'} align='middle'>
-            <Col span={6}>
+            <Col sm={24} md={6}>
                 <img src={logo} width={'50px'} alt="logo" className='logo_footer' onClick={()=>navigate('/')} />
             </Col>
-            <Col span={6}>
+            <Col sm={24} md={6}>
                 <img src={pay_icons} alt="" />
             </Col>
-            <Col span={6}>
+            <Col sm={24} md={6}>
                 <p>© Copyright 2024 | Design taken <a href="https://moocha-store-demo.myshopify.com/">here</a>.</p>
             </Col>
         </Row>

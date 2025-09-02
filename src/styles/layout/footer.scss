@@ -59,3 +59,21 @@
            }
         }
     }
+    @media screen and (max-width:900px) {
+        .footer_box{
+            .last_footer_box{
+                text-align: center;
+            }
+        }
+    }
+
+    @media screen and (max-width:576px) {
+        .footer_box{
+            .first_footer_box{
+                text-align: center;
+                h4:before{
+                    visibility: hidden;
+                }
+            }
+        }
+    }

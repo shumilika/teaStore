@@ -35,7 +35,7 @@ const LoginRegister = () => {
 
     return (
         <Row justify={'space-around'} align={'middle'} className='login-register-page'>
-            <Col span={10}>
+            <Col lg={10} md={10} sm={24} xs={24}>
                {view==='login'? <div className='logInUP-box'>
                     <h2>Login</h2>
                     <div className='input-box'>
@@ -75,7 +75,7 @@ const LoginRegister = () => {
                     </div>
                 </div>}
             </Col>
-            <Col span={10}>
+            <Col lg={10} md={10} sm={24} xs={24}>
                 <div className='logInUP-box'>
                     <h2>Register</h2>
                     <div className='input-box'>

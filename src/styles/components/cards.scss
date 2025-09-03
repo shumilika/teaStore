@@ -2,6 +2,12 @@
     margin: $spacing-sm;
     width: auto;
     position: relative;
+    .mob-version{
+        display: none;
+    }
+    .web-version{
+        display: block;
+    }
 
     .hideLink{
         display: none;
@@ -439,3 +445,15 @@
         }
     }
 }
+
+@media screen and (max-width:870px){
+    .card-box{
+         .mob-version{
+        display: block;
+    }
+    .web-version{
+        display: none;
+    }
+    }
+}
+

@@ -57,7 +57,16 @@ const MenuMobalDrawer = (props) => {
 
     return (
       
-        <Drawer className='menu-drawer-box' placement='left' title={title} onClose={props.onClose} open={props.open}
+        <Drawer className='menu-drawer-box' placement='left' 
+  //        width={{
+  //   xs: 200,  // < 576px
+  //   sm: 300,  // ≥ 576px
+  //   md: 378,  // ≥ 768px
+  //   lg: 378,  // ≥ 992px
+  //   xl: 378,  // ≥ 1200px
+  //   xxl: 378, // ≥ 1600px
+  // }}
+        title={title} onClose={props.onClose} open={props.open}
     footer={footer} closable={false} >
             {isMenuActive ?
            

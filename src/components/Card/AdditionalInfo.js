@@ -21,13 +21,13 @@ const AdditionalInfo = ({photo}) => {
 
     return (
         <Row className='additional-info-page'>
-        <Col span={16}>
+        <Col lg={16} md={16} sm={24} xs={24}>
            <div className='title-content'>
              <h6>More Infomation To You</h6>
             <h2>Things you need to know</h2>
            </div>
           <Row>
-            <Col span={12} style={{padding:'0 15px'}}>
+            <Col lg={12} md={12} sm={24} xs={24} style={{padding:'0 15px'}}>
                  <div className='ssl-text'>
             <p>
                 We use industry standard SSL encryption to protect your details. Potentially sensitive 
@@ -45,7 +45,7 @@ const AdditionalInfo = ({photo}) => {
             </ul>
            </div>
             </Col>
-             <Col span={12} style={{padding:'0 15px'}}>
+             <Col lg={12} md={12} sm={24} xs={24} style={{padding:'0 15px'}}>
             <div>
                 <ul className='list-add-info'>
                    <h3> Express Delivery</h3>
@@ -67,7 +67,7 @@ const AdditionalInfo = ({photo}) => {
           </Row>
         </Col>
        
-        <Col span={8}>
+        <Col lg={8} md={8} sm={0} xs={0}>
             <div>
                 <img src={photoUrl} alt='photo' width={'90%'}/>
             </div>

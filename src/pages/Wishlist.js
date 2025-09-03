@@ -38,8 +38,8 @@ useEffect(() => {
 const dataSource = favoritesData.map((item) => ({
   key: item.id, 
   productName: (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-       <img src={item.image} alt={item.title} style={{ width: 100, height: 100, cursor:'pointer'}} 
+    <div className='product-cell'>
+       <img src={item.image} alt={item.title} style={{ maxWidth: 100, maxHeight: 100, cursor:'pointer'}} 
        onClick={()=>handleOpenItemCardAction(item.id)}/>
       <div className='btn-box-itemLink'>
        <Button type='link' onClick={()=>handleOpenItemCardAction(item.id)}>
@@ -91,7 +91,7 @@ const columns = [
         <div className='wishlist-page'>
              <PageHeader title={'Wishlist'}/>
              <Row justify={'center'}>
-                <Col span={24} style={{marginTop:'50px'}}>
+                <Col  xs={24} sm={22} md={20} lg={18} xl={16} style={{marginTop:'50px'}}>
                  <ConfigProvider
               theme={{
                 components: {
@@ -106,7 +106,7 @@ const columns = [
               }}
             >
                     <Table dataSource={dataSource} pagination={false} columns={columns}
-                    bordered='true' style={{width:'70%',margin:'0 auto'}}
+                    bordered='true'
                      />
                     </ConfigProvider>
                    <div className='link-box'>

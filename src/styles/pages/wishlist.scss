@@ -59,3 +59,53 @@
      }
 
 }
+
+.product-cell{
+    display: flex;
+  align-items: center;
+  gap: 8px; 
+}
+
+@media (max-width: 720px) {
+  .wishlist-page{
+      .btn-item {
+        button{
+    letter-spacing:normal;
+}}
+  }
+  .product-cell {
+    flex-direction: column; /* Элементы будут располагаться вертикально */
+    align-items: flex-start; /* Выровнять по левому краю */
+    text-align: left;
+    gap: 0;
+  }
+
+  .btn-box-itemLink {
+    margin-top: 8px; /* Добавить отступ сверху для текста */
+  }
+}
+
+@media (max-width: 576px) {
+  .wishlist-page{
+      .btn-item {
+        button{
+    letter-spacing:normal;
+    padding: 5px;
+    font-size: 8px;
+}}
+  }
+  .product-cell {
+    flex-direction: column; /* Элементы будут располагаться вертикально */
+    align-items: flex-start; /* Выровнять по левому краю */
+    text-align: left;
+    gap: 0;
+    .btn-box-itemLink button{
+        padding: 0;
+        display: none;
+    }
+  }
+
+  .btn-box-itemLink {
+    margin-top: 8px; /* Добавить отступ сверху для текста */
+  }
+}

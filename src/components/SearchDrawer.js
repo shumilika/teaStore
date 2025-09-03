@@ -49,6 +49,7 @@ const SearchDrawer = (props) => {
 
   return (
     <Drawer className='search-box'
+    
       placement='top'
       onClose={props.onClose} open={props.open}>
         

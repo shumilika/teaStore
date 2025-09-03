@@ -136,7 +136,8 @@ if (!product) {
   },
   {
     key: '2',
-    label: <span className='tab-label'>Additional Information</span>,
+    label: <><span className='tab-label web-version'>Additional Information</span>
+    <span className='tab-label mob-version'>Add Info</span></>,
     children: <AdditionalInfo photo={product.photo}/>,
   }
 ];

@@ -13,10 +13,10 @@ const AboutUs = () => {
       <PageHeader title={'About us'}/>
 
     <Row justify='center' className='row_box'>
-      <Col span={12} className='about_us_img'>
+      <Col  lg={12} md={12} sm={24} xs={24} className='about_us_img'>
         <img src={justin_lisiakir} alt="" />
       </Col>
-      <Col span={12} className='about_us_info'>
+      <Col lg={12} md={12} sm={24} xs={24} className='about_us_info'>
       <span>Photographer</span>
 
 <h5>Justin Lisiakir</h5>
@@ -32,7 +32,7 @@ all the amazing things they’re capable of – no matter who they are, where th
 
     <Row justify='center' className='row_box'>
      
-      <Col span={12} className='about_us_info'>
+      <Col lg={12} md={12} sm={24} xs={24} className='about_us_info'>
       <span>Web Designer</span>
 
 <h5>Angelika Hess</h5>
@@ -44,16 +44,16 @@ offering our Ciloe Brands in more than 30 sizes – and we're committed to provi
  one of the biggest voices in LGBTQ activism, on a gender-neutral collection to unite in accelerating acceptance.
 </p>
       </Col>
-      <Col span={12} className='about_us_img'>
+      <Col lg={12} md={12} sm={24} xs={24} className='about_us_img'>
         <img src={web_designer} alt="" />
       </Col>
     </Row>
 
     <Row justify='center' className='row_box'>
-      <Col span={12} className='about_us_img'>
+      <Col lg={12} md={12} sm={24} xs={24} className='about_us_img'>
         <img src={sales_agent} alt="" />
       </Col>
-      <Col span={12} className='about_us_info'>
+      <Col lg={12} md={12} sm={24} xs={24} className='about_us_info'>
       <span>Sales agent</span>
 
 <h5>Alex Barnder</h5>
@@ -69,7 +69,7 @@ To be brave and grab life as the extraordinary adventure it is. So we make sure 
 
     <Row justify='center' className='row_box'>
      
-      <Col span={12} className='about_us_info'>
+      <Col lg={12} md={12} sm={24} xs={24} className='about_us_info'>
       <span>Marketing staff</span>
 
 <h5>Angelika Hessas</h5>
@@ -81,7 +81,7 @@ the amazing things they’re capable of – no matter who they are, where they�
 We exist to give you the confidence to be whoever you want to be.
 </p>
       </Col>
-      <Col span={12} className='about_us_img'>
+      <Col lg={12} md={12} sm={24} xs={24} className='about_us_img'>
         <img src={marketing_staff} alt="" />
       </Col>
     </Row>
@@ -93,19 +93,19 @@ We exist to give you the confidence to be whoever you want to be.
       </Col>
      </Row>
       <Row>
-        <Col span={8}>
+        <Col lg={8} md={8} sm={24} xs={24}>
           <h4>24/7 friendly support</h4>
           <p>
             Our support team always ready for you to 7 days a week
           </p>
         </Col>
-        <Col span={8}>
+        <Col lg={8} md={8} sm={24} xs={24}>
         <h4>Free shipping & return</h4>
         <p>
           Free wordwide shipping on all area order above 100$
         </p>
         </Col>
-        <Col span={8}>
+        <Col lg={8} md={8} sm={24} xs={24}>
           <h4>7 days easy return</h4>
           <p>
             Product any fault within 7 days for an immediately exchange

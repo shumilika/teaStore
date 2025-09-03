@@ -39,7 +39,7 @@ const LoginMob = () => {
 
                
                 {authView==='login' && 
-                <div className='logInUP-box'>
+                <div className='logInUP-box' style={{height:'auto'}}>
                   
                     <div className='input-box'>
                         <Input placeholder='Email address' 

@@ -94,7 +94,7 @@ const Cart = () => {
           <img
             src={item.image}
             alt={item.title}
-            style={{ width: 100, height: 100 }}
+            className='img-table'
             onClick={() => handleOpenItemCardAction(item.id)}
           />
           <div className='name-btn-box'>
@@ -115,6 +115,7 @@ const Cart = () => {
       ),
       quantity: (
         <div className='center'>
+        <div className='web-version'>
           <ConfigProvider
             theme={{
               components: {
@@ -136,14 +137,46 @@ const Cart = () => {
               },
             }}
           >
-            <InputNumber
+           
+             <InputNumber
               size='large'
               controls={{ upIcon: <PlusOutlined />, downIcon: <MinusOutlined /> }}
               min={1}
               value={currentQuantity}
               onChange={(value) => handleQuantityChange(value, item.id, item.size)}
             />
+           
+           
           </ConfigProvider>
+          </div>
+          <div className='mob-version'>
+           <ConfigProvider
+            theme={{
+              components: {
+                InputNumber: {
+                  handleVisible: true,
+                  hoverBorderColor: '#000',
+                  colorBorder: '#000',
+                  activeBorderColor: '#000',
+                  borderRadiusLG: 0,
+                  handleFontSize: 8,
+                  controlWidth:30,
+                  lineWidth: 1,
+                },
+              },
+              token: {
+                colorPrimary: '#000',
+              },
+            }}
+          >
+             <InputNumber
+              size='small'
+              min={1}
+              value={currentQuantity}
+              onChange={(value) => handleQuantityChange(value, item.id, item.size)}
+            />
+            </ConfigProvider>
+           </div>
         </div>
       ),
       total: (
@@ -171,7 +204,10 @@ const Cart = () => {
       key: 'price',
     },
     {
-      title: <div className='title-table-box center'>quantity</div>,
+      title: <div className='title-table-box center'>
+        <span className='web-version'>Quantity</span>
+        <span className='mob-version'>Q</span>
+      </div>,
       dataIndex: 'quantity',
       key: 'quantity',
     },
@@ -218,7 +254,7 @@ const Cart = () => {
       <div style={{padding:'50px 0'}}>
         {(!cartList)
           ?
-          <div style={{marginLeft:'auto', marginRight:'auto',  width:'70%'}}>
+          <div style={{marginLeft:'auto', marginRight:'auto',  width:'70%'}} >
             <p>Your cart is currently empty.</p>
             <p>Continue browsing <Link to={'/shop'}>here</Link> .</p>
           </div>
@@ -238,14 +274,14 @@ const Cart = () => {
               }}
             >
               <div>
-                <Table dataSource={dataSource} columns={columns} style={{width:'70%',margin:'0 auto'}}
+                <Table dataSource={dataSource} columns={columns}  className='table-box' 
                   bordered='true'  pagination={false}/>
               </div>
               <div className='update-shop-btn-box'>
                 <Button className='update-btn' onClick={handleUpdateCart}>update cart</Button>
                 <Button className='shop-btn' onClick={()=>navigate('/shop')}>continue shopping</Button>
               </div>
-              <Table dataSource={dataSourceTotal} columns={columnTotal} style={{width:'70%',margin:'0 auto'}}
+              <Table dataSource={dataSourceTotal} columns={columnTotal} className='total-table-box'
                 bordered='true'  pagination={false}/>
             </ConfigProvider>
           </div>  

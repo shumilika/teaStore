@@ -85,7 +85,12 @@ const SmallCard = ({id,name, price, type, amount, description, photo, imgs, isLi
                         </Link> }
                     </Col>
                     <Col span={12}>
-                        <Link onClick={showModal}>
+                        <Link onClick={showModal} className='web-version'>
+                            <Tooltip title={'Quickview'}>
+                                <InfoOutlined style={{fontSize: '20px', color:'#727272'}} />
+                            </Tooltip>
+                        </Link>
+                         <Link to={`/shop/${id}`} className='mob-version'>
                             <Tooltip title={'Quickview'}>
                                 <InfoOutlined style={{fontSize: '20px', color:'#727272'}} />
                             </Tooltip>

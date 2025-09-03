@@ -47,13 +47,13 @@ const Footer = () => {
             </Col>
         </Row>
         <Row className='last_footer_box' justify={'space-around'} align='middle'>
-            <Col sm={24} md={6}>
+            <Col xs={24} sm={24} md={6}>
                 <img src={logo} width={'50px'} alt="logo" className='logo_footer' onClick={()=>navigate('/')} />
             </Col>
-            <Col sm={24} md={6}>
+            <Col xs={24} sm={24} md={6}>
                 <img src={pay_icons} alt="" />
             </Col>
-            <Col sm={24} md={6}>
+            <Col xs={24} sm={24} md={6}>
                 <p>© Copyright 2024 | Design taken <a href="https://moocha-store-demo.myshopify.com/">here</a>.</p>
             </Col>
         </Row>

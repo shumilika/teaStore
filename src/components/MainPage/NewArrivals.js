@@ -54,10 +54,10 @@ const NewArrivals = () => {
             <Carousel>
   {mergedProducts.length > 0 ? (
     chunkArray(mergedProducts, 4).map((chunk, chunkIndex) => (
-      <div key={chunkIndex}>
+      <div key={chunkIndex} style={{width:'97%'}}>
         <Row justify="space-evenly" >
           {chunk.map((product, index) => (
-            <Col key={index}  tabIndex={(chunkIndex * 4) + index}   span={5}>
+            <Col key={index}  tabIndex={(chunkIndex * 4) + index}   xs={12} sm={12} md={8} lg={5}>
               <SmallCard data={product} name={product.name} price={product.amount[0].price}
               description={product.description} amount={product.amount} type={product.type} 
               photo={product.photo} imgs={product.imgs} id={product.id} isLiked={product.isLiked}

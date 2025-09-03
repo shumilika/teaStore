@@ -31,8 +31,8 @@ const FilterImages = () => {
 
     return (
         <div className='filter_imgs_box'>
-            <Row wrap={false} gutter={[40, 40]} justify='space-around'>
-                <Col span={6}>
+            <Row wrap={true} gutter={[40, 40]} >
+                <Col xs={24} sm={12} md={8} lg={6}>
              
                 <div className='filter_img_link'>
                 <Link>
@@ -47,7 +47,7 @@ const FilterImages = () => {
                 </div>
     
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={12} md={8} lg={6}>
              
              <div className='filter_img_link'>
              <Link>
@@ -62,7 +62,7 @@ const FilterImages = () => {
              </div>
  
              </Col>
-             <Col span={6}>
+             <Col xs={24} sm={12} md={8} lg={6}>
              
                 <div className='filter_img_link'>
                 <Link>
@@ -77,7 +77,7 @@ const FilterImages = () => {
                 </div>
     
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={12} md={8} lg={6}>
              
                 <div className='filter_img_link'>
                 <Link>
@@ -94,8 +94,8 @@ const FilterImages = () => {
                 </Col>
                 
             </Row>
-            <Row wrap={false} gutter={[40, 40]}>
-            <Col span={6}>
+            <Row wrap={true} gutter={[40, 40]}>
+            <Col xs={24} sm={12} md={8} lg={6}>
              
                 <div className='filter_img_link'>
                 <Link>
@@ -110,7 +110,7 @@ const FilterImages = () => {
                 </div>
     
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={12} md={8} lg={6}>
              
                 <div className='filter_img_link'>
                 <Link>
@@ -125,7 +125,7 @@ const FilterImages = () => {
                 </div>
     
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={12} md={8} lg={6}>
              
                 <div className='filter_img_link'>
                 <Link>
@@ -140,7 +140,7 @@ const FilterImages = () => {
                 </div>
     
                 </Col>
-                <Col span={6}>
+                <Col xs={24} sm={12} md={8} lg={6}>
              
                 <div className='filter_img_link'>
                 <Link>

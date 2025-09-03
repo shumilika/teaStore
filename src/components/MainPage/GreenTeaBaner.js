@@ -25,7 +25,7 @@ const GreenTeaBaner = () => {
     return (
         <div className='green-tea-banner'>
          <Row>
-            <Col  flex={'60%'} className='banner-info'>
+            <Col  xs={24} md={12} lg={14} className='banner-info'>
                <div>
                <h1>Green tea</h1>
                 <p>Green tea lovers raise your hands! The many health benefits and most importantly its 
@@ -36,7 +36,7 @@ const GreenTeaBaner = () => {
                 <Link to={'shop'} onClick={()=>handleFilter('green tea')}>shop now</Link>
                </div>
             </Col>
-            <Col flex={'40%'} >
+            <Col xs={24} md={12} lg={10} >
                <Link>
                <img src={green_tea_banner} alt=""  />
                </Link>

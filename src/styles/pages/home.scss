@@ -123,12 +123,9 @@
             position: relative;
         
         div{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            width: 75%;
-
+            position: relative;
+            padding: 10% 10%;
+            width: 90%;
         }
         
         h1{
@@ -210,33 +207,34 @@
             width: 95%;
            
         }
-         .ant-col-6{
+         .ant-col {
             position: relative;
-            
+            .filter_img_link{
+                position: relative;
+                overflow: hidden;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: auto;
+                }
+            }
            
 
             .hover_text_box{
                 position: absolute;
-                background-color: #fff;
-                top: 30px;
-                left: 30px;
-                bottom: 30px;
-                right: 30px;
-                align-items: center;
-                display: flex;
-                padding: $spacing-md;
-                opacity: 0;
-                
-               
-                 
-                
-                
-    
+      inset: 10% 15%; 
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: $spacing-md;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
 
                 div{
-                    width: 100%;
-                    text-align: center;
-
+                    
                     h2{
                         font-size: 28px;
                         color: rgb(33, 37, 41);
@@ -254,14 +252,15 @@
                 }
 
             }
-        }
-        .ant-col-6:hover .hover_text_box{
-            opacity: 1;
-            animation-name: bannerClip;
+             &:hover .hover_text_box {
+      opacity: 1;
+      animation-name: bannerClip;
                 animation-delay: 0s;
                 animation-duration: 0.5s;
                 animation-timing-function: ease;
+    }
         }
+
     }
 
     @media screen and (min-width: 1200px) and (max-width: 1500px){
@@ -284,6 +283,19 @@
                 }    
             }
         }
+         .green-tea-banner{
+        margin-top: 50px;
+        
+        .banner-info{
+         div{
+            padding: 5% 10% 0 10%;
+            width: 90%;
+        }
+        p{
+            padding-bottom: 0;
+        }
+        }
+    }
     }
 
      @media screen and (min-width: 992px) and (max-width: 1199.98px){
@@ -311,6 +323,27 @@
         }
             
         }
+         .green-tea-banner{
+        margin-top: 30px;
+        
+        .banner-info{
+        
+         div{
+            padding: 10px 10% 0 10%;
+            width: 100%;
+        }
+        
+        h1{
+            font-size: 35px;
+            padding-bottom: 15px;
+        }
+        p{
+            padding-bottom: 0;
+        }
+      
+       
+        }
+    }
     }
 
      @media screen and (min-width: 768px) and (max-width: 991.98px){
@@ -337,9 +370,41 @@
                 }    
             }
         }
+        
             
         
         }
+          .green-tea-banner{
+        margin-top: 30px;
+
+        
+        .banner-info{
+        
+         div{
+            padding: 10px 15px 0 15px;
+            width: 100%;
+        }
+        
+        h1{
+            font-size: 35px;
+            padding-bottom: 5px;
+        }
+        p{
+            padding-bottom: 0;
+        }
+      
+       
+        }
+        }
+        .filter_imgs_box{
+        margin-top: 100px;
+            .ant-row{
+                margin: 10px 0 10px 10px !important;
+                width: 95%;
+            
+            }
+        }
+        
     }
 
      @media screen and (min-width: 576px) and (max-width: 767.98px){
@@ -352,6 +417,14 @@
                 h1{
                     font-size: 35px;
                 }
+            }
+        }
+        .filter_imgs_box{
+       
+            .ant-row{
+                margin: 10px 0 10px 10px !important;
+                width: 95%;
+            
             }
         }
     }
@@ -368,6 +441,14 @@
                 }
             }
         }
+        .filter_imgs_box{
+       
+            .ant-row{
+                margin: 10px 0 10px 10px !important;
+                width: 95%;
+            
+            }
+        }
     }
 
      @media screen and (max-width: 768px){
@@ -375,7 +456,7 @@
             .flex-matcha-box{
                 flex-direction: column;
             .matcha{
-                width: 100%;
+                width: auto;
                 height: 300px;
                 margin: 10px;
             div{

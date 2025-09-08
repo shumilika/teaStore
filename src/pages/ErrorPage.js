@@ -9,7 +9,7 @@ const ErrorPage = () => {
 
     return (
         <Row justify={'center'} className='error-page-box'>
-            <Col span={12} >
+            <Col lg={12} md={12} sm={18} xs={22} >
                 <h1>404</h1>
                 <h2>Oops! That Page Can’t Be Found.</h2>
                 <h4>THE PAGE YOU ARE LOOKING FOR DOES NOT EXITS</h4>

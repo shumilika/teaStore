@@ -59,3 +59,11 @@
     }
     
 }
+
+@media screen and (max-width:950px) {
+    .error-page-box{
+         .ant-input-group-wrapper  {
+        width: 100%;
+         }
+    }
+}

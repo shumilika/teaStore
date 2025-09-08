@@ -15,7 +15,6 @@
 }
 
 .slick-dots.slick-thumb {
-  order: 2;
   display: flex !important;
   flex-direction: column;
   margin-right: $spacing-md;
@@ -52,21 +51,16 @@
 
 .slick-slider{
     max-width: 650px;
-   order: 1;
 }
 }
-
-
-
 
 
 @media screen and (max-width: 768px) {
-  .galery-control {
-    .slider-wrapper {
-      margin: 0; 
-    }
-
-     .slick-dots.slick-thumb {
+ .galery-control{
+  .slider-wrapper{
+    margin: 0; 
+  }
+   .slick-dots.slick-thumb {
      
       position: static; 
       right: auto; 
@@ -82,7 +76,5 @@
       height: 100px;
       margin: 0 5px;
     }
-    
-
-  }
+ }
 }

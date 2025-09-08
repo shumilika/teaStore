@@ -51,10 +51,27 @@
 }
 }
 
-@media screen and (max-width:617px){
-  .galery-control{
-    .slider-container{
-      width: 90%;
-    }
+
+
+@media screen and (max-width: 768px) {
+ .galery-control{
+  .slider-wrapper{
+    margin-left: 0;
+    margin-top: 20%;
   }
+   .slick-dots.slick-thumb {
+    flex-direction: row !important; 
+    justify-content: center;
+    top: -20%;
+    right: 0;
+    margin-right: 0;
+    
+  }
+  .slick-dots.slick-thumb li {
+    width: 180px;  
+    height: 180px;
+    margin: 0 1%;
+  
+  }
+ }
 }

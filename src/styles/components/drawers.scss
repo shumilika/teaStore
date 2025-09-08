@@ -117,6 +117,13 @@
     .ant-drawer-body{
         padding: 0 !important;
     }
+    .search-input{
+        .ant-input-group-wrapper{
+            margin-top: 50px;
+            width: 900px;
+            padding: 0 5px 0 15px;
+        }
+    }
     .ant-input-wrapper{
         .ant-input{
             border:0;
@@ -149,4 +156,19 @@
 .search-result::-webkit-scrollbar {
   width: 3px; 
 }
+}
+
+@media screen and (max-width:974px) {
+    .search-box{
+         .search-input{
+        .ant-input-group-wrapper{
+            margin-top: 50px;
+            width: 95%;
+            padding: 0 10px 0 10px;
+        }
+    }
+         .search-result{
+        width: 100%;  
+    }
+    }
 }

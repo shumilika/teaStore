@@ -70,16 +70,18 @@ const SearchDrawer = (props) => {
             }
           }}
         >
-          <Search
+          <div className='search-input'>
+            <Search
             placeholder="Search anything"
             onChange={handleSearch}
-            style={{
-              marginTop:'50px',
-              width: 900,
-              padding:'0 5px 0 15px'
-            }}
+            // style={{
+            //   marginTop:'50px',
+            //   width: 900,
+            //   padding:'0 5px 0 15px'
+            // }}
             value={inputValue}
           />
+          </div>
         </ConfigProvider>
   
         <Row  className='search-result' justify={'start'}>

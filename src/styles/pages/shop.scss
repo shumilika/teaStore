@@ -13,6 +13,12 @@
         
     }
    }
+   .web-version{
+    display: flex;
+   }
+   .mob-version{
+    display: none;
+   }
    
     .filter-btn{
         font-size: $font-size-lg;
@@ -95,3 +101,14 @@
     }
 }
 .change_column_size:hover .change_column_size_content {display: flex;}
+
+@media screen and (max-width:1200px){
+    .shop-box{
+        .web-version{
+    display: none;
+   }
+   .mob-version{
+    display: flex;
+   }
+    }
+}

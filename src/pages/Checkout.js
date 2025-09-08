@@ -45,7 +45,7 @@ const Checkout = () => {
         <Row className='checkout-box'>
          <Col span={24} style={{borderBottom:'1px solid rgb(223,223,223)'}}>
           <Row align='middle'>
-            <Col span={12} offset={5}> 
+            <Col lg={14} md={14} sm={14} xs={'auto'} style={{display:'flex', justifyContent:'flex-end'}}> 
             <div style={{padding:'15px 0'}}>
                  <h1 style={{color:'#000',fontWeight:'400',fontSize:'20px',lineHeight:'21px' }}>
                 <Link to={'/'} style={{color:'inherit', textDecoration:'none'}}>CatCarrot - Tea Shop & Organic Store</Link>
@@ -53,14 +53,18 @@ const Checkout = () => {
             
             </div>
            </Col>
-           <Col span={4} >
+           <Col lg={4} md={4} sm={4} xs={'auto'} style={{display:'flex', justifyContent:'flex-end'}} >
             <ShoppingOutlined style={{fontSize:'1.4rem',color:'rgb(24, 141, 193)'}} onClick={handleBackToCartAction}/>
            </Col>
           </Row>
          </Col>
          <Col span={24}>
          <Row style={{backgroundColor:'#FAFAFA'}}>
-            <Col span={12} style={{borderRight:'1px solid rgb(223,223,223)', height:'120vh', backgroundColor:'#fff'}}>
+            <Col  xs={{ span: 24, order: 2 }} 
+    sm={{ span: 24, order: 2 }} 
+    md={{ span: 12, order: 1 }} 
+    lg={{ span: 12, order: 1 }}
+            style={{borderRight:'1px solid rgb(223,223,223)', height:'120vh', backgroundColor:'#fff'}}>
           <ConfigProvider
           theme={{
             components:{
@@ -121,9 +125,11 @@ const Checkout = () => {
            </div>
           </ConfigProvider>
             </Col>
-            <Col span={12} >
-                <div style={{marginTop:'50px', maxHeight:'345px', width:'400px', overflow:'hidden',
-                 marginLeft:'30px',borderBottom:borderBottom}}>
+            <Col xs={{ span: 24, order: 1 }} 
+    sm={{ span: 24, order: 1 }} 
+    md={{ span: 12, order: 2 }} 
+    lg={{ span: 12, order: 2 }}>
+                <div  style={{borderBottom:borderBottom}} className='cart-container'>
                     <div style={{maxHeight:'345px', overflowY:'auto', paddingTop:'5px' }} ref={containerRef}>
                         {cartList.map((item,index)=>
                         <Col key={index} span={24} style={{height:'fit-content'}}>
@@ -149,7 +155,7 @@ const Checkout = () => {
                         <span>Scroll  for  more  items <ArrowDownOutlined /></span>
                     </div>
                 </div>
-                <Col span={12} style={{padding:'10px 10px 0 27px'}}>
+                <Col lg={12} md={12} sm={12} xs={22} style={{padding:'10px 10px 0 27px'}}>
                     <Row justify={'space-between'}>
                         <Col span={10}><p>Subtotal · {totalQuantity} items</p></Col>
                     <Col span={10} style={{textAlign:'right'}}>${totalCost}.00</Col>

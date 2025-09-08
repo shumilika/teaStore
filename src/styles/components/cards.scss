@@ -446,6 +446,19 @@
     }
 }
 
+@media screen and (min-width:763px) and (max-width:1038px) {
+    .full-card-box{
+        .link-box{
+        margin: 0 10px !important;
+        a{   
+        font-size: 12px !important;
+        padding: $spacing-sm 20px !important;
+        }
+        
+    }
+    }
+}
+
 @media screen and (max-width:870px){
     .card-box{
          .mob-version{
@@ -454,6 +467,29 @@
     .web-version{
         display: none;
     }
+    }
+}
+
+@media screen and (max-width:800px){
+    .full-card-box{
+        .prev-next-box{
+            .prev:hover +.prev-hover-box{
+                display: none;
+            }
+            .next:hover+.next-hover-box{
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .full-card-box{
+        .main-content{
+            h4{
+                margin-top: 20px;
+            }
+        }
     }
 }
 

@@ -189,7 +189,7 @@ if (!product) {
         <div className='full-card-box'>
        
         <Row >
-        <Col span={8} className='breadcrumb-box'>
+        <Col  span={12}  className='breadcrumb-box'>
            <Breadcrumb
             separator=">"
     items={[
@@ -203,11 +203,15 @@ if (!product) {
     ]}
   />
         </Col>
-  <Col span={8} offset={8} className='prev-next-box'>
+   <Col
+       span={12}     
+        className='prev-next-box'
+        style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center' }} // Для выравнивания элементов внутри Col
+      >
   
  {prevIndex && <>
    <Link to={`/shop/${prevIndex.id}`} className='prev'> <LeftOutlined /> <span>Prev</span> </Link>
-  <Row className='prev-hover-box'>
+  <Row className='prev-hover-box mob'>
     <Col span={6}><Link to={`/shop/${prevIndex.id}`} ><img src={prevPhoto} alt='' /></Link>
     </Col>
     <Col flex={'auto'}>
@@ -221,7 +225,7 @@ if (!product) {
    
    {nextIndex && <>
     <Link to={`/shop/${nextIndex.id}`} className='next'><span>Next</span>  <RightOutlined /> </Link>
-   <Row className='next-hover-box'>
+   <Row className='next-hover-box mob'>
     <Col span={6}><Link to={`/shop/${nextIndex.id}`}><img src={nextPhoto} alt="" /></Link>
     </Col>
     <Col flex={'auto'}>

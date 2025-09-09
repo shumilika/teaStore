@@ -56,7 +56,7 @@ const Shop = () => {
     return (
         <div className='shop-box'>
             <PageHeader title={'Products'} style={'shop_bg'}/>
-            <Row style={{margin:'50px 50px 20px 50px'}} className='web-version'>
+            <Row style={{margin:'50px 50px 20px 50px'}} className='web-v'>
                 <Col span={12}><Button className='filter-btn' icon={<FilterOutlined />} onClick={changeFilterStateHandle}>Filter</Button></Col>
                 <Col span={12} style={{justifyContent:'end', display:'flex'}}>
                     <div className='change_column_size'>
@@ -77,7 +77,7 @@ const Shop = () => {
                     </div>
                 </Col>
             </Row>
-<Row style={{margin:'50px 10px 20px 20px'}} className='mob-version'>
+            <Row style={{margin:'50px 10px 20px 20px'}} className='mob-v'>
                 <Col span={24}>
                 <Button className='filter-btn' icon={<FilterOutlined />} onClick={handleOpenFilter}>Filter</Button>
                 </Col>

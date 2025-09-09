@@ -34,10 +34,11 @@ const SuccessAddModal = ({open, onClose, product}) => {
          onCancel={onClose}
          footer={null}
          width={'auto'}
-         style={{minWidth:'490px', maxWidth:"800px",}}
+        
+         className='modal-success'
         >
            <Row className='success-add-page'>
-            <Col span={12} className='current-product'>
+            <Col lg={12} md={12} sm={24} xs={24} className='current-product'>
                 <p className='red-header-text'> <CheckOutlined /> Added to cart successfully!</p>
                 <img src={imgUrl} alt="" width={'200px'} />
                <div className='product-info'>
@@ -47,17 +48,27 @@ const SuccessAddModal = ({open, onClose, product}) => {
                 <p className='text-uppercase'>Cart totals :<span> ${product.quantity * product.price}.00</span></p>
                </div>
             </Col>
-            <Col span={12} className='cart-info'>
+            <Col  lg={12} md={12} sm={24} xs={24} className='cart-info'>
                 <p>There are <span className='product-items'>{totalQuantity}</span> items <br /> in your cart</p>
                 <p className='total-price'>Carts total: <span>${totalCost}.00</span></p>
               <div className='actions'>
-                  <Button onClick={()=>navigate('/shop')} className='shop-btn'>continue shopping</Button>
+                 <Row>
+                  <Col span={24}>
+                    <Button onClick={()=>navigate('/shop')} className='shop-btn'>continue shopping</Button>
+                    </Col>
+                    <Col span={24}>
                 <Button onClick={()=>navigate('/cart')} className='go-to-cart'>go to cart</Button>
+                </Col>
+                <Col span={24}>
                 <Checkbox onChange={(e)=>setIsVisible(e.target.checked)} style={{marginBottom:'16px'}}>
                 <span className='checkbox-text'>Agree with term and conditional</span>
                 </Checkbox>
+                </Col>
+                <Col span={24}>
                 <Button onClick={()=>navigate('/checkout')}
                  className={isVisible?'go-to-cart':'go-to-cart disabled-btn'}>Proceed to checkout</Button>
+                  </Col>
+                 </Row>
               </div>
             </Col>
            </Row>

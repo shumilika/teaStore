@@ -1,4 +1,8 @@
- .success-add-page{
+
+.modal-success{
+    min-width: 490px; 
+    max-width: 800px;
+     .success-add-page{
     border-bottom: 1px solid #eee; 
     text-align: center;
      .current-product{
@@ -96,4 +100,12 @@
             }
         }
     }
+}
+}
+
+@media screen and (max-width:820px) {
+    .modal-success{
+        min-width: auto !important; 
+        max-width: 95% !important;
+}
 }

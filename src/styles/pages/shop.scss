@@ -14,11 +14,15 @@
     }
    }
    .web-version{
-    display: flex;
+    display: block;
    }
-   .mob-version{
+   .mob-version,.mob-v{
     display: none;
    }
+   .web-v{
+    display: flex;
+   }
+   
    
     .filter-btn{
         font-size: $font-size-lg;
@@ -104,10 +108,13 @@
 
 @media screen and (max-width:1200px){
     .shop-box{
-        .web-version{
+        .web-version,.web-v{
     display: none;
    }
    .mob-version{
+    display: block;
+   }
+   .mob-v{
     display: flex;
    }
     }
